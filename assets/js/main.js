@@ -26855,7 +26855,7 @@ const c9 = [
     socials: {
       facebook: "https://www.facebook.com/eiseu.01",
       github: "https://github.com",
-      portfolio: "#",
+      portfolio: "https://portfolio.ajnieva.workers.dev/",
     },
   },
   {
@@ -26877,7 +26877,7 @@ const c9 = [
     socials: {
       facebook: "https://www.facebook.com/dalejwu",
       github: "https://github.com",
-      portfolio: "#",
+      portfolio: "https://dalejwu.vercel.app/#",
     },
   },
   {
