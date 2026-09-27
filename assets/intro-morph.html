@@ -20179,6 +20179,7 @@ Error generating stack: ` +
             transition: { duration: 0.2 },
             children: [
               pt.jsx("img", {
+                style: { filter: "grayscale(100%)", WebkitFilter: "grayscale(100%)" },
                 src: i,
                 alt: `hero-${l}`,
                 className: "h-full w-full object-cover",
@@ -21665,6 +21666,12 @@ Error generating stack: ` +
       .dark .morph-gallery-sub,
       [data-theme="dark"] .morph-gallery-sub {
         color: #d1d5db !important;
+      }
+    
+      /* Force all pictures in intro morph to be monochrome (grayscale) */
+      img {
+        filter: grayscale(100%) contrast(105%) !important;
+        -webkit-filter: grayscale(100%) contrast(105%) !important;
       }
     </style>
   </head>
