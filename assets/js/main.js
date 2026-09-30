@@ -29247,7 +29247,22 @@ function D9() {
   });
 }
 
-const WEB3FORMS_ACCESS_KEY = "e6ce3d96-3481-4711-8970-2fc5bb70a4b0";
+const CONTACT_API_ENDPOINT = "api/contact";
+let _runtimeKeyCache = null;
+const fetchRuntimeKey = async () => {
+  if (_runtimeKeyCache) return _runtimeKeyCache;
+  try {
+    const res = await fetch(CONTACT_API_ENDPOINT);
+    if (res.ok) {
+      const d = await res.json();
+      if (d.key) {
+        _runtimeKeyCache = d.key;
+        return _runtimeKeyCache;
+      }
+    }
+  } catch (e) {}
+  return null;
+};
 
 function L9({
   title: k = [
@@ -29422,7 +29437,6 @@ function L9({
         year: "numeric",
       });
       const payload = {
-        access_key: WEB3FORMS_ACCESS_KEY,
         from_name: "MIHA Technologies Inquiry (" + t.name + ")",
         replyto: t.email,
         subject:
@@ -29441,55 +29455,54 @@ function L9({
       };
 
       try {
-        if (
-          WEB3FORMS_ACCESS_KEY &&
-          WEB3FORMS_ACCESS_KEY !== "YOUR_ACCESS_KEY_HERE"
-        ) {
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(payload),
-          });
-          const data = await res.json();
-          if (data.success) {
-            setStatus("success");
-            setStatusMsg(
-              "Discovery call requested for " +
-                dateStr +
-                " (" +
-                timeSlot +
-                ")! We received your project scope and will send your Google Meet invite to " +
-                t.email +
-                " within 24 hours.",
-            );
-            if (typeof window !== "undefined") {
-              const el = document.getElementById("contact");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          } else {
-            setStatus("error");
-            setStatusMsg(
-              data.message ||
-                "Failed to submit booking. Please try again or email us directly.",
-            );
-          }
-        } else {
-          await new Promise((r) => setTimeout(r, 700));
+        const proxyPromise = fetch(CONTACT_API_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        }).then(r => r.json()).catch(() => null);
+
+        const key = await fetchRuntimeKey();
+        let web3Success = false;
+        if (key) {
+          try {
+            const w3Res = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({ ...payload, access_key: key }),
+            });
+            const w3Data = await w3Res.json();
+            if (w3Data && w3Data.success) web3Success = true;
+          } catch (w3Err) {}
+        }
+
+        const proxyData = await proxyPromise;
+        if (web3Success || (proxyData && proxyData.success)) {
           setStatus("success");
           setStatusMsg(
             "Discovery call requested for " +
               dateStr +
               " (" +
               timeSlot +
-              ")! (Demo Mode: Replace YOUR_ACCESS_KEY_HERE in assets/js/main.js with your free key from web3forms.com to receive live emails in your inbox).",
+              ")! We received your project scope and will send your Google Meet invite to " +
+              t.email +
+              " within 24 hours.",
           );
           if (typeof window !== "undefined") {
             const el = document.getElementById("contact");
             if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
           }
+        } else {
+          setStatus("error");
+          setStatusMsg(
+            (proxyData && proxyData.message) ||
+              "Failed to submit booking. Please try again or email us directly.",
+          );
         }
       } catch (err) {
         setStatus("error");
@@ -29515,7 +29528,6 @@ function L9({
       setIsCallBooking(false);
 
       const payload = {
-        access_key: WEB3FORMS_ACCESS_KEY,
         from_name: "MIHA Technologies Inquiry (" + t.name + ")",
         replyto: t.email,
         subject: "New Direct Email Inquiry: " + t.name,
@@ -29532,51 +29544,52 @@ function L9({
       };
 
       try {
-        if (
-          WEB3FORMS_ACCESS_KEY &&
-          WEB3FORMS_ACCESS_KEY !== "YOUR_ACCESS_KEY_HERE"
-        ) {
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(payload),
-          });
-          const data = await res.json();
-          if (data.success) {
-            setStatus("success");
-            setStatusMsg(
-              "Thank you, " +
-                t.name +
-                "! Your project inquiry has been sent. We'll review your scope and reply to " +
-                t.email +
-                " within 24 hours.",
-            );
-            if (typeof window !== "undefined") {
-              const el = document.getElementById("contact");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          } else {
-            setStatus("error");
-            setStatusMsg(
-              data.message ||
-                "Failed to send email inquiry. Please try again or email us directly.",
-            );
-          }
-        } else {
-          await new Promise((r) => setTimeout(r, 650));
+        const proxyPromise = fetch(CONTACT_API_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        }).then(r => r.json()).catch(() => null);
+
+        const key = await fetchRuntimeKey();
+        let web3Success = false;
+        if (key) {
+          try {
+            const w3Res = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({ ...payload, access_key: key }),
+            });
+            const w3Data = await w3Res.json();
+            if (w3Data && w3Data.success) web3Success = true;
+          } catch (w3Err) {}
+        }
+
+        const proxyData = await proxyPromise;
+        if (web3Success || (proxyData && proxyData.success)) {
           setStatus("success");
           setStatusMsg(
             "Thank you, " +
               t.name +
-              "! Your project inquiry has been sent. (Demo Mode: Replace YOUR_ACCESS_KEY_HERE in assets/js/main.js with your free key from web3forms.com to receive live emails in your inbox).",
+              "! Your project inquiry has been sent. We'll review your scope and reply to " +
+              t.email +
+              " within 24 hours.",
           );
           if (typeof window !== "undefined") {
             const el = document.getElementById("contact");
             if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
           }
+        } else {
+          setStatus("error");
+          setStatusMsg(
+            (proxyData && proxyData.message) ||
+              "Failed to send email inquiry. Please try again or email us directly.",
+          );
         }
       } catch (err) {
         setStatus("error");
