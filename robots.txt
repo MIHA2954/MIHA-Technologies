@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /scratch/
+Disallow: /.env
+
+Sitemap: https://mihatechnologies.com/sitemap.xml

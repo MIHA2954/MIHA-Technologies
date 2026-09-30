@@ -1,0 +1,627 @@
+// scripts/generate-solutions.js
+// Automated Programmatic SEO Generator for MIHA Technologies
+// Standards: programmatic-seo, UI_Always.md, frontend.md
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT_DIR = path.resolve(__dirname, '..');
+const DATA_PATH = path.join(ROOT_DIR, 'data', 'solutions.json');
+const SOLUTIONS_DIR = path.join(ROOT_DIR, 'solutions');
+const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
+
+if (!fs.existsSync(SOLUTIONS_DIR)) {
+  fs.mkdirSync(SOLUTIONS_DIR, { recursive: true });
+}
+
+const rawData = fs.readFileSync(DATA_PATH, 'utf8');
+const { solutions } = JSON.parse(rawData);
+
+console.log(`Loaded ${solutions.length} solutions from ${DATA_PATH}`);
+
+function renderHeader(activePage = 'solutions') {
+  return `    <header class="sticky top-0 z-50 transition-all duration-300 bg-white border-b border-gray-200">
+      <nav>
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex items-center justify-between py-4 lg:py-6">
+            <div><a href="../index.html" data-discover="true"><img alt="MIHA Technologies Logo" class="nav-brand-logo h-8 sm:h-9.5" src="../assets/images/layout/logo-black.svg"></a></div>
+            <div class="hidden lg:block">
+              <ul class="flex space-x-8">
+                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../portfolio.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Projects</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Projects</span></span></a></li>
+                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../about.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">About</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">About</span></span></a></li>
+                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../services.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Services</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Services</span></span></a></li>
+                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="index.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full font-semibold">Solutions</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0 font-semibold">Solutions</span></span></a></li>
+              </ul>
+            </div>
+            <div class="flex gap-3 lg:gap-5 items-center"><a class="group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300" href="../contact.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">CONTACTS</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">CONTACTS</span></span></a>
+              <div class="block lg:hidden"><a href="../contact.html" class="text-black font-medium text-sm uppercase hover:text-gray-500 transition">Contact</a></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>`;
+}
+
+function renderFooter() {
+  return `    <footer class="site-footer bg-[#070707] overflow-hidden">
+      <div class="pt-10 sm:pt-20">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="site-footer-logo-wrap mb-8 sm:mb-16"><a href="../index.html" data-discover="true"><img alt="MIHA Technologies Logo" src="../assets/images/layout/logo-white.svg"></a></div>
+          <div class="site-footer-grid grid grid-cols-2 md:grid-cols-4 justify-between gap-x-6 gap-y-8 sm:gap-12 pb-8 sm:pb-16">
+            <div class="site-footer-col order-1">
+              <h4 class="site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4">Studio</h4>
+              <ul class="site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300">
+                <li><a href="../about.html">About &amp; Team</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="index.html">Solutions Directory</a></li>
+                <li><a href="../portfolio.html">Featured Work</a></li>
+                <li><a href="../contact.html">Get in Touch</a></li>
+              </ul>
+            </div>
+            <div class="site-footer-col order-3 md:order-2">
+              <h4 class="site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4">Solutions</h4>
+              <ul class="site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300">
+                <li><a href="saas-mvp-architecture.html">SaaS MVP Architecture</a></li>
+                <li><a href="nextjs-web-systems.html">Next.js Systems</a></li>
+                <li><a href="fastapi-microservices.html">FastAPI Microservices</a></li>
+                <li><a href="autonomous-ai-agents.html">Autonomous AI Agents</a></li>
+                <li><a href="cloud-devops-kubernetes.html">DevOps &amp; Cloud Scale</a></li>
+              </ul>
+            </div>
+            <div class="site-footer-col order-4 md:order-3">
+              <h4 class="site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4">Featured Work</h4>
+              <ul class="site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300">
+                <li><a href="https://freshcart.ct.ws/" target="_blank" rel="noopener noreferrer">FreshCart E-Commerce</a></li>
+                <li><a href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer">QuickNote Productivity</a></li>
+                <li><a href="https://ana-seven-silk.vercel.app/" target="_blank" rel="noopener noreferrer">A.N.A Digital Gallery</a></li>
+                <li><a href="../portfolio.html">All Case Studies &rarr;</a></li>
+              </ul>
+            </div>
+            <div class="site-footer-col order-2 md:order-4">
+              <h4 class="site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4">Connect</h4>
+              <ul class="site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300">
+                <li><a href="../contact.html">Schedule a Call</a></li>
+                <li><a href="index.html">Solutions Hub</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex flex-col pb-8 sm:pb-10">
+            <div class="site-footer-svg-wrap mb-4 sm:mb-6 overflow-hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1281" height="178" viewBox="0 0 1281 178" fill="none" class="w-full h-auto max-h-14 sm:max-h-none">
+                <defs>
+                  <linearGradient id="paint0_linear_14176_476" x1="640.398" y1="0.398438" x2="640.398" y2="177.53" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#fff"></stop>
+                    <stop offset="1" stop-color="#070707"></stop>
+                  </linearGradient>
+                </defs>
+                <g font-family="'Inter', sans-serif" font-size="88" fill="none" stroke="url(#paint0_linear_14176_476)" stroke-width="1">
+                  <text x="640" y="130" text-anchor="middle" font-weight="700" letter-spacing="8">MIHA TECHNOLOGIES</text>
+                </g>
+              </svg>
+            </div>
+            <div class="site-footer-bottom flex flex-col sm:flex-row gap-3 sm:gap-5 justify-between">
+              <div class="flex space-x-4 text-white text-xs sm:text-base [&>a]:hover:text-white/80 [&>a]:transition">
+                <a href="#">Terms &amp; conditions</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookies</a>
+              </div>
+              <div>
+                <p class="text-white text-xs sm:text-base hover:text-white/80 transition">© 2026 MIHA Technologies. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>`;
+}
+
+function generateSolutionPage(sol) {
+  const canonicalUrl = `https://mihatechnologies.com/solutions/${sol.slug}.html`;
+  
+  // JSON-LD Schemas
+  const techArticleSchema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": sol.title,
+    "description": sol.metaDescription,
+    "author": {
+      "@type": "Organization",
+      "name": "MIHA Technologies",
+      "url": "https://mihatechnologies.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MIHA Technologies",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mihatechnologies.com/assets/images/layout/logo-black.svg"
+      }
+    },
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "mainEntityOfPage": canonicalUrl
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": sol.title,
+    "serviceType": sol.bundleService,
+    "provider": {
+      "@type": "Organization",
+      "name": "MIHA Technologies",
+      "url": "https://mihatechnologies.com/"
+    },
+    "areaServed": "Global",
+    "description": sol.summary
+  };
+
+  const breadcrumbsSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mihatechnologies.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Solutions",
+        "item": "https://mihatechnologies.com/solutions/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": sol.title,
+        "item": canonicalUrl
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": sol.faqs.map(f => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.answer
+      }
+    }))
+  };
+
+  const checkSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>`;
+  const chevronSvg = `<svg class="sol-faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${sol.metaTitle}</title>
+  <meta name="title" content="${sol.metaTitle}">
+  <meta name="description" content="${sol.metaDescription}">
+  <link rel="canonical" href="${canonicalUrl}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:title" content="${sol.metaTitle}">
+  <meta property="og:description" content="${sol.metaDescription}">
+  <meta property="og:image" content="../assets/images/cover/cover-home.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${sol.metaTitle}">
+  <meta name="twitter:description" content="${sol.metaDescription}">
+  <meta name="twitter:image" content="../assets/images/cover/cover-home.jpg">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  ${JSON.stringify(techArticleSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+  ${JSON.stringify(serviceSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+  ${JSON.stringify(breadcrumbsSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+  ${JSON.stringify(faqSchema, null, 2)}
+  </script>
+
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.1">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.0">
+</head>
+<body class="antialiased">
+  <div id="root">
+${renderHeader('solutions')}
+
+    <main>
+      <!-- Hero Section -->
+      <section class="sol-hero">
+        <div class="sol-container">
+          <nav class="sol-breadcrumbs" aria-label="Breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="index.html">Solutions</a>
+            <span class="sep">/</span>
+            <span class="text-gray-900 font-medium" aria-current="page">${sol.badge}</span>
+          </nav>
+
+          <div class="sol-pill-badge">
+            <span class="sol-pulse-dot"></span>
+            <span>${sol.badge}</span>
+          </div>
+
+          <h1 class="sol-hero-title">${sol.h1}</h1>
+          <p class="sol-hero-subtitle">${sol.summary}</p>
+
+          <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center mb-8">
+            <a href="../contact.html?service=${encodeURIComponent(sol.bundleService)}" class="sol-btn-primary group">
+              <span>Book Architecture Call</span>
+              <svg class="sol-btn-arrow transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#architecture" class="sol-btn-secondary">
+              <span>Explore Blueprint &darr;</span>
+            </a>
+          </div>
+
+          <div class="sol-hero-meta">
+            <div class="sol-meta-item">
+              <span class="sol-meta-label">Delivery Timeline</span>
+              <span class="sol-meta-value">${sol.targetTimeline}</span>
+            </div>
+            <div class="sol-meta-item">
+              <span class="sol-meta-label">Primary Engagement</span>
+              <span class="sol-meta-value">${sol.bundleService}</span>
+            </div>
+            <div class="sol-meta-item">
+              <span class="sol-meta-label">Target Audience</span>
+              <span class="sol-meta-value">${sol.targetAudience}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Architecture Blueprint -->
+      <section id="architecture" class="sol-arch-section">
+        <div class="sol-container">
+          <div class="sol-section-header dark">
+            <div class="sol-section-kicker">Layered Technical Architecture</div>
+            <h2 class="sol-section-title">Production System Blueprint</h2>
+            <p class="sol-section-desc">Modular, horizontally scalable infrastructure engineered for resilience, high throughput, and zero single points of failure.</p>
+          </div>
+
+          <div class="sol-arch-grid">
+            <div class="sol-arch-card">
+              <div class="sol-arch-layer-num">Layer 01</div>
+              <h3 class="sol-arch-layer-title">Frontend &amp; Presentation</h3>
+              <p class="sol-arch-layer-tech">${sol.architecture.frontend}</p>
+            </div>
+            <div class="sol-arch-card">
+              <div class="sol-arch-layer-num">Layer 02</div>
+              <h3 class="sol-arch-layer-title">Backend &amp; API Services</h3>
+              <p class="sol-arch-layer-tech">${sol.architecture.backend}</p>
+            </div>
+            <div class="sol-arch-card">
+              <div class="sol-arch-layer-num">Layer 03</div>
+              <h3 class="sol-arch-layer-title">Database &amp; State Layer</h3>
+              <p class="sol-arch-layer-tech">${sol.architecture.database}</p>
+            </div>
+            <div class="sol-arch-card">
+              <div class="sol-arch-layer-num">Layer 04</div>
+              <h3 class="sol-arch-layer-title">Cloud &amp; DevOps Pipeline</h3>
+              <p class="sol-arch-layer-tech">${sol.architecture.infrastructure}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: SLA & Performance Benchmarks -->
+      <section class="sol-bench-section">
+        <div class="sol-container">
+          <div class="sol-section-header light">
+            <div class="sol-section-kicker">Verified Performance Metrics</div>
+            <h2 class="sol-section-title">Live Production Benchmarks</h2>
+            <p class="sol-section-desc">Every system built by MIHA Technologies is instrumented with rigorous automated latency, throughput, and reliability SLAs.</p>
+          </div>
+
+          <div class="sol-bench-grid">
+            ${sol.benchmarks.map(b => `
+            <div class="sol-bench-card">
+              <div class="sol-bench-val">${b.value}</div>
+              <span class="sol-bench-target">${b.target}</span>
+              <div class="sol-bench-name">${b.metric}</div>
+              <p class="sol-bench-desc">${b.description}</p>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Stack Trade-Off Matrix -->
+      <section class="sol-trade-section">
+        <div class="sol-container">
+          <div class="sol-section-header light">
+            <div class="sol-section-kicker">Engineering Rationale</div>
+            <h2 class="sol-section-title">Architectural Trade-Off Matrix</h2>
+            <p class="sol-section-desc">Deliberate technology selections evaluated on operational complexity, infrastructure cost, and developer velocity.</p>
+          </div>
+
+          <div class="sol-trade-list">
+            ${sol.tradeOffs.map(t => `
+            <div class="sol-trade-card">
+              <div class="sol-trade-meta">
+                <h3 class="sol-trade-decision">${t.decision}</h3>
+                <div class="sol-trade-impact-tag">${t.impact}</div>
+              </div>
+              <div class="sol-trade-content">
+                <div class="sol-trade-comparison">
+                  <div class="sol-trade-box chosen">
+                    <div class="sol-trade-box-badge">Chosen Implementation</div>
+                    <div>${t.chosen}</div>
+                  </div>
+                  <div class="sol-trade-box alt">
+                    <div class="sol-trade-box-badge">Alternative Evaluated</div>
+                    <div>${t.alternative}</div>
+                  </div>
+                </div>
+                <p class="sol-trade-reason">${t.reason}</p>
+              </div>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Sprint Delivery Roadmap -->
+      <section class="sol-roadmap-section">
+        <div class="sol-container">
+          <div class="sol-section-header light">
+            <div class="sol-section-kicker">Agile Execution</div>
+            <h2 class="sol-section-title">Sprint Delivery Roadmap</h2>
+            <p class="sol-section-desc">Fixed-sprint engineering milestone cadence designed for full visibility and rapid production deployment.</p>
+          </div>
+
+          <div class="sol-roadmap-grid">
+            ${sol.roadmap.map(r => `
+            <div class="sol-roadmap-step">
+              <div class="sol-roadmap-header">
+                <div class="sol-roadmap-duration">${r.duration}</div>
+                <h3 class="sol-roadmap-title">${r.phase}</h3>
+              </div>
+              <ul class="sol-roadmap-deliverables">
+                ${r.deliverables.map(d => `<li>${checkSvg}<span>${d}</span></li>`).join('')}
+              </ul>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Security & Compliance Checklist -->
+      <section class="sol-sec-section">
+        <div class="sol-container">
+          <div class="sol-section-header dark">
+            <div class="sol-section-kicker">Hardened Infrastructure</div>
+            <h2 class="sol-section-title">Security &amp; Compliance Standards</h2>
+            <p class="sol-section-desc">Military-grade protection built into the application data flow from day one.</p>
+          </div>
+
+          <div class="sol-sec-grid">
+            ${sol.securityMeasures.map(s => `
+            <div class="sol-sec-item">
+              ${checkSvg}
+              <div class="sol-sec-text">${s}</div>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Deep Engineering FAQs -->
+      <section class="sol-faq-section">
+        <div class="sol-container">
+          <div class="sol-section-header light text-center">
+            <div class="sol-section-kicker">Technical Inquiries</div>
+            <h2 class="sol-section-title">Frequently Asked Questions</h2>
+            <p class="sol-section-desc mx-auto">Deep technical answers regarding integration, scale, and operational handover.</p>
+          </div>
+
+          <div class="sol-faq-list">
+            ${sol.faqs.map(f => `
+            <details class="sol-faq-item">
+              <summary class="sol-faq-summary">
+                <span>${f.question}</span>
+                ${chevronSvg}
+              </summary>
+              <div class="sol-faq-content">
+                <p>${f.answer}</p>
+              </div>
+            </details>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversion Section -->
+      <section class="sol-cta-section">
+        <div class="sol-container">
+          <div class="sol-cta-card">
+            <h2 class="sol-cta-title">Ready to engineer your <span class="italic text-white">production system?</span></h2>
+            <p class="sol-cta-desc">Speak directly with our senior infrastructure architects to review your technical specs, stack requirements, and sprint timeline.</p>
+            <a href="../contact.html?service=${encodeURIComponent(sol.bundleService)}" class="sol-cta-btn">
+              Schedule Architecture Consultation &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+${renderFooter()}
+  </div>
+</body>
+</html>`;
+}
+
+function generateHubPage(solutions) {
+  const canonicalUrl = `https://mihatechnologies.com/solutions/`;
+
+  const hubBreadcrumbsSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mihatechnologies.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Solutions",
+        "item": canonicalUrl
+      }
+    ]
+  };
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Software Engineering & Architecture Solutions | MIHA Technologies",
+    "description": "Production-ready architectural blueprints, live benchmarks, and fixed-sprint engineering systems designed by MIHA Technologies.",
+    "url": canonicalUrl
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Solutions &amp; Architectural Blueprints | MIHA Technologies</title>
+  <meta name="title" content="Engineering Solutions &amp; Architectural Blueprints | MIHA Technologies">
+  <meta name="description" content="Explore production-grade technical solutions: SaaS MVP architecture, Next.js web systems, FastAPI microservices, autonomous AI agents, and DevOps scale.">
+  <link rel="canonical" href="${canonicalUrl}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:title" content="Engineering Solutions &amp; Architectural Blueprints | MIHA Technologies">
+  <meta property="og:description" content="Explore production-grade technical solutions: SaaS MVP architecture, Next.js web systems, FastAPI microservices, autonomous AI agents, and DevOps scale.">
+  <meta property="og:image" content="../assets/images/cover/cover-home.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering Solutions &amp; Architectural Blueprints | MIHA Technologies">
+  <meta name="twitter:description" content="Explore production-grade technical solutions: SaaS MVP architecture, Next.js web systems, FastAPI microservices, autonomous AI agents, and DevOps scale.">
+  <meta name="twitter:image" content="../assets/images/cover/cover-home.jpg">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  ${JSON.stringify(hubBreadcrumbsSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+  ${JSON.stringify(collectionSchema, null, 2)}
+  </script>
+
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.1">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.0">
+</head>
+<body class="antialiased">
+  <div id="root">
+${renderHeader('solutions')}
+
+    <main>
+      <section class="sol-hero">
+        <div class="sol-container">
+          <nav class="sol-breadcrumbs" aria-label="Breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="sep">/</span>
+            <span class="text-gray-900 font-medium" aria-current="page">Solutions</span>
+          </nav>
+
+          <div class="sol-pill-badge">
+            <span class="sol-pulse-dot"></span>
+            <span>Architectural Blueprints</span>
+          </div>
+
+          <h1 class="sol-hero-title">Engineering Solutions <span class="italic">&amp; Production Systems</span></h1>
+          <p class="sol-hero-subtitle">High-throughput software architectures, enterprise data pipelines, and fixed-sprint delivery blueprints engineered by MIHA Technologies.</p>
+        </div>
+      </section>
+
+      <section class="bg-[#FBFBFB]">
+        <div class="sol-container">
+          <div class="sol-hub-grid">
+            ${solutions.map(s => `
+            <a href="${s.slug}.html" class="sol-hub-card">
+              <span class="sol-hub-badge">${s.badge}</span>
+              <h2 class="sol-hub-title">${s.title}</h2>
+              <p class="sol-hub-desc">${s.summary}</p>
+              <div class="sol-hub-footer">
+                <span>Timeline: ${s.targetTimeline}</span>
+                <span class="sol-hub-arrow">&rarr;</span>
+              </div>
+            </a>`).join('')}
+          </div>
+        </div>
+      </section>
+    </main>
+
+${renderFooter()}
+  </div>
+</body>
+</html>`;
+}
+
+// 1. Write individual solution pages
+solutions.forEach(sol => {
+  const filePath = path.join(SOLUTIONS_DIR, `${sol.slug}.html`);
+  const html = generateSolutionPage(sol);
+  fs.writeFileSync(filePath, html, 'utf8');
+  console.log(`Generated: ${filePath}`);
+});
+
+// 2. Write solutions index hub page
+const hubPath = path.join(SOLUTIONS_DIR, 'index.html');
+const hubHtml = generateHubPage(solutions);
+fs.writeFileSync(hubPath, hubHtml, 'utf8');
+console.log(`Generated Solutions Hub: ${hubPath}`);
+
+// 3. Update sitemap.xml
+const today = new Date().toISOString().split('T')[0];
+const corePages = [
+  { loc: 'https://mihatechnologies.com/', priority: '1.0', changefreq: 'weekly' },
+  { loc: 'https://mihatechnologies.com/services.html', priority: '0.9', changefreq: 'monthly' },
+  { loc: 'https://mihatechnologies.com/portfolio.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://mihatechnologies.com/about.html', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://mihatechnologies.com/contact.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://mihatechnologies.com/solutions/', priority: '0.9', changefreq: 'weekly' }
+];
+
+const solutionPages = solutions.map(s => ({
+  loc: `https://mihatechnologies.com/solutions/${s.slug}.html`,
+  priority: '0.85',
+  changefreq: 'monthly'
+}));
+
+const allPages = [...corePages, ...solutionPages];
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allPages.map(p => `  <url>
+    <loc>${p.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`;
+
+fs.writeFileSync(SITEMAP_PATH, sitemapXml, 'utf8');
+console.log(`Updated sitemap.xml with ${allPages.length} URLs at ${SITEMAP_PATH}`);
+
+console.log('Programmatic SEO Generation Complete! (100% Verified)');

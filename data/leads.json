@@ -190,5 +190,37 @@
         "preferredTimeWindow": "",
         "message": "Need an end-to-end cloud infrastructure audit and mobile app synchronization pipeline.",
         "recipient": "ceo@mihatechnologies.com"
+    },
+    {
+        "id": "lead_6abd0610972b78.38557608",
+        "timestamp": "2026-09-30T14:52:32+02:00",
+        "ip": "::1",
+        "name": "Elena Vance (CEO Test)",
+        "email": "elena.vance@apexcreative.co",
+        "phone": "+1 (415) 890-2341",
+        "website": "https://apexcreative.co",
+        "services": "AI Solution",
+        "projectDetails": "Not provided",
+        "budget": "Not specified",
+        "discoveryCallDate": "Wednesday, September 30, 2026",
+        "preferredTimeWindow": "Morning (9:00 AM - 12:00 PM)",
+        "message": "TEST DISCOVERY CALL: Verification email sent directly to the CEO (ceo@mihatechnologies.com) for project consultation.",
+        "recipient": "ceo@mihatechnologies.com"
+    },
+    {
+        "id": "lead_6abd0616e864a9.15444342",
+        "timestamp": "2026-09-30T14:52:38+02:00",
+        "ip": "::1",
+        "name": "Marcus Thorne (CEO Test)",
+        "email": "marcus.thorne@vanguard-sys.com",
+        "phone": "+44 20 7946 0912",
+        "website": "https://vanguard-sys.com",
+        "services": "Specialized in SaaS",
+        "projectDetails": "Not provided",
+        "budget": "Not specified",
+        "discoveryCallDate": "",
+        "preferredTimeWindow": "",
+        "message": "TEST EMAIL ONLY: Verification inquiry sent directly to the CEO (ceo@mihatechnologies.com) for engineering architecture review.",
+        "recipient": "ceo@mihatechnologies.com"
     }
 ]

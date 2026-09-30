@@ -14,6 +14,10 @@
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
+    # Map extensionless URLs in /solutions/
+    RewriteCond %{DOCUMENT_ROOT}/YEAR\ 4/COMPANY\ WEBSITE/solutions/$1.html -f
+    RewriteRule ^solutions/([^/]+)/?$ solutions/$1.html [L]
+
     # Map extensionless URLs to .html files
     RewriteCond %{DOCUMENT_ROOT}/YEAR\ 4/COMPANY\ WEBSITE/$1.html -f
     RewriteRule ^([^/]+)/?$ $1.html [L]
