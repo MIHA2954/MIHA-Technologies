@@ -29487,9 +29487,9 @@ function L9({
           setStatusMsg(
             "Discovery call requested for " +
               dateStr +
-              " (" +
+              " • " +
               timeSlot +
-              ")! We received your project scope and will send your Google Meet invite to " +
+              ". We received your project scope and will send your Google Meet invite to " +
               t.email +
               " within 24 hours.",
           );
@@ -29576,7 +29576,7 @@ function L9({
           setStatusMsg(
             "Thank you, " +
               t.name +
-              "! Your project inquiry has been sent. We'll review your scope and reply to " +
+              "! Your project inquiry has been received. Our leadership team will review your requirements and follow up at " +
               t.email +
               " within 24 hours.",
           );
@@ -29663,150 +29663,355 @@ function L9({
           children:
             status === "success"
               ? m.jsxs("div", {
-                  className:
-                    "p-8 sm:p-12 rounded-[24px] border border-neutral-200 bg-white shadow-sm flex flex-col items-start gap-6",
+                  className: "miha-confirm-card",
                   children: [
-                    m.jsx("div", {
-                      className:
-                        "rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200",
-                      style: {
-                        width: "52px",
-                        height: "52px",
-                        minWidth: "52px",
-                        minHeight: "52px",
-                      },
-                      children: m.jsx("svg", {
-                        width: "24",
-                        height: "24",
-                        style: {
-                          width: "24px",
-                          height: "24px",
-                          display: "block",
-                        },
-                        fill: "none",
-                        stroke: "currentColor",
-                        viewBox: "0 0 24 24",
-                        children: m.jsx("path", {
-                          strokeLinecap: "round",
-                          strokeLinejoin: "round",
-                          strokeWidth: "2.5",
-                          d: "M5 13l4 4L19 7",
-                        }),
-                      }),
-                    }),
                     m.jsxs("div", {
+                      className: "miha-confirm-header",
                       children: [
-                        m.jsx("h3", {
-                          className:
-                            "text-2xl sm:text-3xl font-medium text-black mb-3",
-                          children: isCallBooking
-                            ? "Discovery Call Requested!"
-                            : "Project Inquiry Received!",
-                        }),
-                        m.jsx("p", {
-                          className:
-                            "text-gray-600 text-base leading-relaxed mb-6",
-                          children: statusMsg,
-                        }),
                         m.jsxs("div", {
-                          className:
-                            "p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 text-sm text-gray-700 space-y-2 w-full",
+                          className: "miha-confirm-topbar",
                           children: [
+                            m.jsx("h3", {
+                              className: "miha-confirm-title",
+                              children: isCallBooking
+                                ? "Discovery Call Requested"
+                                : "Project Scope Received",
+                            }),
                             m.jsxs("div", {
-                              className: "flex items-center gap-2 flex-wrap",
+                              className: "miha-confirm-receipt-stamp",
                               children: [
                                 m.jsx("span", {
-                                  className: "text-gray-400",
-                                  children: "Client:",
-                                }),
-                                m.jsx("strong", {
-                                  className: "text-black",
-                                  children: t.name,
+                                  className: "miha-confirm-receipt-label",
+                                  children: "CONFIRMATION RECEIPT",
                                 }),
                                 m.jsx("span", {
-                                  className: "text-gray-500",
-                                  children: "(" + t.email + ")",
+                                  className: "miha-confirm-receipt-val",
+                                  children: new Date().toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  }),
                                 }),
                               ],
                             }),
-                            !isCallBooking &&
+                          ],
+                        }),
+                        m.jsx("p", {
+                          className: "miha-confirm-msg",
+                          children: statusMsg,
+                        }),
+                      ],
+                    }),
+                    m.jsxs("div", {
+                      className: "miha-confirm-grid",
+                      children: [
+                        m.jsxs("div", {
+                          className: "miha-confirm-panel",
+                          children: [
+                            m.jsxs("div", {
+                              className: "miha-confirm-panel-label",
+                              children: [
+                                m.jsx("svg", {
+                                  className: "miha-confirm-panel-icon",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  strokeWidth: "2",
+                                  children: m.jsx("path", {
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    d: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+                                  }),
+                                }),
+                                "Client Details",
+                              ],
+                            }),
+                            m.jsx("div", {
+                              className: "miha-confirm-panel-main",
+                              children: t.name,
+                            }),
+                            m.jsx("div", {
+                              className: "miha-confirm-panel-sub",
+                              children: t.email,
+                            }),
+                            (t.phone || t.website) &&
                               m.jsxs("div", {
-                                className: "flex items-center gap-2 flex-wrap",
+                                className: "miha-confirm-meta-row",
                                 children: [
-                                  m.jsx("span", {
-                                    className: "text-gray-400",
-                                    children: "Delivery:",
-                                  }),
-                                  m.jsx("strong", {
-                                    className: "text-black",
-                                    children:
-                                      "Direct Email Inquiry (Call skipped)",
-                                  }),
+                                  t.phone &&
+                                    m.jsxs("span", {
+                                      className: "miha-confirm-meta-pill",
+                                      children: [
+                                        m.jsx("svg", {
+                                          width: "12",
+                                          height: "12",
+                                          fill: "none",
+                                          stroke: "currentColor",
+                                          viewBox: "0 0 24 24",
+                                          strokeWidth: "2",
+                                          children: m.jsx("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
+                                          }),
+                                        }),
+                                        t.phone,
+                                      ],
+                                    }),
+                                  t.website &&
+                                    m.jsxs("span", {
+                                      className: "miha-confirm-meta-pill",
+                                      children: [
+                                        m.jsx("svg", {
+                                          width: "12",
+                                          height: "12",
+                                          fill: "none",
+                                          stroke: "currentColor",
+                                          viewBox: "0 0 24 24",
+                                          strokeWidth: "2",
+                                          children: m.jsx("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            d: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14",
+                                          }),
+                                        }),
+                                        t.website.replace(/^https?:\/\//, ""),
+                                      ],
+                                    }),
                                 ],
                               }),
-                            isCallBooking &&
-                              selectedDate &&
-                              m.jsxs("div", {
-                                className: "flex items-center gap-2 flex-wrap",
-                                children: [
-                                  m.jsx("span", {
-                                    className: "text-gray-400",
-                                    children: "Meeting Slot:",
+                          ],
+                        }),
+                        m.jsxs("div", {
+                          className: "miha-confirm-panel",
+                          children: [
+                            m.jsxs("div", {
+                              className: "miha-confirm-panel-label",
+                              children: [
+                                m.jsx("svg", {
+                                  className: "miha-confirm-panel-icon",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  strokeWidth: "2",
+                                  children: m.jsx("path", {
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    d: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
                                   }),
-                                  m.jsx("strong", {
-                                    className: "text-black",
-                                    children:
-                                      selectedDate.toLocaleDateString("en-US", {
+                                }),
+                                isCallBooking ? "Meeting Session" : "Routing Destination",
+                              ],
+                            }),
+                            isCallBooking && selectedDate
+                              ? m.jsxs("div", {
+                                  style: { display: "flex", flexDirection: "column", gap: "0.25rem" },
+                                  children: [
+                                    m.jsx("div", {
+                                      className: "miha-confirm-panel-main",
+                                      children: selectedDate.toLocaleDateString("en-US", {
                                         weekday: "long",
-                                        month: "long",
+                                        month: "short",
                                         day: "numeric",
                                         year: "numeric",
-                                      }) +
-                                      " • " +
-                                      timeSlot,
+                                      }),
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-slot-time",
+                                      children: timeSlot,
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-panel-sub",
+                                      style: { marginTop: "0.25rem" },
+                                      children: "Direct Google Meet invite dispatched to inbox",
+                                    }),
+                                  ],
+                                })
+                              : m.jsxs("div", {
+                                  style: { display: "flex", flexDirection: "column", gap: "0.25rem" },
+                                  children: [
+                                    m.jsx("div", {
+                                      className: "miha-confirm-panel-main",
+                                      children: "Priority Leadership Queue",
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-panel-sub",
+                                      children: "Routed to engineering leadership for direct evaluation",
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-panel-sub",
+                                      style: { fontWeight: "600", color: "#18181b" },
+                                      children: "ceo@mihatechnologies.com",
+                                    }),
+                                  ],
+                                }),
+                          ],
+                        }),
+                        m.jsxs("div", {
+                          className: "miha-confirm-panel miha-confirm-panel-full",
+                          children: [
+                            m.jsxs("div", {
+                              className: "miha-confirm-panel-label",
+                              children: [
+                                m.jsx("svg", {
+                                  className: "miha-confirm-panel-icon",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  strokeWidth: "2",
+                                  children: m.jsx("path", {
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    d: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
                                   }),
-                                ],
-                              }),
-                            l.length > 0 &&
-                              m.jsxs("div", {
-                                className: "flex items-center gap-2 flex-wrap",
-                                children: [
+                                }),
+                                "Project Scope & Capabilities",
+                              ],
+                            }),
+                            m.jsxs("div", {
+                              className: "miha-confirm-chips",
+                              children: [
+                                l.length > 0
+                                  ? l.map((srv, idx) =>
+                                      m.jsx("span", {
+                                        key: idx,
+                                        className: "miha-confirm-chip",
+                                        children:
+                                          srv === "Other" && t.otherService
+                                            ? "Other (" + t.otherService.trim() + ")"
+                                            : srv,
+                                      }),
+                                    )
+                                  : m.jsx("span", {
+                                      style: { fontSize: "0.8125rem", color: "#71717a", fontStyle: "italic" },
+                                      children: "General technical architecture consultation",
+                                    }),
+                                t.budget &&
                                   m.jsx("span", {
-                                    className: "text-gray-400",
-                                    children: "Services:",
-                                  }),
-                                  m.jsx("span", {
-                                    className: "text-gray-800",
-                                    children: getServicesText(),
-                                  }),
-                                ],
-                              }),
-                            t.budget &&
-                              m.jsxs("div", {
-                                className: "flex items-center gap-2 flex-wrap",
-                                children: [
-                                  m.jsx("span", {
-                                    className: "text-gray-400",
-                                    children: "Bundle:",
-                                  }),
-                                  m.jsx("span", {
-                                    className: "text-gray-800",
+                                    className: "miha-confirm-budget-badge",
                                     children: t.budget,
                                   }),
+                              ],
+                            }),
+                            t.projectDetails &&
+                              m.jsxs("div", {
+                                className: "miha-confirm-brief-box",
+                                children: [
+                                  m.jsx("span", {
+                                    className: "miha-confirm-brief-prefix",
+                                    children: "Scope Brief:",
+                                  }),
+                                  t.projectDetails,
                                 ],
                               }),
                           ],
                         }),
                       ],
                     }),
-                    m.jsx("button", {
-                      type: "button",
-                      onClick: resetAll,
-                      className:
-                        "px-8 py-4 bg-black text-white text-sm font-medium rounded-full hover:bg-neutral-800 transition cursor-pointer",
-                      children: isCallBooking
-                        ? "Book Another Call or Send Inquiry"
-                        : "Send Another Message",
+                    m.jsxs("div", {
+                      className: "miha-confirm-workflow",
+                      children: [
+                        m.jsx("div", {
+                          className: "miha-confirm-workflow-head",
+                          children: "What Happens Next",
+                        }),
+                        m.jsxs("div", {
+                          className: "miha-confirm-steps",
+                          children: [
+                            m.jsxs("div", {
+                              className: "miha-confirm-step",
+                              children: [
+                                m.jsx("span", {
+                                  className: "miha-confirm-step-num",
+                                  children: "1",
+                                }),
+                                m.jsxs("div", {
+                                  children: [
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-title",
+                                      children: "Lead Recorded",
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-desc",
+                                      children: "Archived securely in system logs with project scope details.",
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            m.jsxs("div", {
+                              className: "miha-confirm-step",
+                              children: [
+                                m.jsx("span", {
+                                  className: "miha-confirm-step-num",
+                                  children: "2",
+                                }),
+                                m.jsxs("div", {
+                                  children: [
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-title",
+                                      children: isCallBooking ? "Calendar Invite" : "Email Assessment",
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-desc",
+                                      children: isCallBooking
+                                        ? "Google Meet link sent to your inbox within 24 hours."
+                                        : "Direct review and evaluation by engineering leadership.",
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            m.jsxs("div", {
+                              className: "miha-confirm-step",
+                              children: [
+                                m.jsx("span", {
+                                  className: "miha-confirm-step-num",
+                                  children: "3",
+                                }),
+                                m.jsxs("div", {
+                                  children: [
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-title",
+                                      children: "Architecture Call",
+                                    }),
+                                    m.jsx("div", {
+                                      className: "miha-confirm-step-desc",
+                                      children: "Requirements breakdown, timeline roadmap & sprint pricing.",
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    m.jsx("div", {
+                      className: "miha-confirm-footer",
+                      children: m.jsxs("button", {
+                        type: "button",
+                        onClick: resetAll,
+                        className: "miha-confirm-btn",
+                        children: [
+                          m.jsx("svg", {
+                            width: "15",
+                            height: "15",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            strokeWidth: "2.2",
+                            children: m.jsx("path", {
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              d: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+                            }),
+                          }),
+                          isCallBooking
+                            ? "Book Another Call or Send Inquiry"
+                            : "Submit Another Inquiry",
+                        ],
+                      }),
                     }),
                   ],
                 })

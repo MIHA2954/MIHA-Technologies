@@ -1230,6 +1230,348 @@ picture,
   }
 }
 
+/* ==========================================================================
+   MIHA Technologies - Executive Receipt & Confirmation Card
+   Strict compliance with frontend.md & UI_Always.md
+   ========================================================================== */
+.miha-confirm-card {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px -2px rgba(10, 11, 14, 0.05), 0 2px 6px -1px rgba(10, 11, 14, 0.02);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .miha-confirm-card {
+    padding: 1.35rem;
+    border-radius: 16px;
+    gap: 1.25rem;
+  }
+}
+
+.miha-confirm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 1px solid #f0f0f2;
+  padding-bottom: 1.5rem;
+}
+
+.miha-confirm-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+
+.miha-confirm-receipt-stamp {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  color: #71717a;
+}
+
+.miha-confirm-receipt-label {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.miha-confirm-receipt-val {
+  color: #18181b;
+  font-weight: 600;
+}
+
+.miha-confirm-title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #09090b;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .miha-confirm-title {
+    font-size: 2.125rem;
+  }
+}
+
+.miha-confirm-msg {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #52525b;
+  margin: 0;
+}
+
+/* Bento Details Grid */
+.miha-confirm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .miha-confirm-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.miha-confirm-panel {
+  background: #fbfbfb;
+  border: 1px solid #ebebed;
+  border-radius: 14px;
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-sizing: border-box;
+}
+
+.miha-confirm-panel-full {
+  grid-column: 1 / -1;
+}
+
+.miha-confirm-panel-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #71717a;
+  font-family: var(--font-mono, monospace);
+}
+
+.miha-confirm-panel-icon {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  color: #71717a;
+  display: inline-block;
+}
+
+.miha-confirm-panel-main {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #09090b;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.miha-confirm-panel-sub {
+  font-size: 0.84rem;
+  color: #52525b;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.miha-confirm-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: #71717a;
+}
+
+.miha-confirm-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #3f3f46;
+}
+
+.miha-confirm-slot-time {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #18181b;
+  margin-top: 0.15rem;
+}
+
+/* Service Pills */
+.miha-confirm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.miha-confirm-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: #ffffff;
+  color: #18181b;
+  border: 1px solid #e4e4e7;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.miha-confirm-budget-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #09090b;
+  color: #ffffff;
+  border-radius: 9999px;
+  margin-left: auto;
+  letter-spacing: 0.03em;
+}
+
+.miha-confirm-brief-box {
+  padding-top: 0.65rem;
+  margin-top: 0.2rem;
+  border-top: 1px solid #e9e9ea;
+  font-size: 0.8125rem;
+  color: #52525b;
+  line-height: 1.5;
+}
+
+.miha-confirm-brief-prefix {
+  font-weight: 600;
+  color: #18181b;
+  margin-right: 0.35rem;
+}
+
+/* Timeline: What Happens Next */
+.miha-confirm-workflow {
+  background: #fafafa;
+  border: 1px solid #ebebed;
+  border-radius: 14px;
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.miha-confirm-workflow-head {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #71717a;
+  font-family: var(--font-mono, monospace);
+}
+
+.miha-confirm-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .miha-confirm-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.miha-confirm-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.miha-confirm-step-num {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 9999px;
+  background-color: #09090b;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+  font-family: var(--font-mono, monospace);
+  flex-shrink: 0;
+}
+
+.miha-confirm-step-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #09090b;
+  margin-bottom: 0.15rem;
+}
+
+.miha-confirm-step-desc {
+  font-size: 0.75rem;
+  color: #71717a;
+  line-height: 1.4;
+}
+
+/* Actions Footer */
+.miha-confirm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.miha-confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  min-height: 48px;
+  border-radius: 9999px;
+  background-color: #09090b;
+  color: #ffffff !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid #09090b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.miha-confirm-btn:hover {
+  background-color: #27272a;
+  border-color: #27272a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.miha-confirm-btn:focus-visible {
+  outline: 2px solid #09090b;
+  outline-offset: 2px;
+}
+
+.miha-confirm-btn:active {
+  transform: translateY(0);
+}
+
 
 
 
