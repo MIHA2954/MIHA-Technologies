@@ -1,5 +1,5 @@
 /**
- * PlaceHOLDER - Interactive Liquid Silk WebGL Shader Engine
+ * MIHA Technologies - Interactive Liquid Silk WebGL Shader Engine
  * Simulates undulating dark liquid chrome / satin silk waves with specular highlights
  * and real-time cursor/touch/scroll interaction.
  *

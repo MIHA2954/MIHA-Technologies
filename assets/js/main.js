@@ -14507,7 +14507,7 @@ function j0() {
                 to: "/",
                 children: m.jsx("img", {
                   src: "assets/images/layout/logo-black.svg",
-                  alt: "PlaceHOLDER Logo",
+                  alt: "MIHA Technologies Logo",
                   className: "h-8",
                 }),
               }),
@@ -14672,7 +14672,7 @@ function A0() {
               to: "/",
               children: m.jsx("img", {
                 src: "assets/images/layout/logo-white.svg",
-                alt: "PlaceHOLDER Logo",
+                alt: "MIHA Technologies Logo",
               }),
             }),
           }),
@@ -14809,86 +14809,20 @@ function A0() {
                         ],
                       }),
                     }),
-                    m.jsxs("g", {
+                    m.jsx("g", {
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: 132,
+                      fontSize: 88,
                       fill: "none",
                       stroke: "url(#paint0_linear_14176_476)",
-                      strokeWidth: 0.8,
-                      children: [
-                        m.jsx("text", {
-                          x: 35,
-                          y: 146,
-                          fontWeight: 500,
-                          children: "P",
-                        }),
-                        m.jsx("text", {
-                          x: 135,
-                          y: 146,
-                          fontWeight: 500,
-                          children: "l",
-                        }),
-                        m.jsx("text", {
-                          x: 175,
-                          y: 146,
-                          fontWeight: 500,
-                          children: "a",
-                        }),
-                        m.jsx("text", {
-                          x: 260,
-                          y: 146,
-                          fontWeight: 500,
-                          children: "c",
-                        }),
-                        m.jsx("text", {
-                          x: 340,
-                          y: 146,
-                          fontWeight: 500,
-                          children: "e",
-                        }),
-                        m.jsx("text", {
-                          x: 445,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "H",
-                        }),
-                        m.jsx("text", {
-                          x: 575,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "O",
-                        }),
-                        m.jsx("text", {
-                          x: 695,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "L",
-                        }),
-                        m.jsx("text", {
-                          x: 840,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "D",
-                        }),
-                        m.jsx("text", {
-                          x: 965,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "E",
-                        }),
-                        m.jsx("text", {
-                          x: 1080,
-                          y: 146,
-                          fontWeight: 600,
-                          fontStyle: "italic",
-                          children: "R",
-                        }),
-                      ],
+                      strokeWidth: 1,
+                      children: m.jsx("text", {
+                        x: 640,
+                        y: 130,
+                        textAnchor: "middle",
+                        fontWeight: 700,
+                        letterSpacing: 8,
+                        children: "MIHA TECHNOLOGIES",
+                      }),
                     }),
                   ],
                 }),
@@ -14912,7 +14846,7 @@ function A0() {
                     children: m.jsxs("p", {
                       className:
                         "text-white text-xs sm:text-base hover:text-white/80 transition",
-                      children: ["© ", t, " PlaceHOLDER. All rights reserved."],
+                      children: ["© ", t, " MIHA Technologies. All rights reserved."],
                     }),
                   }),
                 ],
@@ -21826,7 +21760,7 @@ function pd() {
                 className:
                   "text-white/60 text-base sm:text-lg mt-6 leading-relaxed",
                 children:
-                  "PlaceHOLDER was founded by college tech students in Zamboanga City with a shared drive: turning classroom concepts and late-night coding sessions into real, production-ready software. What began between university lectures is now a dedicated studio shipping live digital products and scaling into a major technology firm.",
+                  "MIHA Technologies was founded by college tech students in Zamboanga City with a shared drive: turning classroom concepts and late-night coding sessions into real, production-ready software. What began between university lectures is now a dedicated studio shipping live digital products and scaling into a major technology firm.",
               }),
             ],
           }),
@@ -27250,7 +27184,7 @@ function f9() {
                           m.jsx("div", { className: "fc-pulse-dot" }),
                           m.jsx("span", {
                             className: "fc-tag-text",
-                            children: "PlaceHOLDER Core",
+                            children: "MIHA Core",
                           }),
                         ],
                       }),
@@ -27268,7 +27202,7 @@ function f9() {
 const d9 = [
     {
       id: 1,
-      question: "What kinds of digital products does PlaceHOLDER build?",
+      question: "What kinds of digital products does MIHA Technologies build?",
       answer:
         "We engineer custom full-stack web platforms, mobile applications (iOS & Android), high-throughput backend APIs, and digital commerce systems. From 0-to-1 startup MVPs to automated internal business tools, we build production software designed to scale.",
     },
@@ -27539,7 +27473,7 @@ function AboutPrinciples() {
                 className:
                   "text-white/60 text-base sm:text-lg mt-6 leading-relaxed",
                 children:
-                  "We founded PlaceHOLDER in university computer labs with a clear realization: modern companies don't need agency overhead or sluggish junior handoffs. They need hungry, detail-obsessed engineers who ship production-grade digital software on tight milestone sprints.",
+                  "We founded MIHA Technologies in university computer labs with a clear realization: modern companies don't need agency overhead or sluggish junior handoffs. They need hungry, detail-obsessed engineers who ship production-grade digital software on tight milestone sprints.",
               }),
               m.jsxs("div", {
                 className:
@@ -28464,7 +28398,7 @@ function y9() {
           m.jsxs("h2", {
             className: "text-white text-5xl font-normal mb-16",
             children: [
-              "PlaceHOLDER ",
+              "MIHA ",
               m.jsx("span", { className: "italic", children: "Projects" }),
             ],
           }),
@@ -28598,7 +28532,7 @@ function x9() {
             className:
               "font-normal text-5xl text-center mb-16 sm:text-left text-black -tracking-[1.92px]",
             children: [
-              "PlaceHOLDER",
+              "MIHA ",
               m.jsx("span", { className: "italic", children: "Blogs" }),
             ],
           }),
@@ -28714,9 +28648,9 @@ function b9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "PlaceHOLDER - React Agency Website Template",
+        title: "MIHA Technologies - Modern Infrastructure & Hosting Architecture",
         description:
-          "React agency website template for digital studios and product teams. Includes services, projects, testimonials, and blog pages. Built with Tailwind CSS.",
+          "MIHA Technologies (Modern Infrastructure & Hosting Architecture). Engineering scalable web applications, modern cloud infrastructure, and APIs for startups.",
       }),
       m.jsx(MS, {}),
       m.jsx(Re, { width: "100%", children: m.jsx(md, {}) }),
@@ -28790,9 +28724,9 @@ function w9() {
     title: null,
     children: [
       m.jsx(Bn, {
-        title: "About PlaceHOLDER - Our Story & Team",
+        title: "About MIHA Technologies - Modern Infrastructure & Hosting Architecture",
         description:
-          "Learn about PlaceHOLDER, our mission to build innovative digital solutions, and meet our team of expert developers and designers.",
+          "Learn about MIHA Technologies, our mission to engineer scalable digital systems, modern cloud infrastructure, and meet our team of expert developers.",
       }),
       m.jsx(S9, {}),
       m.jsx(Re, { width: "100%", children: m.jsx(T9, {}) }),
@@ -28814,7 +28748,7 @@ function E9() {
           className:
             "text-5xl lg:text-[60px] font-normal -tracking-[2.88px] mb-16 text-black",
           children: [
-            "PlaceHOLDER ",
+            "MIHA ",
             m.jsx("span", { className: "italic", children: " Blogs " }),
           ],
         }),
@@ -29013,9 +28947,9 @@ function M9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "Blog - Web Development, Design & Tech Articles | PlaceHOLDER",
+        title: "Blog - Engineering, Infrastructure & Architecture | MIHA Technologies",
         description:
-          "Read our latest blog posts on web development, app design, UX trends, and tech industry insights. Stay updated with PlaceHOLDER.",
+          "Read our latest insights on modern infrastructure, hosting architecture, cloud scaling, and software engineering. Stay updated with MIHA Technologies.",
       }),
       m.jsx(E9, {}),
       m.jsx(A9, {}),
@@ -29303,7 +29237,7 @@ function D9() {
     children: [
       m.jsx(Bn, {
         title:
-          "The Future of Web UX: Trends That Will Shape 2025 | PlaceHOLDER Blog",
+          "The Future of Web UX: Trends That Will Shape 2025 | MIHA Technologies Blog",
         description:
           "Explore modern UI/UX design principles and trends for 2025. Learn about user-centric design, accessibility, and performance optimization.",
       }),
@@ -29317,7 +29251,7 @@ const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
 
 function L9({
   title: k = [
-    "PlaceHOLDER ",
+    "MIHA ",
     m.jsx("span", { className: "italic", children: "Contact" }),
   ],
   isH2: W = !1,
@@ -29558,7 +29492,7 @@ function L9({
       } catch (err) {
         setStatus("error");
         setStatusMsg(
-          "Network error connecting to the mail server. Please try again or email placeholder.agency@gmail.com directly.",
+          "Network error connecting to the mail server. Please try again or email contact@mihatechnologies.com directly.",
         );
       }
     },
@@ -29643,7 +29577,7 @@ function L9({
       } catch (err) {
         setStatus("error");
         setStatusMsg(
-          "Network error connecting to the mail server. Please try again or email placeholder.agency@gmail.com directly.",
+          "Network error connecting to the mail server. Please try again or email contact@mihatechnologies.com directly.",
         );
       }
     },
@@ -30526,9 +30460,9 @@ function R9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "Contact PlaceHOLDER - Schedule Your Discovery Call",
+        title: "Contact MIHA Technologies - Schedule Your Discovery Call",
         description:
-          "Get in touch with PlaceHOLDER. Schedule a free discovery call to discuss your project, timeline, and budget with our team.",
+          "Get in touch with MIHA Technologies. Schedule a free discovery call to discuss your modern infrastructure, web applications, and hosting architecture.",
       }),
       m.jsx(L9, {}),
     ],
@@ -30675,7 +30609,7 @@ function V9() {
           m.jsxs("h2", {
             className: "text-black text-5xl font-normal mb-16",
             children: [
-              "PlaceHOLDER ",
+              "MIHA ",
               m.jsx("span", { className: "italic", children: "Projects" }),
             ],
           }),
@@ -31018,9 +30952,9 @@ function B9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "Portfolio - Our Projects & Case Studies | PlaceHOLDER",
+        title: "Portfolio - Our Projects & Case Studies | MIHA Technologies",
         description:
-          "Explore our portfolio of successful web and app development projects. See how we've helped startups and enterprises build amazing digital products.",
+          "Explore our portfolio of successful web and app development projects. See how MIHA Technologies engineers high-performance digital products.",
       }),
       m.jsx(V9, {}),
       m.jsx(Pi, {}),
@@ -31488,7 +31422,7 @@ function H9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "Finance Management System - Project Details | PlaceHOLDER",
+        title: "Finance Management System - Project Details | MIHA Technologies",
         description:
           "Discover how we built a scalable finance management system for enterprise clients. See our approach, challenges, solutions, and results.",
       }),
@@ -31501,9 +31435,9 @@ function k9() {
   return m.jsxs(mi, {
     children: [
       m.jsx(Bn, {
-        title: "Services - Web, Mobile & API Development | PlaceHOLDER",
+        title: "Services - Modern Infrastructure & Hosting Architecture | MIHA Technologies",
         description:
-          "Explore our comprehensive services: Web app development, mobile app development, API solutions, and maintenance & growth packages for your business.",
+          "Explore our comprehensive services: Web app development, mobile app development, API solutions, and modern hosting infrastructure packages for your business.",
       }),
       m.jsx(p9, {}),
       m.jsx(Pi, {}),
@@ -31514,9 +31448,9 @@ function G9() {
   return m.jsxs(m.Fragment, {
     children: [
       m.jsx(Bn, {
-        title: "Page Not Found | PlaceHOLDER",
+        title: "Page Not Found | MIHA Technologies",
         description:
-          "The page you were looking for could not be found. Return to the PlaceHOLDER homepage or explore our projects.",
+          "The page you were looking for could not be found. Return to the MIHA Technologies homepage or explore our projects.",
       }),
       m.jsx(j0, {}),
       m.jsx("main", {

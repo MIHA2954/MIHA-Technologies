@@ -1,5 +1,5 @@
 /**
- * PlaceHOLDER - High-End Smooth Scroll Engine
+ * MIHA Technologies - High-End Smooth Scroll Engine
  * Powered by Lenis & GSAP Ticker
  */
 (function () {
