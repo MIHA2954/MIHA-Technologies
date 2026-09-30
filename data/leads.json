@@ -158,5 +158,37 @@
         "preferredTimeWindow": "Morning (9:00 AM - 12:00 PM)",
         "message": "Verification test for ceo@mihatechnologies.com Web3Forms pipeline.",
         "recipient": "ceo@mihatechnologies.com"
+    },
+    {
+        "id": "lead_6abd01964c0fa6.82887632",
+        "timestamp": "2026-09-30T14:33:26+02:00",
+        "ip": "::1",
+        "name": "Elena Vance",
+        "email": "elena.vance@apexcreative.co",
+        "phone": "+1 (415) 890-2341",
+        "website": "https://apexcreative.co",
+        "services": "AI Solution",
+        "projectDetails": "Not provided",
+        "budget": "Not specified",
+        "discoveryCallDate": "Wednesday, September 30, 2026",
+        "preferredTimeWindow": "Morning (9:00 AM - 12:00 PM)",
+        "message": "Looking to re-architect our multi-brand digital portal with headless CMS and scalable microservices.",
+        "recipient": "ceo@mihatechnologies.com"
+    },
+    {
+        "id": "lead_6abd019e649955.19353216",
+        "timestamp": "2026-09-30T14:33:34+02:00",
+        "ip": "::1",
+        "name": "Marcus Thorne",
+        "email": "marcus.thorne@vanguard-sys.com",
+        "phone": "+44 20 7946 0912",
+        "website": "https://vanguard-sys.com",
+        "services": "None selected",
+        "projectDetails": "Not provided",
+        "budget": "Not specified",
+        "discoveryCallDate": "",
+        "preferredTimeWindow": "",
+        "message": "Need an end-to-end cloud infrastructure audit and mobile app synchronization pipeline.",
+        "recipient": "ceo@mihatechnologies.com"
     }
 ]
