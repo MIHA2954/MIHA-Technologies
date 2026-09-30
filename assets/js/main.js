@@ -14508,7 +14508,7 @@ function j0() {
                 children: m.jsx("img", {
                   src: "assets/images/layout/logo-black.svg",
                   alt: "MIHA Technologies Logo",
-                  className: "h-8",
+                  className: "nav-brand-logo h-8 sm:h-9.5",
                 }),
               }),
             }),
@@ -29247,7 +29247,7 @@ function D9() {
   });
 }
 
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "e6ce3d96-3481-4711-8970-2fc5bb70a4b0";
 
 function L9({
   title: k = [
@@ -29423,7 +29423,8 @@ function L9({
       });
       const payload = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        from_name: t.name,
+        from_name: "MIHA Technologies Inquiry (" + t.name + ")",
+        replyto: t.email,
         subject:
           "New Discovery Call & Inquiry: " + t.name + " (" + dateStr + ")",
         name: t.name,
@@ -29436,6 +29437,7 @@ function L9({
         discovery_call_date: dateStr,
         preferred_time_window: timeSlot,
         message: t.message || "Not provided",
+        botcheck: "",
       };
 
       try {
@@ -29514,7 +29516,8 @@ function L9({
 
       const payload = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        from_name: t.name,
+        from_name: "MIHA Technologies Inquiry (" + t.name + ")",
+        replyto: t.email,
         subject: "New Direct Email Inquiry: " + t.name,
         name: t.name,
         email: t.email,
@@ -29525,6 +29528,7 @@ function L9({
         budget: t.budget || "Not specified",
         contact_preference: "Direct Email Inquiry (Call booking skipped)",
         message: t.message || "Not provided",
+        botcheck: "",
       };
 
       try {

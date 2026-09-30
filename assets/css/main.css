@@ -1219,6 +1219,18 @@ picture,
   pointer-events: none;
 }
 
+.nav-brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 640px) {
+  .nav-brand-logo {
+    height: 32px;
+  }
+}
+
+
 
 
 
