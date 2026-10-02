@@ -21877,7 +21877,7 @@ const NS = [
   },
   {
     id: 2,
-    title: "The 48-Hour Content Handover",
+    title: "The 48-Hour Handover",
     description:
       "Work begins once your 50% deposit clears. You send us your branding, menus, and price lists within 48 hours so our team can add them straight into your system.",
     icon: m.jsxs("svg", {
@@ -21924,7 +21924,7 @@ const NS = [
   },
   {
     id: 4,
-    title: "Launch and Ongoing Support",
+    title: "Ongoing Support",
     description:
       "Your system goes live to your customers, and your support agreement starts. We handle server hosting, database security, and system uptime so your business stays online.",
     icon: m.jsxs("svg", {
