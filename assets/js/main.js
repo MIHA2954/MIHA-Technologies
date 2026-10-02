@@ -26804,7 +26804,7 @@ const c9 = [
   },
   {
     id: 4,
-    name: "Florenz Dale Paña",
+    name: "Florenz Dale C. Paña",
     role: "Product & UI Designer",
     image: "assets/images/team/team-4.jpg?v=dale",
     socials: {
