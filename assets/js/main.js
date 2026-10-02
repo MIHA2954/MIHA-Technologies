@@ -14635,11 +14635,10 @@ const Er = {
     { label: "Get in Touch", href: "contact.html" },
   ],
   services: [
-    { label: "0-to-1 MVP Development", href: "services.html" },
-    { label: "Web Applications", href: "services.html" },
-    { label: "Mobile Engineering", href: "services.html" },
-    { label: "High-Throughput APIs", href: "services.html" },
-    { label: "DevOps & Cloud Scale", href: "services.html" },
+    { label: "The Operations Check", href: "services.html" },
+    { label: "The 48-Hour Content Handover", href: "services.html" },
+    { label: "Fast System Launch", href: "services.html" },
+    { label: "Launch and Ongoing Support", href: "services.html" },
   ],
   resources: [
     { label: "FreshCart E-Commerce", href: "https://freshcart.ct.ws/" },

@@ -110,6 +110,7 @@ brag-output/
 .gemini/
 .antigravity/
 .system_generated/
+skills-lock.json
 
 # Agent Client Auto-Generated Symlink Directories (e.g. from skills CLI)
 .claude/
