@@ -1572,6 +1572,26 @@ picture,
   transform: translateY(0);
 }
 
+.ceo-card-wrapper {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .ceo-card-wrapper {
+    width: calc((100% - 1.5rem) / 2);
+  }
+}
+@media (min-width: 768px) {
+  .ceo-card-wrapper {
+    width: calc((100% - 3rem) / 3);
+  }
+}
+@media (min-width: 1024px) {
+  .ceo-card-wrapper {
+    width: calc((100% - 6rem) / 5);
+  }
+}
+
+
 
 
 

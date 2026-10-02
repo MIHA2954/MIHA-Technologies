@@ -119,6 +119,7 @@ skills-lock.json
 
 # Ephemeral Skill Runtime & Review Artifacts
 .impeccable/
+skills-v2/
 
 # Security Scans, Pentest Targets & Audit Artifacts
 targets/
