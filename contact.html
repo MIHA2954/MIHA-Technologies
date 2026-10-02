@@ -97,26 +97,23 @@
                 <div>
                   <div class="max-w-lg pr-5 mb-6">
                     <h3 class="mb-4 text-gray-700 text-xl font-medium">Ready to discuss your project?</h3>
-                    <p class="mb-6 text-base text-gray-600">Share your project details with us, and we'll respond promptly. Let's turn your vision into reality together.</p>
+                    <p class="mb-6 text-base text-gray-600">Ready to automate your operations? Tell us your biggest business bottleneck, and our Zamboanga engineering team will deploy the exact system to fix it.</p>
                   </div>
                   <form class="space-y-6" action="api/contact" method="POST">
                     <input type="hidden" name="from_name" value="MIHA Technologies Website">
                     <input type="hidden" name="subject" value="New Direct Inquiry from Website">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <div class="contact-form-grid grid grid-cols-1 sm:grid-cols-2 gap-4"><input placeholder="Name*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="text" value="" name="name"><input placeholder="Work Email*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="email" value="" name="email"><input placeholder="Phone*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="tel" value="" name="phone"><input placeholder="Company Website URL" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="url" value="" name="website"><textarea name="message" placeholder="Additional message" class="col-span-1 sm:col-span-2 px-8 py-3 rounded-3xl resize-none border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-32 placeholder:text-gray-500 text-base w-full"></textarea></div>
+                    <div class="contact-form-grid grid grid-cols-1 sm:grid-cols-2 gap-4"><input placeholder="Name*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="text" value="" name="name" required><input placeholder="Work Email*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="email" value="" name="email" required><input placeholder="Phone*" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="tel" value="" name="phone" required><input placeholder="Company Website URL" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="url" value="" name="website"><textarea name="message" placeholder="Additional message" class="col-span-1 sm:col-span-2 px-8 py-3 rounded-3xl resize-none border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-32 placeholder:text-gray-500 text-base w-full"></textarea></div>
                   </form>
                 </div>
                 <div>
                   <h3 class="mb-6 text-gray-700 text-xl font-medium">What services you need?</h3>
                   <ul class="contact-services-grid flex flex-wrap gap-3">
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-black text-white border-black"><span>Website Design</span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M20 6 9 17l-5-5"></path></svg></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>AI Solution</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>App Development</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>CRO-Optimized Design</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Custom Designs</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Specialized in SaaS</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Webflow Development</span></button></li>
-                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Other</span></button></li>
+                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-black text-white border-black"><span>Zero-Error QR Hub</span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M20 6 9 17l-5-5"></path></svg></button></li>
+                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Automated Booking System</span></button></li>
+                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Digital Inventory Catalog</span></button></li>
+                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>SMS Follow-Ups & Reminders</span></button></li>
+                    <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Other Operational Automation</span></button></li>
                   </ul>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -239,18 +236,18 @@
       if (service) {
         const projectInput = document.querySelector('input[name="projectDetails"]');
         if (projectInput && !projectInput.value) {
-          projectInput.value = service + ' Architecture Inquiry';
+          projectInput.value = service + ' Automation Inquiry';
         }
         const pills = document.querySelectorAll('.contact-service-pill');
         const sLower = service.toLowerCase();
         pills.forEach(p => {
           const text = p.innerText.trim().toLowerCase();
           if (
-            (sLower.includes('saas') && text.includes('saas')) ||
-            (sLower.includes('ai') && text.includes('ai')) ||
-            (sLower.includes('mobile') && text.includes('app')) ||
-            (sLower.includes('api') && text.includes('saas')) ||
-            (sLower.includes('web') && text.includes('website'))
+            (sLower.includes('qr') && text.includes('qr')) ||
+            (sLower.includes('book') && text.includes('booking')) ||
+            (sLower.includes('inventory') && text.includes('inventory')) ||
+            (sLower.includes('sms') && text.includes('sms')) ||
+            (sLower.includes('auto') && text.includes('automation'))
           ) {
             p.classList.add('bg-black', 'text-white', 'border-black');
             p.classList.remove('bg-white', 'text-[#1D1F2C]', 'border-[#E9E9EA]');
