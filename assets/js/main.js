@@ -21601,74 +21601,74 @@ function md() {
               children: [
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/react.svg",
-                    alt: "React",
+                    src: "assets/images/trust/gcash.svg",
+                    alt: "GCash Integration",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/nextjs.svg",
-                    alt: "Next.js",
+                    src: "assets/images/trust/maya.svg",
+                    alt: "Maya Payments",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/typescript.svg",
-                    alt: "TypeScript",
+                    src: "assets/images/trust/maribank.svg",
+                    alt: "MariBank",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/python.svg",
-                    alt: "Python",
+                    src: "assets/images/trust/gotyme.svg",
+                    alt: "GoTyme",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/nodejs.svg",
-                    alt: "Node.js",
+                    src: "assets/images/trust/gcash.svg",
+                    alt: "GCash Integration",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/postgresql.svg",
-                    alt: "PostgreSQL",
+                    src: "assets/images/trust/maya.svg",
+                    alt: "Maya Payments",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/docker.svg",
-                    alt: "Docker",
+                    src: "assets/images/trust/maribank.svg",
+                    alt: "MariBank",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/aws.svg",
-                    alt: "AWS",
+                    src: "assets/images/trust/gotyme.svg",
+                    alt: "GoTyme",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/flutter.svg",
-                    alt: "Flutter",
+                    src: "assets/images/trust/gcash.svg",
+                    alt: "GCash Integration",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/tailwind.svg",
-                    alt: "Tailwind CSS",
+                    src: "assets/images/trust/maya.svg",
+                    alt: "Maya Payments",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/golang.svg",
-                    alt: "Go",
+                    src: "assets/images/trust/maribank.svg",
+                    alt: "MariBank",
                   }),
                 }),
                 m.jsx("li", {
                   children: m.jsx("img", {
-                    src: "assets/images/tech/graphql.svg",
-                    alt: "GraphQL",
+                    src: "assets/images/trust/gotyme.svg",
+                    alt: "GoTyme",
                   }),
                 }),
               ],
@@ -21760,7 +21760,7 @@ function pd() {
                 className:
                   "text-white/60 text-base sm:text-lg mt-6 leading-relaxed",
                 children:
-                  "MIHA Technologies was founded by college tech students in Zamboanga City with a shared drive: turning classroom concepts and late-night coding sessions into real, production-ready software. What began between university lectures is now a dedicated studio shipping live digital products and scaling into a major technology firm.",
+                  "MIHA Technologies was founded by a specialized team of Zamboanga software engineers. Local businesses were losing revenue to manual order errors, missed phone calls, and high delivery app commissions. We build practical automated systems that stop those losses and modernize daily operations.",
               }),
             ],
           }),
@@ -21780,12 +21780,12 @@ function pd() {
                       m.jsx("h3", {
                         className:
                           "text-white text-xl font-medium tracking-tight mb-2",
-                        children: "Late Nights & Shared Labs",
+                        children: "Rapid 7-Day Setup",
                       }),
                       m.jsx("p", {
                         className: "text-white/60 text-sm leading-relaxed",
                         children:
-                          "Started by university classmates testing modern web frameworks, sharing dual monitors, and building passion projects after lectures.",
+                          "We do not waste your time with months of development. We deploy your automated booking and ordering systems in days so you can recover lost sales immediately.",
                       }),
                     ],
                   }),
@@ -21804,12 +21804,12 @@ function pd() {
                       m.jsx("h3", {
                         className:
                           "text-white text-xl font-medium tracking-tight mb-2",
-                        children: "Shipping Live Client Systems",
+                        children: "Direct Local Support",
                       }),
                       m.jsx("p", {
                         className: "text-white/60 text-sm leading-relaxed",
                         children:
-                          "Taking the leap from student concepts to production code—deploying live web apps for cafes, clinic booking systems, and digital stores.",
+                          "You partner directly with our Zamboanga-based team. You get no outsourced call centers and no middle managers, just direct contact with the engineers who built your system.",
                       }),
                     ],
                   }),
@@ -21828,12 +21828,12 @@ function pd() {
                       m.jsx("h3", {
                         className:
                           "text-white text-xl font-medium tracking-tight mb-2",
-                        children: "Scaling Toward Bigger Goals",
+                        children: "Zero-Downtime Reliability",
                       }),
                       m.jsx("p", {
                         className: "text-white/60 text-sm leading-relaxed",
                         children:
-                          "Onboarding larger businesses and proving that world-class software engineering and modern design can thrive right from Zamboanga City.",
+                          "Built on enterprise cloud servers. Your system will not crash, even during your busiest sales hours.",
                       }),
                     ],
                   }),
@@ -21849,9 +21849,9 @@ function pd() {
 const NS = [
   {
     id: 1,
-    title: "Rapid MVP Delivery",
+    title: "The Operations Check",
     description:
-      "Lean milestone sprints focused on shipping validated, production-ready software in weeks so you can test real market demand fast.",
+      "We review your business in person to find where you lose revenue, including missed bookings, staff ordering mistakes, or manual stock tracking, and provide the exact system to fix it.",
     icon: m.jsxs("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "48",
@@ -21877,9 +21877,9 @@ const NS = [
   },
   {
     id: 2,
-    title: "Direct Founder Access",
+    title: "The 48-Hour Content Handover",
     description:
-      "Work directly with senior engineers and product designers. Zero junior handoffs, no middle-management bloat, and total sprint visibility.",
+      "Work begins once your 50% deposit clears. You send us your branding, menus, and price lists within 48 hours so our team can add them straight into your system.",
     icon: m.jsxs("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "48",
@@ -21901,9 +21901,9 @@ const NS = [
   },
   {
     id: 3,
-    title: "Modern Scalable Stacks",
+    title: "Fast System Launch",
     description:
-      "Engineered with clean code in React, TypeScript, Python, and cloud infrastructure ready to handle your first 100K users without costly rewrites.",
+      "We skip months of custom development. Using our tested templates, our Zamboanga team sets up, tests, and prepares your digital system in days.",
     icon: m.jsxs("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "48",
@@ -21924,9 +21924,9 @@ const NS = [
   },
   {
     id: 4,
-    title: "Full Code Ownership",
+    title: "Launch and Ongoing Support",
     description:
-      "100% intellectual property ownership from day one. Clean documentation, open repositories, and zero proprietary agency lock-in.",
+      "Your system goes live to your customers, and your support agreement starts. We handle server hosting, database security, and system uptime so your business stays online.",
     icon: m.jsxs("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "48",
@@ -27338,30 +27338,30 @@ const d9 = [
     {
       id: 1,
       number: "#1",
-      title: "0-to-1 MVP Development",
+      title: "The Operations Check",
       description:
-        "Transform product ideas into validated, production-ready web and mobile applications in 4-week agile sprints.",
+        "We review your business in person to find where you lose revenue, including missed bookings, staff ordering mistakes, or manual stock tracking, and prescribe the exact digital system to fix it.",
     },
     {
       id: 2,
       number: "#2",
-      title: "Full-Stack Product Engineering",
+      title: "The 48-Hour Content Handover",
       description:
-        "Clean, modern architecture built in React, TypeScript, Python, and cloud infrastructure ready for rapid scale.",
+        "Work begins once your 50% deposit clears. You send us your branding, menus, and price lists within 48 hours so our team can add them straight into your system.",
     },
     {
       id: 3,
       number: "#3",
-      title: "High-Throughput APIs & Cloud",
+      title: "Fast System Launch",
       description:
-        "Event-driven microservices, database modeling, and serverless pipelines engineered for zero downtime and low latency.",
+        "We bypass months of custom development. Using our tested Master Templates, our Zamboanga team sets up, tests, and prepares your digital system in days.",
     },
     {
       id: 4,
       number: "#4",
-      title: "Growth & Continuous DevOps",
+      title: "Launch and Ongoing Support",
       description:
-        "Automated CI/CD pipelines, observability monitoring, and dedicated sprint velocity to iterate fast with founders.",
+        "Your system goes live to your customers, and your support agreement starts. We handle server hosting, database security, and system uptime so your business stays online.",
     },
   ];
 function Rv() {
