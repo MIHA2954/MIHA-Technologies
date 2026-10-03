@@ -47,8 +47,8 @@ export async function onRequestPost(context) {
     }
 
     // 3. Basic Input Validation
-    if (!data.name || !data.email || !data.email.includes("@")) {
-      return new Response(JSON.stringify({ success: false, message: "Valid name and email are required." }), {
+    if (!data.name || !data.email || !data.email.includes("@") || !data.phone) {
+      return new Response(JSON.stringify({ success: false, message: "Valid name, email, and phone number are required." }), {
         status: 400,
         headers: allowedHeaders,
       });

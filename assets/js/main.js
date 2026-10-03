@@ -29417,18 +29417,15 @@ function L9({
       s((p) => (p.includes(h) ? p.filter((v) => v !== h) : [...p, h]));
     },
     g = [
-      "Website Design",
-      "AI Solution",
-      "App Development",
-      "CRO-Optimized Design",
-      "Custom Designs",
-      "Specialized in SaaS",
-      "Webflow Development",
-      "Other",
+      "Zero-Error QR Hub",
+      "Automated Booking System",
+      "Digital Inventory Catalog",
+      "SMS Follow-Ups & Reminders",
+      "Other Operational Automation",
     ],
     getServicesText = () => {
       const chosen = l.map((item) =>
-        item === "Other" && t.otherService && t.otherService.trim()
+        (item === "Other" || item === "Other Operational Automation") && t.otherService && t.otherService.trim()
           ? "Other (" + t.otherService.trim() + ")"
           : item,
       );
@@ -29450,6 +29447,11 @@ function L9({
       if (!t.email || !t.email.includes("@")) {
         setStatus("error");
         setStatusMsg("Please enter a valid work email address.");
+        return;
+      }
+      if (!t.phone || !t.phone.trim()) {
+        setStatus("error");
+        setStatusMsg("Please enter your phone number to proceed.");
         return;
       }
       setStatus("idle");
@@ -29615,6 +29617,11 @@ function L9({
       if (!t.email || !t.email.includes("@")) {
         setStatus("error");
         setStatusMsg("Please enter a valid work email address.");
+        return;
+      }
+      if (!t.phone || !t.phone.trim()) {
+        setStatus("error");
+        setStatusMsg("Please enter your phone number to proceed.");
         return;
       }
       setStatus("loading");
@@ -30128,7 +30135,7 @@ function L9({
                                 className:
                                   "text-base text-gray-600 leading-relaxed",
                                 children:
-                                  "Share your project details with us, and we'll respond promptly. Let's turn your vision into reality together.",
+                                  "Ready to automate your operations? Tell us your biggest business bottleneck, and our Zamboanga engineering team will deploy the exact system to fix it.",
                               }),
                             ],
                           }),
@@ -30158,11 +30165,12 @@ function L9({
                               m.jsx("input", {
                                 type: "tel",
                                 name: "phone",
-                                placeholder: "Phone (optional)",
+                                placeholder: "Phone*",
                                 value: t.phone,
                                 onChange: o,
                                 className:
                                   "px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full",
+                                required: !0,
                               }),
                               m.jsx("input", {
                                 type: "url",
@@ -30230,14 +30238,14 @@ function L9({
                               ),
                             ),
                           }),
-                          l.includes("Other") &&
+                          (l.includes("Other") || l.includes("Other Operational Automation")) &&
                             m.jsx("div", {
                               className: "mt-4",
                               children: m.jsx("input", {
                                 type: "text",
                                 name: "otherService",
                                 placeholder:
-                                  "Please specify the other service you need...",
+                                  "Please specify your operational automation needs...",
                                 value: t.otherService || "",
                                 onChange: o,
                                 autoFocus: true,
