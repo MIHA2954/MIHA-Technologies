@@ -21458,12 +21458,11 @@ function MS() {
                 className:
                   "text-5xl lg:text-7xl font-normal -tracking-[2.88px] mb-4 text-black",
                 children: [
-                  "We Build ",
+                  "Stop Bleeding Revenue ",
                   m.jsx("span", {
                     className: "italic",
-                    children: " Digital Products ",
+                    children: "to Inefficiency.",
                   }),
-                  " That Drive Growth.",
                 ],
               }),
               m.jsx(Ye.p, {
@@ -21473,7 +21472,7 @@ function MS() {
                 className:
                   "mb-8 lg:mb-12 text-gray-700 text-lg leading-6 -tracking-[0.2px] max-w-xl mx-auto",
                 children:
-                  "Founded by student developers in Zamboanga City. We design and build clean, custom web and mobile software to help businesses scale and grow.",
+                  "We are Zamboanga City’s premier digital infrastructure agency. We deploy battle-tested automated booking systems and zero-error ordering hubs to local businesses so you can cut costs and run your operations 24/7.",
               }),
               m.jsxs(Ye.div, {
                 initial: !1,
@@ -27499,39 +27498,39 @@ function f9() {
 const d9 = [
     {
       id: 1,
-      question: "How do your automated QR menus and booking portals prevent ordering mistakes?",
+      question: "What exactly do you build?",
       answer:
-        "Our systems include a Staff Accountability Lock—a digital verification checklist where staff must confirm table, item modifications, and special requests before the ticket sends to preparation. This removes misheard phone orders, handwritten confusion, and lost tickets.",
+        "We deploy battle-tested digital infrastructure for local businesses. This includes Zero-Error QR Ordering Hubs for cafes, 24/7 Automated Booking Systems for clinics and gyms, and digital inventory dashboards for retail stores.",
     },
     {
       id: 2,
-      question: "Can we stop paying 20% to 30% delivery app fees?",
+      question: "How fast can you launch my system?",
       answer:
-        "Yes. By running your own owned QR ordering hub and booking portal, customers order and reserve directly with you. You keep 100% of your ticket revenue and retain direct customer data for automated SMS follow-ups.",
+        "Because we use pre-built Master Templates, we do not waste months on custom coding. Once you pay your deposit and provide your branding/menus, we localize your system and push it live in 7 days or less.",
     },
     {
       id: 3,
-      question: "How do automated bookings and deposit collections work?",
+      question: "What happens if my system crashes?",
       answer:
-        "Customers visit your 24/7 appointment portal, select their service, choose open staff time slots, and pay a deposit via GCash, Maya, or card. The portal syncs immediately with your staff calendars to prevent double-bookings and eliminate empty calendar slots.",
+        "It doesn't. Your mandatory SLA retainer covers strict Managed Security and priority cloud hosting. We monitor your system 24/7 to ensure your digital operations never go offline, even during your highest traffic hours.",
     },
     {
       id: 4,
-      question: "How do 24/7 SMS and messenger bots reduce customer no-shows?",
+      question: "Do my staff need to be good with technology?",
       answer:
-        "The system sends automated, timed SMS notifications and WhatsApp/Messenger reminders leading up to reservations. If a client needs to reschedule, the bot handles it automatically and reopens the time slot for other customers.",
+        "No. We specifically engineer our systems to be foolproof for minimum-wage staff. Tools like our 'Staff Accountability Lock' actually force your employees to make fewer mistakes without requiring any complex tech training.",
     },
     {
       id: 5,
-      question: "Can we integrate automated GCash, Maya, and card payments into our operations?",
+      question: "Who owns the data and the system?",
       answer:
-        "Yes. We connect direct payment gateways with automated webhooks. Instead of manually inspecting screenshot receipts, payments are verified in milliseconds and reflected directly in your live admin dashboard.",
+        "You own 100% of your business data, customer lists, and transaction history. MIHA Technologies retains ownership of the underlying proprietary codebase to securely manage updates, host the servers, and protect your system from cyber threats.",
     },
     {
       id: 6,
-      question: "What does the Ongoing Infrastructure & Security Support retainer cover?",
+      question: "What if I don't pay the infrastructure fee?",
       answer:
-        "We do not leave after launch. We maintain your secure cloud hosting, execute automated daily database backups, patch security vulnerabilities, and provide direct technical support so your operations never go down.",
+        "To protect our engineering resources, our Service Level Agreement (SLA) includes a strict Kill-Switch policy. If infrastructure invoices are ignored, your digital systems will be temporarily taken offline until the balance is resolved.",
     },
   ],
   h9 = () => {
