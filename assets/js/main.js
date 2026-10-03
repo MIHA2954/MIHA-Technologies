@@ -30794,106 +30794,81 @@ function R9() {
 }
 const z9 = [
   "All Projects",
-  "Web Apps",
+  "Retail & Inventory",
+  "Clinic & Service Bookings",
+  "Restaurant & Cafe Ordering",
   "SaaS Platforms",
-  "E-Commerce",
-  "Healthcare & Hospitality",
   "Creative & Media",
 ];
 const _9 = () => [
   {
     id: 1,
-    title: "FreshCart",
-    type: "E-COMMERCE & GROCERY",
+    title: "BeCoffee Roastery",
+    subtitle: "The Zero-Error QR Ordering Master Template.",
+    type: "RESTAURANT & CAFE ORDERING",
     date: "2026",
-    image: "assets/images/project/freshcart.jpg",
-    category: "E-Commerce",
-    categories: ["All Projects", "Web Apps", "E-Commerce"],
-    url: "https://freshcart.ct.ws/",
-    desc: "Organic supermarket web application connecting consumers with verified local growers for 24h farm-to-door delivery.",
+    image: "assets/images/project/becoffee.jpg",
+    category: "Restaurant & Cafe Ordering",
+    categories: ["All Projects", "Restaurant & Cafe Ordering"],
+    url: "https://becoffee-cafe.web.app/",
+    desc: "The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.",
   },
   {
     id: 2,
+    title: "Serene Smile Clinic",
+    subtitle: "The 24/7 Automated Booking Master Template.",
+    type: "CLINIC & SERVICE BOOKINGS",
+    date: "2026",
+    image: "assets/images/project/serene-smile.jpg",
+    category: "Clinic & Service Bookings",
+    categories: ["All Projects", "Clinic & Service Bookings"],
+    url: "https://serene-smile.netlify.app/",
+    desc: "Built to replace inefficient reception desks. Features a fully automated patient portal, doctor scheduling, and SMS no-show reminders. Engineered to be cloned for local clinics, salons, and gyms.",
+  },
+  {
+    id: 3,
+    title: "FreshCart E-Commerce",
+    subtitle: "The Digital Retail & Inventory Master Template.",
+    type: "RETAIL & INVENTORY",
+    date: "2026",
+    image: "assets/images/project/freshcart.jpg",
+    category: "Retail & Inventory",
+    categories: ["All Projects", "Retail & Inventory"],
+    url: "https://freshcart.ct.ws/",
+    desc: "Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.",
+  },
+  {
+    id: 4,
     title: "QuickNote",
     type: "PRODUCTIVITY & SECOND BRAIN SAAS",
     date: "2026",
     image: "assets/images/project/quicknote.jpg",
-    category: "Web Apps",
-    categories: ["All Projects", "Web Apps", "SaaS Platforms"],
+    category: "SaaS Platforms",
+    categories: ["All Projects", "SaaS Platforms"],
     url: "https://quicknote.ct.ws/?i=2",
     desc: "The second brain for creators and developers featuring instant auto-save, smart tagging, rich media cloud storage, and interactive WebGL canvas.",
   },
   {
-    id: 3,
+    id: 5,
     title: "A.N.A",
     type: "DIGITAL ART & EXHIBITION GALLERY",
     date: "2026",
     image: "assets/images/project/ana.jpg",
     category: "Creative & Media",
-    categories: ["All Projects", "Web Apps", "Creative & Media"],
+    categories: ["All Projects", "Creative & Media"],
     url: "https://ana-seven-silk.vercel.app/",
     desc: "Interactive digital art gallery and exhibition web application developed with Next.js, featuring real-time WebGL canvas and curated artist manifestos.",
   },
   {
-    id: 4,
+    id: 6,
     title: "Syrupynut",
     type: "CREATIVE PORTFOLIO & COMMISSIONS",
     date: "2026",
     image: "assets/images/project/syrupynut.jpg",
     category: "Creative & Media",
-    categories: [
-      "All Projects",
-      "Web Apps",
-      "Creative & Media",
-      "E-Commerce",
-    ],
+    categories: ["All Projects", "Creative & Media"],
     url: "https://syrupynut.pages.dev/",
     desc: "Digital illustration commission hub and artist portfolio featuring tiered service pricing, interactive guidelines, and direct booking integrations.",
-  },
-  {
-    id: 5,
-    title: "BeCoffee",
-    type: "SPECIALTY COFFEE & ROASTERY",
-    date: "2026",
-    image: "assets/images/project/becoffee.jpg",
-    category: "Healthcare & Hospitality",
-    categories: [
-      "All Projects",
-      "Web Apps",
-      "Healthcare & Hospitality",
-      "E-Commerce",
-    ],
-    url: "https://becoffee-cafe.web.app/",
-    desc: "Digital storefront and cafe experience for an artisanal Philippine coffee roastery featuring online orders and specialty roast discovery.",
-  },
-  {
-    id: 6,
-    title: "Serene Smile Dental Clinic",
-    type: "HEALTHCARE & CLINIC APP",
-    date: "2026",
-    image: "assets/images/project/serene-smile.jpg",
-    category: "Healthcare & Hospitality",
-    categories: ["All Projects", "Web Apps", "Healthcare & Hospitality"],
-    url: "https://serene-smile.netlify.app/",
-    desc: "Modern dental clinic web application featuring Swiss EMS Airflow treatment bookings, doctor scheduling, and patient portal.",
-  },
-  {
-    id: 7,
-    title: "More Projects to Come",
-    type: "ACTIVE SPRINT • 2026",
-    date: "IN PROGRESS",
-    category: "All Projects",
-    categories: [
-      "All Projects",
-      "Web Apps",
-      "SaaS Platforms",
-      "E-Commerce",
-      "Healthcare & Hospitality",
-      "Creative & Media",
-    ],
-    isUpcoming: !0,
-    url: "contact.html",
-    desc: "We are actively designing and deploying new web applications, client portals, and bespoke digital platforms. New case studies are published as projects launch.",
   },
 ];
 function V9() {
@@ -30931,11 +30906,16 @@ function V9() {
         className: "max-w-7xl mx-auto px-6",
         children: [
           m.jsxs("h2", {
-            className: "text-black text-5xl font-normal mb-16",
+            className: "text-black text-5xl font-normal mb-6",
             children: [
               "MIHA ",
               m.jsx("span", { className: "italic", children: "Projects" }),
             ],
+          }),
+          m.jsx("p", {
+            className: "text-gray-600 text-lg max-w-3xl mb-12 leading-relaxed",
+            children:
+              "From Zero-Error Ordering Hubs to 24/7 Automated Booking Systems: browse our battle-tested Master Templates, ready to be localized and deployed for your business in 7 days.",
           }),
           m.jsxs("div", {
             className: "mb-12",
@@ -31063,213 +31043,123 @@ function V9() {
             children: m.jsx(cd, {
               mode: "popLayout",
               children: s.map((o) =>
-                o.isUpcoming
-                  ? m.jsxs(
-                      Ye.article,
-                      {
-                        layout: !0,
-                        initial: { opacity: 0, scale: 0.9 },
-                        animate: { opacity: 1, scale: 1 },
-                        exit: { opacity: 0, scale: 0.9 },
-                        transition: { duration: 0.3 },
-                        className:
-                          "p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between group",
+                m.jsxs(
+                  Ye.article,
+                  {
+                    layout: !0,
+                    initial: { opacity: 0, scale: 0.9 },
+                    animate: { opacity: 1, scale: 1 },
+                    exit: { opacity: 0, scale: 0.9 },
+                    transition: { duration: 0.3 },
+                    className:
+                      "p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between",
+                    children: [
+                      m.jsxs("div", {
                         children: [
-                          m.jsxs("div", {
-                            children: [
-                              m.jsx("h3", {
-                                className:
-                                  "text-xl text-white font-medium -leading-[0.2px]",
-                                children: m.jsxs("a", {
-                                  href: "contact.html",
-                                  className: "hover:text-gray-300",
-                                  children: [
-                                    "More Projects ",
-                                    m.jsx("span", {
-                                      className: "italic text-white/80",
-                                      children: "to Come.",
-                                    }),
-                                  ],
-                                }),
-                              }),
-                              m.jsxs("div", {
-                                className:
-                                  "flex py-4 text-gray-400 text-xs justify-between font-mono",
-                                children: [
-                                  m.jsxs("span", {
-                                    className: "inline-flex items-center gap-2",
-                                    children: [
-                                      m.jsx("span", {
-                                        className: "w-2 h-2 rounded-full",
-                                        style: {
-                                          backgroundColor: "#10b981",
-                                          display: "inline-block",
-                                          boxShadow: "0 0 8px #10b981",
-                                        },
-                                      }),
-                                      "ACTIVE SPRINT • 2026",
-                                    ],
-                                  }),
-                                  m.jsx("span", { children: "IN PROGRESS" }),
-                                ],
-                              }),
-                              m.jsx("p", {
-                                className:
-                                  "text-white/60 text-sm mb-4 leading-relaxed",
-                                children: o.desc,
-                              }),
-                            ],
-                          }),
-                          m.jsxs("div", {
+                          m.jsx("h3", {
                             className:
-                              "overflow-hidden rounded-2xl border border-[#1F1F1F] bg-black p-6 flex flex-col justify-between",
-                            style: { minHeight: "260px" },
-                            children: [
-                              m.jsxs("div", {
-                                className: "space-y-3",
-                                children: [
-                                  m.jsxs("div", {
-                                    className:
-                                      "flex items-center justify-between py-2 border-b border-[#1F1F1F]",
-                                    children: [
-                                      m.jsx("span", {
-                                        className:
-                                          "text-sm text-white font-medium",
-                                        children: "SaaS Workflow Platform",
-                                      }),
-                                      m.jsx("span", {
-                                        className: "text-xs font-mono",
-                                        style: { color: "#10b981" },
-                                        children: "STAGING",
-                                      }),
-                                    ],
-                                  }),
-                                  m.jsxs("div", {
-                                    className:
-                                      "flex items-center justify-between py-2 border-b border-[#1F1F1F]",
-                                    children: [
-                                      m.jsx("span", {
-                                        className:
-                                          "text-sm text-white font-medium",
-                                        children: "Specialty B2B Marketplace",
-                                      }),
-                                      m.jsx("span", {
-                                        className: "text-xs font-mono",
-                                        style: { color: "#38bdf8" },
-                                        children: "BUILD",
-                                      }),
-                                    ],
-                                  }),
-                                  m.jsxs("div", {
-                                    className:
-                                      "flex items-center justify-between py-2 border-b border-[#1F1F1F]",
-                                    children: [
-                                      m.jsx("span", {
-                                        className:
-                                          "text-sm text-white font-medium",
-                                        children: "Fintech Settlement Gateway",
-                                      }),
-                                      m.jsx("span", {
-                                        className: "text-xs font-mono",
-                                        style: { color: "#a3a3a3" },
-                                        children: "QUEUE",
-                                      }),
-                                    ],
-                                  }),
-                                ],
-                              }),
-                              m.jsx("div", {
-                                className: "pt-4",
-                                children: m.jsxs("a", {
-                                  href: "contact.html",
-                                  className:
-                                    "inline-flex items-center gap-2 text-sm font-medium text-white hover:text-gray-300 transition-colors",
-                                  children: [
-                                    m.jsx("span", {
-                                      children:
-                                        "Have a project in mind? Let's talk",
-                                    }),
-                                    m.jsx("span", {
-                                      className: "text-base",
-                                      children: "\u2192",
-                                    }),
-                                  ],
-                                }),
-                              }),
-                            ],
-                          }),
-                        ],
-                      },
-                      o.id,
-                    )
-                  : m.jsxs(
-                      Ye.article,
-                      {
-                        layout: !0,
-                        initial: { opacity: 0, scale: 0.9 },
-                        animate: { opacity: 1, scale: 1 },
-                        exit: { opacity: 0, scale: 0.9 },
-                        transition: { duration: 0.3 },
-                        className:
-                          "p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between",
-                        children: [
-                          m.jsxs("div", {
-                            children: [
-                              m.jsx("h3", {
-                                className:
-                                  "text-xl text-white font-medium -leading-[0.2px]",
-                                children: m.jsx("a", {
-                                  href: o.url || "/portfolio/" + o.id,
-                                  target: o.url ? "_blank" : "_self",
-                                  rel: "noopener noreferrer",
-                                  className: "hover:text-gray-300",
-                                  children: o.title,
-                                }),
-                              }),
-                              m.jsxs("div", {
-                                className:
-                                  "flex py-4 text-gray-400 text-xs justify-between font-mono",
-                                children: [
-                                  m.jsx("span", { children: o.type }),
-                                  m.jsx("span", { children: o.date }),
-                                ],
-                              }),
-                              m.jsx("p", {
-                                className:
-                                  "text-white/60 text-sm mb-4 leading-relaxed",
-                                children: o.desc,
-                              }),
-                            ],
-                          }),
-                          m.jsx("a", {
-                            href: o.url || "/portfolio/" + o.id,
-                            target: o.url ? "_blank" : "_self",
-                            rel: "noopener noreferrer",
-                            className:
-                              "block overflow-hidden rounded-2xl group",
-                            children: m.jsx(Ye.img, {
-                              variants: {
-                                initial: { scale: 1 },
-                                hover: { scale: 1.05 },
-                              },
-                              transition: { duration: 0.4, ease: "easeOut" },
-                              whileHover: "hover",
-                              src: o.image,
-                              className:
-                                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
-                              alt: o.title,
+                              "text-xl text-white font-medium -leading-[0.2px]",
+                            children: m.jsx("a", {
+                              href: o.url || "/portfolio/" + o.id,
+                              target: o.url ? "_blank" : "_self",
+                              rel: "noopener noreferrer",
+                              className: "hover:text-gray-300",
+                              children: o.title,
                             }),
                           }),
+                          o.subtitle &&
+                            m.jsx("p", {
+                              className: "text-sm font-medium mt-1",
+                              style: { color: "#10b981" },
+                              children: o.subtitle,
+                            }),
+                          m.jsxs("div", {
+                            className:
+                              "flex py-4 text-gray-400 text-xs justify-between font-mono",
+                            children: [
+                              m.jsx("span", { children: o.type }),
+                              m.jsx("span", { children: o.date }),
+                            ],
+                          }),
+                          m.jsx("p", {
+                            className:
+                              "text-white/60 text-sm mb-4 leading-relaxed",
+                            children: o.desc,
+                          }),
                         ],
-                      },
-                      o.id,
-                    ),
+                      }),
+                      m.jsx("a", {
+                        href: o.url || "/portfolio/" + o.id,
+                        target: o.url ? "_blank" : "_self",
+                        rel: "noopener noreferrer",
+                        className:
+                          "block overflow-hidden rounded-2xl group",
+                        children: m.jsx(Ye.img, {
+                          variants: {
+                            initial: { scale: 1 },
+                            hover: { scale: 1.05 },
+                          },
+                          transition: { duration: 0.4, ease: "easeOut" },
+                          whileHover: "hover",
+                          src: o.image,
+                          className:
+                            "w-full h-auto transition-transform duration-500 group-hover:scale-105",
+                          alt: o.title,
+                        }),
+                      }),
+                    ],
+                  },
+                  o.id,
+                ),
               ),
             }),
           }),
         }),
       }),
     ],
+  });
+}
+function CTA_Portfolio() {
+  return m.jsx("section", {
+    className: "py-14 bg-[#FBFBFB]",
+    children: m.jsx("div", {
+      className: "max-w-7xl mx-auto px-6",
+      children: m.jsxs("div", {
+        className:
+          "flex items-center flex-col sm:flex-row justify-between gap-6",
+        children: [
+          m.jsx("div", {
+            className: "sm:w-1/2",
+            children: m.jsxs("h2", {
+              className:
+                "font-normal text-5xl text-center sm:text-left text-black -tracking-[1.92px]",
+              children: [
+                "Ready to build ",
+                m.jsx("br", {}),
+                "your next ",
+                "",
+                m.jsx("span", { className: "italic", children: "big idea?" }),
+              ],
+            }),
+          }),
+          m.jsx("div", {
+            className: "sm:w-1/2 flex sm:justify-end",
+            children: m.jsx(Se, {
+              to: "/contact",
+              onClick: () => {
+                window.forceScrollToTop && window.forceScrollToTop(!0);
+              },
+              className:
+                "group px-6 py-4.5 inline-flex gap-2 items-center bg-white border border-black text-sm font-medium -tracking-[0.2px] leading-5 text-black rounded-full hover:bg-gray-100 transition-all duration-300 text-center",
+              children: m.jsx(ft, {
+                children:
+                  "Stop losing revenue to inefficiency. Schedule your digital infrastructure audit today.",
+              }),
+            }),
+          }),
+        ],
+      }),
+    }),
   });
 }
 function B9() {
@@ -31281,7 +31171,7 @@ function B9() {
           "Explore our portfolio of successful web and app development projects. See how MIHA Technologies engineers high-performance digital products.",
       }),
       m.jsx(V9, {}),
-      m.jsx(Pi, {}),
+      m.jsx(CTA_Portfolio, {}),
     ],
   });
 }
