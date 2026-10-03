@@ -27284,7 +27284,7 @@ const nexServices = [
     description:
       "Stop chasing manual bank transfers and fake payment screenshots. We connect your ordering and booking systems directly to automated GCash, Maya, and card checkouts with instant verification and automatic digital receipts.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=1200&sat=-100",
+      "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1200&sat=-100",
     icon: "M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm2 3h16V6H4v2zm0 4h16v6H4v-6z",
   },
   {
