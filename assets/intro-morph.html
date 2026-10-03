@@ -20159,29 +20159,41 @@ Error generating stack: ` +
       }
       s(Jr, "useSpring");
       const _2 = 60,
-        B2 = 85;
-      function N2({ src: i, index: l, total: o, phase: r, target: f }) {
+        B2 = 85,
+        // Cards are laid out at their largest on-screen size and scaled down, so the
+        // GPU layer (will-change) is rasterized big and stays sharp in the arc stage
+        CARD_MAX = 1.8;
+      function N2Base({ src: i, index: l, total: o, phase: r, target: f }) {
         return pt.jsx(yl.div, {
           animate: {
             x: f.x,
             y: f.y,
             rotate: f.rotation,
-            scale: f.scale,
+            scale: f.scale / CARD_MAX,
             opacity: f.opacity,
           },
           transition: { type: "spring", stiffness: 40, damping: 15 },
-          style: { position: "absolute", width: _2, height: B2 },
+          style: {
+            position: "absolute",
+            width: _2 * CARD_MAX,
+            height: B2 * CARD_MAX,
+            willChange: "transform",
+          },
           className: "cursor-pointer group",
           children: pt.jsxs(yl.div, {
             className:
-              "relative h-full w-full overflow-hidden rounded-xl shadow-lg bg-gray-200",
+              "relative h-full w-full overflow-hidden shadow-lg bg-gray-200",
+            style: { borderRadius: 12 * CARD_MAX },
             whileHover: { scale: 1.06 },
             transition: { duration: 0.2 },
             children: [
               pt.jsx("img", {
-                style: { filter: "grayscale(100%)", WebkitFilter: "grayscale(100%)" },
                 src: i,
                 alt: `hero-${l}`,
+                width: _2 * CARD_MAX,
+                height: B2 * CARD_MAX,
+                decoding: "async",
+                draggable: !1,
                 className: "h-full w-full object-cover",
               }),
               pt.jsx("div", {
@@ -20192,30 +20204,42 @@ Error generating stack: ` +
           }),
         });
       }
-      s(N2, "FlipCard");
+      s(N2Base, "FlipCard");
+      // Skip re-rendering cards whose target hasn't moved (targets are rounded below)
+      const N2 = k.memo(
+        N2Base,
+        (a, b) =>
+          a.src === b.src &&
+          a.phase === b.phase &&
+          a.target.x === b.target.x &&
+          a.target.y === b.target.y &&
+          a.target.rotation === b.target.rotation &&
+          a.target.scale === b.target.scale &&
+          a.target.opacity === b.target.opacity,
+      );
       const ul = 20,
         Iy = 3e3,
         t0 = [
-          "images/project/freshcart.jpg",
-          "images/project/quicknote.jpg",
-          "images/project/ana.jpg",
-          "images/project/syrupynut.jpg",
-          "images/project/becoffee.jpg",
-          "images/project/serene-smile.jpg",
-          "images/cover/clients-cover.jpg",
-          "images/cover/cover-about-office.jpg",
-          "images/cover/cover-about.jpg",
-          "images/services/service-hero.jpg",
-          "images/cover/blog-cover.jpg",
-          "images/project/project-4.jpg",
-          "images/project/project-5.jpg",
-          "images/team/team-1.jpg",
-          "images/team/team-2.jpg",
-          "images/team/team-3.jpg",
-          "images/team/team-4.jpg",
-          "images/team/team-5.jpg",
-          "images/project/project-6.jpg",
-          "images/project/project-7.jpg",
+          "images/hero/freshcart.webp",
+          "images/hero/face-team-mhyco.webp",
+          "images/hero/quicknote.webp",
+          "images/hero/ana.webp",
+          "images/hero/face-team-ace.webp",
+          "images/hero/syrupynut.webp",
+          "images/hero/becoffee.webp",
+          "images/hero/face-team-janus.webp",
+          "images/hero/serene-smile.webp",
+          "images/hero/clients-cover.webp",
+          "images/hero/face-team-florenz.webp",
+          "images/hero/cover-about-office.webp",
+          "images/hero/cover-about.webp",
+          "images/hero/face-team-isaiah.webp",
+          "images/hero/service-hero.webp",
+          "images/hero/blog-cover.webp",
+          "images/hero/face-team-yanmark.webp",
+          "images/hero/project-4.webp",
+          "images/hero/project-5.webp",
+          "images/hero/face-team-clyde.webp",
         ],
         Ps = s((i, l, o) => i * (1 - o) + l * o, "lerp");
       function w2() {
@@ -20357,17 +20381,32 @@ Error generating stack: ` +
               })),
             [],
           ),
-          [U, L] = k.useState(0),
-          [H, X] = k.useState(0),
-          [F, G] = k.useState(0);
+          [{ U, H, F }, setFrame] = k.useState({ U: 0, H: 0, F: 0 });
         k.useEffect(() => {
-          const Q = y.on("change", L),
-            I = v.on("change", X),
-            K = E.on("change", G);
+          let raf = 0;
+          const flush = s(() => {
+              raf = 0;
+              const nU = Math.round(y.get() * 1e3) / 1e3,
+                nH = Math.round(v.get() * 10) / 10,
+                nF = Math.round(E.get() * 2) / 2;
+              setFrame((prev) =>
+                prev.U === nU && prev.H === nH && prev.F === nF
+                  ? prev
+                  : { U: nU, H: nH, F: nF },
+              );
+            }, "flushFrame"),
+            schedule = s(() => {
+              raf || (raf = requestAnimationFrame(flush));
+            }, "scheduleFrame"),
+            Q = y.on("change", schedule),
+            I = v.on("change", schedule),
+            K = E.on("change", schedule);
           return () => {
-            (Q(), I(), K());
+            (Q(), I(), K(), raf && cancelAnimationFrame(raf));
           };
         }, [y, v, E]);
+        // Text fades only retarget in 5% steps, so the tween isn't restarted every frame
+        const textU = Math.round(U * 20) / 20;
         const $ = rl(y, [0.8, 1], [0, 1]),
           q = rl(y, [0.8, 1], [20, 0]);
         return pt.jsx("div", {
@@ -20384,9 +20423,9 @@ Error generating stack: ` +
                   pt.jsxs(yl.h1, {
                     initial: { opacity: 0, y: 20, filter: "blur(10px)" },
                     animate:
-                      i === "circle" && U < 0.5
-                        ? { opacity: 1 - U * 2, y: 0, filter: "blur(0px)" }
-                        : { opacity: 0, filter: "blur(10px)" },
+                      i === "circle" && textU < 0.5
+                        ? { opacity: 1 - textU * 2, y: 0, filter: "blur(0px)" }
+                        : { opacity: 0, filter: "blur(0px)" },
                     transition: { duration: 0.8 },
                     className: "morph-hero-title",
                     children: [
@@ -20403,8 +20442,8 @@ Error generating stack: ` +
                   pt.jsx(yl.p, {
                     initial: { opacity: 0, y: 20 },
                     animate:
-                      i === "circle" && U < 0.5
-                        ? { opacity: 1 - U * 2, y: 0 }
+                      i === "circle" && textU < 0.5
+                        ? { opacity: 1 - textU * 2, y: 0 }
                         : { opacity: 0 },
                     transition: { duration: 0.8, delay: 0.1 },
                     className: "morph-hero-sub",
@@ -20414,8 +20453,8 @@ Error generating stack: ` +
                   pt.jsx(yl.div, {
                     initial: { opacity: 0 },
                     animate:
-                      i === "circle" && U < 0.5
-                        ? { opacity: 0.7 - U }
+                      i === "circle" && textU < 0.5
+                        ? { opacity: 0.7 - textU }
                         : { opacity: 0 },
                     transition: { duration: 0.5, delay: 0.2 },
                     className: "morph-hero-badge",
@@ -20493,10 +20532,10 @@ Error generating stack: ` +
                         scale: ut ? 1.4 : 1.8,
                       };
                     K = {
-                      x: Ps(Wt.x, Qt.x, U),
-                      y: Ps(Wt.y, Qt.y, U),
-                      rotation: Ps(Wt.rotation, Qt.rotation, U),
-                      scale: Ps(1, Qt.scale, U),
+                      x: Math.round(Ps(Wt.x, Qt.x, U) * 2) / 2,
+                      y: Math.round(Ps(Wt.y, Qt.y, U) * 2) / 2,
+                      rotation: Math.round(Ps(Wt.rotation, Qt.rotation, U) * 10) / 10,
+                      scale: Math.round(Ps(1, Qt.scale, U) * 1e3) / 1e3,
                       opacity: 1,
                     };
                   }
