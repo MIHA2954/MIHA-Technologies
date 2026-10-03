@@ -507,11 +507,19 @@ section.pt-25 .grid img {
   margin-bottom: 1.5rem;
 }
 
+.pricing-tray-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
 .pricing-tray-subtitle {
   color: #6b7280;
   font-size: 0.875rem;
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .pricing-billing-switch {
@@ -619,11 +627,11 @@ section.pt-25 .grid img {
 }
 
 .pricing-plan-price {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #111827;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .pricing-plan-period {
@@ -633,9 +641,13 @@ section.pt-25 .grid img {
 }
 
 .pricing-plan-billed {
-  font-size: 0.6875rem;
-  color: #9ca3af;
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: #4b5563;
+  line-height: 1.35;
+  margin-top: 0.35rem;
   margin-bottom: 1rem;
+  min-height: 2.1rem;
 }
 
 .pricing-feature-list {

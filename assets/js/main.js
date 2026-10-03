@@ -29587,63 +29587,51 @@ function L9({
     [statusMsg, setStatusMsg] = E.useState(""),
     [isCallBooking, setIsCallBooking] = E.useState(true),
     [isBundleOpen, setIsBundleOpen] = E.useState(false),
-    [isAnnualBilling, setIsAnnualBilling] = E.useState(false),
     bundleRef = E.useRef(null),
     pricingPlans = [
       {
-        id: "STARTER",
-        name: "STARTER",
-        priceMonthly: "50",
-        priceAnnual: "40",
-        period: "per month",
+        id: "tier-1-frontend-hub",
+        name: "Tier 1: Frontend Hub",
+        price: "Custom Quote",
+        billingTerms: "One-Time Setup + Monthly Support",
         features: [
-          "Up to 10 projects",
-          "Basic analytics",
-          "48-hour support response time",
-          "Limited API access",
-          "Community support",
+          "Launch in 7 Days",
+          "Custom Design & Branding",
+          "Fast Cloud Hosting",
+          "Website Visitor Stats",
+          "Standard Tech Support",
         ],
-        description: "Perfect for individuals and small projects",
-        buttonText: "Select Starter",
+        buttonText: "Request Local Audit",
         isPopular: false,
       },
       {
-        id: "PROFESSIONAL",
-        name: "PROFESSIONAL",
-        priceMonthly: "99",
-        priceAnnual: "79",
-        period: "per month",
+        id: "tier-2-admin-cms",
+        name: "Tier 2: Admin + CMS",
+        price: "Custom Quote",
+        billingTerms: "One-Time Setup + Monthly Support",
         features: [
-          "Unlimited projects",
-          "Advanced analytics",
-          "24-hour support response time",
-          "Full API access",
-          "Priority support",
-          "Team collaboration",
-          "Custom integrations",
+          "Everything in Tier 1",
+          "Booking System or QR Menu Hub",
+          "Real-Time Admin Dashboard",
+          "Staff Daily Checklists",
+          "24/7 Uptime Monitoring",
         ],
-        description: "Ideal for growing teams and businesses",
-        buttonText: "Select Professional",
+        buttonText: "Request Local Audit",
         isPopular: true,
       },
       {
-        id: "ENTERPRISE",
-        name: "ENTERPRISE",
-        priceMonthly: "299",
-        priceAnnual: "239",
-        period: "per month",
+        id: "tier-3-full-stack-system",
+        name: "Tier 3: Full-Stack System",
+        price: "Custom Quote",
+        billingTerms: "One-Time Setup + Priority Support",
         features: [
-          "Everything in Professional",
-          "Custom solutions",
-          "Dedicated account manager",
-          "1-hour support response time",
-          "SSO Authentication",
-          "Advanced security",
-          "Custom contracts",
-          "SLA agreement",
+          "Everything in Tier 2",
+          "Automated SMS & Chatbots",
+          "Live Inventory & Online Payments",
+          "1-Hour Priority Support",
+          "Automated Backups & Security",
         ],
-        description: "For large organizations with specific needs",
-        buttonText: "Select Enterprise",
+        buttonText: "Request Local Audit",
         isPopular: false,
       },
     ],
@@ -30571,49 +30559,19 @@ function L9({
                                         m.jsxs("div", {
                                           className: "pricing-tray-header",
                                           children: [
+                                            m.jsx("h4", {
+                                              className: "pricing-tray-title",
+                                              children: "Service Tiers & Pricing",
+                                            }),
                                             m.jsx("p", {
                                               className: "pricing-tray-subtitle",
-                                              children: "Choose the plan that works for you. Transparent architecture tiers.",
-                                            }),
-                                            m.jsxs("div", {
-                                              className: "pricing-billing-switch",
-                                              children: [
-                                                m.jsx("button", {
-                                                  type: "button",
-                                                  onClick: (e) => {
-                                                    e.stopPropagation();
-                                                    setIsAnnualBilling(false);
-                                                  },
-                                                  className:
-                                                    "pricing-switch-btn" +
-                                                    (!isAnnualBilling ? " is-active" : ""),
-                                                  children: "Monthly billing",
-                                                }),
-                                                m.jsxs("button", {
-                                                  type: "button",
-                                                  onClick: (e) => {
-                                                    e.stopPropagation();
-                                                    setIsAnnualBilling(true);
-                                                  },
-                                                  className:
-                                                    "pricing-switch-btn" +
-                                                    (isAnnualBilling ? " is-active" : ""),
-                                                  children: [
-                                                    "Annual billing ",
-                                                    m.jsx("span", {
-                                                      className: !isAnnualBilling ? "text-emerald-600 font-bold" : "text-emerald-300 font-bold",
-                                                      children: "(Save 20%)",
-                                                    }),
-                                                  ],
-                                                }),
-                                              ],
+                                              children: "Choose the plan that fits your business.",
                                             }),
                                           ],
                                         }),
                                         m.jsx("div", {
                                           className: "pricing-cards-grid",
                                           children: pricingPlans.map((plan) => {
-                                            const currentPrice = isAnnualBilling ? plan.priceAnnual : plan.priceMonthly;
                                             const isSelected = t.budget && t.budget.startsWith(plan.name);
                                             return m.jsxs(
                                               "div",
@@ -30647,22 +30605,16 @@ function L9({
                                                         className: "pricing-plan-name",
                                                         children: plan.name,
                                                       }),
-                                                      m.jsxs("div", {
+                                                      m.jsx("div", {
                                                         className: "pricing-plan-price-wrap",
-                                                        children: [
-                                                          m.jsxs("span", {
-                                                            className: "pricing-plan-price",
-                                                            children: ["$", currentPrice],
-                                                          }),
-                                                          m.jsx("span", {
-                                                            className: "pricing-plan-period",
-                                                            children: "/ per month",
-                                                          }),
-                                                        ],
+                                                        children: m.jsx("span", {
+                                                          className: "pricing-plan-price",
+                                                          children: plan.price,
+                                                        }),
                                                       }),
                                                       m.jsx("div", {
                                                         className: "pricing-plan-billed",
-                                                        children: isAnnualBilling ? "billed annually" : "billed monthly",
+                                                        children: plan.billingTerms,
                                                       }),
                                                       m.jsx("ul", {
                                                         className: "pricing-feature-list",
@@ -30703,19 +30655,14 @@ function L9({
                                                         type: "button",
                                                         onClick: (e) => {
                                                           e.stopPropagation();
-                                                          const billingLabel = isAnnualBilling ? "Annual" : "Monthly";
                                                           i((prev) => ({
                                                             ...prev,
-                                                            budget: `${plan.name} ($${currentPrice}/mo, ${billingLabel})`,
+                                                            budget: plan.name,
                                                           }));
                                                           setIsBundleOpen(false);
                                                         },
                                                         className: "pricing-select-btn",
-                                                        children: isSelected ? "Selected ✓" : `Select ${plan.name}`,
-                                                      }),
-                                                      m.jsx("p", {
-                                                        className: "pricing-plan-footer-note",
-                                                        children: plan.description,
+                                                        children: isSelected ? "Selected ✓" : plan.buttonText,
                                                       }),
                                                     ],
                                                   }),
