@@ -26827,7 +26827,7 @@ const c9 = [
     id: 6,
     name: "Yan Mark V. Darunday",
     role: "Software Engineer",
-    image: "assets/images/team/team-yanmark.jpg",
+    image: "assets/images/team/team-yanmark.jpg?v=2",
     socials: {
       facebook: "https://www.facebook.com",
       github: "https://github.com",
