@@ -21593,6 +21593,18 @@ Error generating stack: ` +
         max-width: 440px !important;
         margin: 0 auto 1.25rem auto !important;
       }
+      @media (max-width: 1366px) {
+        .morph-hero-title {
+          font-size: clamp(2rem, min(4vw, 6.5vh), 3.25rem) !important;
+          letter-spacing: -1.5px !important;
+          max-width: min(560px, 75vh) !important;
+        }
+        .morph-hero-sub {
+          font-size: 0.875rem !important;
+          max-width: min(400px, 64vh) !important;
+          margin-bottom: 1rem !important;
+        }
+      }
       .morph-hero-badge {
         display: inline-flex !important;
         align-items: center !important;
