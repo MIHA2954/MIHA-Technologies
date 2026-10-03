@@ -204,22 +204,33 @@ section.pt-25 .grid img {
   }
 }
 
+/* Page Hero Spacing Utilities */
+.pt-8 {
+  padding-top: calc(var(--spacing) * 8) !important;
+}
+
+@media (min-width: 1024px) {
+  .lg\:pt-12 {
+    padding-top: calc(var(--spacing) * 12) !important;
+  }
+}
+
 /* Services Hero Section & Feature Carousel */
 .services-hero-section {
-  padding-top: 6.5rem !important;
+  padding-top: 2rem !important;
   padding-bottom: 3.5rem !important;
 }
 
 @media (min-width: 640px) {
   .services-hero-section {
-    padding-top: 8rem !important;
+    padding-top: 2.5rem !important;
     padding-bottom: 4rem !important;
   }
 }
 
 @media (min-width: 1024px) {
   .services-hero-section {
-    padding-top: 10.5rem !important;
+    padding-top: 3rem !important;
     padding-bottom: 5rem !important;
   }
 }
@@ -404,6 +415,7 @@ section.pt-25 .grid img {
 }
 
 .fc-card-badge {
+  display: none !important;
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -465,134 +477,247 @@ section.pt-25 .grid img {
   letter-spacing: 0.2em;
 }
 
-/* Bundle Dropdown & Cards */
-.bundle-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
+/* ==========================================================================
+   Contacts Page: 21st.dev Pricing Bundle Tray & Cards (@Codehagen/pricing)
+   ========================================================================== */
+.pricing-tray-wrap {
+  width: 100%;
+  margin-top: 1rem;
   background-color: #ffffff;
   border-radius: 1.5rem;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding: 0.75rem;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  animation: pricingTraySlideDown 0.25s ease-out forwards;
 }
 
-.bundle-option-card {
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.125rem;
-  border-radius: 1rem;
-  border: 1.5px solid #ececed;
-  background-color: #f9f9fb;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.875rem;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  position: relative;
-  box-sizing: border-box;
+@keyframes pricingTraySlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.bundle-option-card:hover {
-  background-color: #f3f4f6;
-  border-color: #d1d5db;
+.pricing-tray-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.bundle-option-card.is-selected {
-  background-color: #111827;
-  border-color: #111827;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+.pricing-tray-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
 }
 
-.bundle-card-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.bundle-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  margin-bottom: 0.35rem;
-  flex-wrap: wrap;
-}
-
-.bundle-card-title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #111827;
-  line-height: 1.3;
-}
-
-.bundle-option-card.is-selected .bundle-card-title {
-  color: #ffffff;
-}
-
-.bundle-card-badge {
+.pricing-billing-switch {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.25rem 0.55rem;
+  background-color: #f3f4f6;
+  padding: 3px;
   border-radius: 9999px;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  background-color: #e5e7eb;
+  border: 1px solid #e5e7eb;
+  gap: 2px;
+}
+
+.pricing-switch-btn {
+  padding: 0.4rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pricing-switch-btn.is-active {
+  background-color: #111827;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .pricing-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+  }
+}
+
+.pricing-plan-card {
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.pricing-plan-card:hover {
+  border-color: #111827;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-plan-card.is-popular {
+  border: 2px solid #111827;
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-plan-card.is-selected {
+  border-color: #111827;
+  background-color: #fcfcfd;
+  box-shadow: 0 0 0 2px #111827;
+}
+
+.pricing-popular-chip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #111827;
+  color: #ffffff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.65rem;
+  border-top-right-radius: 1.15rem;
+  border-bottom-left-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+}
+
+.pricing-plan-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-plan-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.15rem;
+}
+
+.pricing-plan-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.pricing-plan-period {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.pricing-plan-billed {
+  font-size: 0.6875rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.pricing-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
   color: #374151;
 }
 
-.bundle-card-badge.badge-popular {
-  background-color: #111827;
-  color: #ffffff;
+.pricing-feature-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #111827;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
 }
 
-.bundle-option-card.is-selected .bundle-card-badge {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+.pricing-card-divider {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #f3f4f6;
+  margin: 0 0 1rem 0;
 }
 
-.bundle-card-desc {
-  font-size: 0.775rem;
-  line-height: 1.45;
-  color: #6b7280;
-  margin: 0;
-}
-
-.bundle-option-card.is-selected .bundle-card-desc {
-  color: #d1d5db;
-}
-
-.bundle-radio-indicator {
-  width: 1.25rem;
-  height: 1.25rem;
+.pricing-select-btn {
+  width: 100%;
+  padding: 0.625rem 1rem;
   border-radius: 9999px;
-  border: 1.5px solid #d1d5db;
-  display: flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-  transition: all 0.18s ease;
-  background-color: transparent;
-  box-sizing: border-box;
-}
-
-.bundle-option-card:hover .bundle-radio-indicator {
-  border-color: #9ca3af;
-}
-
-.bundle-option-card.is-selected .bundle-radio-indicator {
-  background-color: #ffffff;
-  border-color: #ffffff;
+  gap: 0.35rem;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
   color: #111827;
+}
+
+.pricing-select-btn:hover {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.pricing-plan-card.is-popular .pricing-select-btn {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.pricing-plan-card.is-popular .pricing-select-btn:hover {
+  background-color: #27272a;
+}
+
+.pricing-plan-card.is-selected .pricing-select-btn {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.pricing-plan-footer-note {
+  font-size: 0.6875rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 0.625rem;
+  margin-bottom: 0;
+  line-height: 1.35;
 }
 
 /* ==========================================================================
@@ -1611,3 +1736,111 @@ picture,
 
 
 
+
+/* ==========================================================================
+   21st.dev Coverflow Carousel Component Styles
+   ========================================================================== */
+.cf-carousel-root {
+  --cf-card: clamp(210px, 25vw, 290px);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 2rem;
+}
+
+@media (max-width: 640px) {
+  .cf-carousel-root {
+    --cf-card: clamp(190px, 62vw, 250px);
+  }
+}
+
+.cf-stage {
+  position: relative;
+  width: 100%;
+  height: calc(var(--cf-card) * 1.28);
+  perspective: calc(var(--cf-card) * 3);
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+  outline: none;
+}
+
+.cf-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.cf-stage:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.4);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.cf-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cf-card {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--cf-card);
+  height: calc(var(--cf-card) * 1.25);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25);
+  background-color: #0d0e12;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.cf-card.is-active-card {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+.cf-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  user-select: none;
+  border-radius: inherit;
+}
+
+.cf-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #111827;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cf-nav-btn:hover {
+  background: #ffffff;
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cf-nav-btn:active {
+  transform: scale(0.96);
+}
+
+.cf-nav-btn:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}

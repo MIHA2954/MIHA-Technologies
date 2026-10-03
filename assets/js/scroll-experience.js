@@ -13,6 +13,7 @@
   }
 
   // Universal helper to force scroll position to the top across all engines
+  let forceScrollTimeout = null;
   window.forceScrollToTop = function (immediate) {
     window._suppressScrollRestore = true;
     window.scrollTo({ top: 0, left: 0, behavior: immediate !== false ? 'instant' : 'auto' });
@@ -21,10 +22,23 @@
     if (window.lenis) {
       window.lenis.scrollTo(0, { immediate: true });
     }
-    setTimeout(function () {
+    if (forceScrollTimeout) clearTimeout(forceScrollTimeout);
+    forceScrollTimeout = setTimeout(function () {
       window._suppressScrollRestore = false;
-    }, 400);
+    }, 100);
   };
+
+  // Release scroll suppression immediately on active user scroll or touch interaction
+  const releaseScrollSuppression = function () {
+    window._suppressScrollRestore = false;
+    if (forceScrollTimeout) {
+      clearTimeout(forceScrollTimeout);
+      forceScrollTimeout = null;
+    }
+  };
+  ['wheel', 'touchstart', 'touchmove', 'pointerdown', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, releaseScrollSuppression, { capture: true, passive: true });
+  });
 
   // Force top on load if no specific hash anchor
   if (!window.location.hash) {

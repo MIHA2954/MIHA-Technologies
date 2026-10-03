@@ -84,7 +84,7 @@
       </nav>
     </header>
     <main>
-      <section class="lg:pt-30 lg:pb-20 pt-20 pb-10">
+      <section class="pt-8 lg:pt-12 pb-10 lg:pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <div class="max-w-3xl text-left mb-16">
             <h1 class="text-4xl sm:text-[60px] lg:text-7xl font-normal -tracking-[2.5px] text-black leading-tight">MIHA Technologies <span class="italic">Contact</span></h1>
@@ -116,19 +116,18 @@
                     <li><button type="button" class="contact-service-pill px-4 py-2.5 border text-base font-normal rounded-full cursor-pointer transition flex items-center justify-center gap-2 bg-white text-[#1D1F2C] border-[#E9E9EA] hover:border-black"><span>Other Operational Automation</span></button></li>
                   </ul>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-6">
                   <div><label class="mb-6 block text-xl text-gray-800 font-medium">Project details</label><input placeholder="What is your project about?" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 placeholder:text-gray-500 text-base w-full" type="text" value="" name="projectDetails"></div>
-                  <div><label class="mb-6 block text-xl text-gray-800 font-medium">Choose a budget</label>
-                    <div class="relative"><select name="budget" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 text-base w-full appearance-none bg-white cursor-pointer">
-                        <option value="">Select budget</option>
-                        <option value="under-5k">Under $5k</option>
-                        <option value="5k-10k">$5k - $10k</option>
-                        <option value="10k-25k">$10k - $25k</option>
-                        <option value="25k-50k">$25k - $50k</option>
-                        <option value="over-50k">$50k+</option>
-                      </select><svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none" class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                        <path d="M5.54779 9.09467C5.84069 8.80178 6.31556 8.80178 6.60846 9.09467L12.3281 14.8143L18.0478 9.09467C18.3407 8.80178 18.8156 8.80178 19.1085 9.09467C19.4013 9.38756 19.4013 9.86244 19.1085 10.1553L12.8585 16.4053C12.5656 16.6982 12.0907 16.6982 11.7978 16.4053L5.54779 10.1553C5.2549 9.86244 5.2549 9.38756 5.54779 9.09467Z" fill="#323544"></path>
-                      </svg></div>
+                  <div><label class="mb-6 block text-xl text-gray-800 font-medium">Choose a bundle</label>
+                    <div class="relative">
+                      <button type="button" class="px-8 py-3 rounded-full border border-[#E9E9EA] focus:outline-none focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-black/30 h-16 text-base w-full bg-white cursor-pointer flex items-center justify-between text-left transition hover:border-black">
+                        <span class="truncate pr-4 text-gray-500">Select a bundle</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#323544] transition-transform duration-200 flex-shrink-0">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </button>
+                      <input type="hidden" name="budget" value="">
+                    </div>
                   </div>
                 </div>
                 <div><button class="px-7 py-4.5 flex gap-2 items-center bg-black text-base font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-900 transition">BOOK A CALL</button></div>

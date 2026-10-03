@@ -61,6 +61,7 @@
   <script src="assets/js/vendor/lenis.min.js"></script>
   <script defer src="assets/js/scroll-experience.js?v=3.1"></script>
   <script defer src="assets/js/liquid-silk.js?v=3.1"></script>
+  <script defer src="assets/js/coverflow-carousel.js?v=1.0"></script>
   <script type="module" crossorigin="" src="assets/js/main.js?v=4.0"></script>
   <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.1">
 </head>
@@ -112,7 +113,7 @@
       </nav>
     </header>
     <main>
-      <section class="lg:pt-30 lg:pb-20 pt-20 pb-10">
+      <section class="pt-8 lg:pt-12 pb-10 lg:pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <div class="flex flex-col lg:flex-row items-end gap-6">
             <div class="lg:w-1/2 xl:w-7/12">
@@ -201,7 +202,7 @@
                     Standard</p>
                   <h2 class="text-white text-4xl sm:text-5xl font-normal leading-tight">Crafting Clean Code, <br><span
                       class="italic font-serif">Engineered Without Shortcuts.</span></h2>
-                  <p class="text-white/60 text-base sm:text-lg mt-6 leading-relaxed">We founded MIHA Technologies in
+                  <p class="text-white/60 text-base sm:text-lg mt-6 leading-relaxed">We founded Modern Infrastructure &amp; Hosting Architecture in
                     university computer labs with a clear realization: modern companies don't need agency overhead or
                     sluggish junior handoffs. They need hungry, detail-obsessed engineers who ship production-grade
                     digital software on tight milestone sprints.</p>
@@ -289,161 +290,83 @@
                 </article>
                 </div>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <article>
-                  <div>
-                    <div class="relative group"><img class="rounded-xl w-full" alt="Mhyco Giselo Bunao"
-                        src="assets/images/team/team-1.jpg">
-                      <div
-                        class="flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <a href="https://www.facebook.com/giselo.bunao" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Facebook"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                            </path>
-                          </svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="GitHub"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                          </svg></a><a href="https://snorlaxx-portfolio.web.app/" target="_blank"
-                          rel="noopener noreferrer" class="text-black hover:text-gray-600 transition"
-                          aria-label="Portfolio"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                              d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z"
-                              clip-rule="evenodd"></path>
-                          </svg></a></div>
-                    </div>
-                    <div class="mt-4">
-                      <h4 class="text-lg font-medium text-black">Mhyco Giselo Bunao</h4>
-                      <p class="text-sm text-black/50">Lead Full-Stack Engineer</p>
-                    </div>
-                  </div>
-                </article>
-                <article>
-                  <div>
-                    <div class="relative group"><img class="rounded-xl w-full" alt="Ace John Nieva"
-                        src="assets/images/team/team-2.jpg">
-                      <div
-                        class="flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <a href="https://www.facebook.com/eiseu.01" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Facebook"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                            </path>
-                          </svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="GitHub"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                          </svg></a><a href="https://portfolio.ajnieva.workers.dev/" target="_blank"
-                          rel="noopener noreferrer" class="text-black hover:text-gray-600 transition"
-                          aria-label="Portfolio"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                              d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z"
-                              clip-rule="evenodd"></path>
-                          </svg></a></div>
-                    </div>
-                    <div class="mt-4">
-                      <h4 class="text-lg font-medium text-black">Ace John Nieva</h4>
-                      <p class="text-sm text-black/50">Frontend & UI/UX Engineer</p>
+              <!-- 21st.dev Coverflow Carousel: Engineering & Design Team (Manual Drag) -->
+              <div class="cf-carousel-root" data-coverflow-carousel role="region" aria-roledescription="carousel" aria-label="MIHA Technologies Engineering &amp; Design Team">
+                <div class="relative max-w-5xl mx-auto">
+                  <!-- 3D Perspective Stage -->
+                  <div class="cf-stage" data-cf-stage tabindex="0" aria-label="Drag, swipe, or use left and right arrow keys to explore team members">
+                    <div class="cf-track" data-cf-track>
+                      <!-- Slide 1: Mhyco Giselo Bunao -->
+                      <article class="cf-card group" data-cf-card data-name="Mhyco Giselo Bunao" data-role="Lead Full-Stack Engineer" aria-roledescription="slide" aria-label="1 of 5: Mhyco Giselo Bunao">
+                        <img class="w-full h-full object-cover rounded-2xl select-none" alt="Mhyco Giselo Bunao - Lead Full-Stack Engineer" src="assets/images/team/team-1.jpg" draggable="false">
+                        <div class="flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20" data-cf-socials>
+                          <a href="https://www.facebook.com/giselo.bunao" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Facebook Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="GitHub Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                          <a href="https://snorlaxx-portfolio.web.app/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Personal Portfolio"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z" clip-rule="evenodd"></path></svg></a>
+                        </div>
+                      </article>
+
+                      <!-- Slide 2: Ace John Nieva -->
+                      <article class="cf-card group" data-cf-card data-name="Ace John Nieva" data-role="Frontend &amp; UI/UX Engineer" aria-roledescription="slide" aria-label="2 of 5: Ace John Nieva">
+                        <img class="w-full h-full object-cover rounded-2xl select-none" alt="Ace John Nieva - Frontend &amp; UI/UX Engineer" src="assets/images/team/team-2.jpg" draggable="false">
+                        <div class="flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20" data-cf-socials>
+                          <a href="https://www.facebook.com/eiseu.01" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Facebook Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="GitHub Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                          <a href="https://portfolio.ajnieva.workers.dev/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Personal Portfolio"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z" clip-rule="evenodd"></path></svg></a>
+                        </div>
+                      </article>
+
+                      <!-- Slide 3: Janus Dominic -->
+                      <article class="cf-card group" data-cf-card data-name="Janus Dominic" data-role="Backend &amp; Cloud Architect" aria-roledescription="slide" aria-label="3 of 5: Janus Dominic">
+                        <img class="w-full h-full object-cover rounded-2xl select-none" alt="Janus Dominic - Backend &amp; Cloud Architect" src="assets/images/team/team-3.jpg?v=janus" draggable="false">
+                        <div class="flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20" data-cf-socials>
+                          <a href="https://www.facebook.com/notagirlgamer69" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Facebook Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="GitHub Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                          <a href="https://dominicfolio.pages.dev/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Personal Portfolio"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z" clip-rule="evenodd"></path></svg></a>
+                        </div>
+                      </article>
+
+                      <!-- Slide 4: Florenz Dale C. Paña -->
+                      <article class="cf-card group" data-cf-card data-name="Florenz Dale C. Paña" data-role="Product &amp; UI Designer" aria-roledescription="slide" aria-label="4 of 5: Florenz Dale C. Paña">
+                        <img class="w-full h-full object-cover rounded-2xl select-none" alt="Florenz Dale C. Paña - Product &amp; UI Designer" src="assets/images/team/team-4.jpg?v=florenz2" draggable="false">
+                        <div class="flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20" data-cf-socials>
+                          <a href="https://www.facebook.com/dalejwu" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Facebook Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="GitHub Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                          <a href="https://dalejwu.vercel.app/#" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Personal Portfolio"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z" clip-rule="evenodd"></path></svg></a>
+                        </div>
+                      </article>
+
+                      <!-- Slide 5: Isaiah James Carpio -->
+                      <article class="cf-card group" data-cf-card data-name="Isaiah James Carpio" data-role="Mobile &amp; DevOps Engineer" aria-roledescription="slide" aria-label="5 of 5: Isaiah James Carpio">
+                        <img class="w-full h-full object-cover rounded-2xl select-none" alt="Isaiah James Carpio - Mobile &amp; DevOps Engineer" src="assets/images/team/team-5.jpg" draggable="false">
+                        <div class="flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20" data-cf-socials>
+                          <a href="https://www.facebook.com/khalafahmadibrahim.alamadi" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="Facebook Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 transition" aria-label="GitHub Profile"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                        </div>
+                      </article>
                     </div>
                   </div>
-                </article>
-                <article>
-                  <div>
-                    <div class="relative group"><img class="rounded-xl w-full" alt="Janus Dominic"
-                        src="assets/images/team/team-3.jpg">
-                      <div
-                        class="flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <a href="https://www.facebook.com/notagirlgamer69" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Facebook"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                            </path>
-                          </svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="GitHub"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                          </svg></a><a href="https://dominicfolio.pages.dev/" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Portfolio"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                              d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z"
-                              clip-rule="evenodd"></path>
-                          </svg></a></div>
-                    </div>
-                    <div class="mt-4">
-                      <h4 class="text-lg font-medium text-black">Janus Dominic</h4>
-                      <p class="text-sm text-black/50">Backend & Cloud Architect</p>
-                    </div>
+
+                  <!-- Prev / Next Navigation Arrows -->
+                  <div class="flex items-center justify-between pointer-events-none absolute top-1/2 -translate-y-1/2 left-0 right-0 px-2 sm:px-4 z-40">
+                    <button type="button" class="cf-nav-btn pointer-events-auto" data-cf-prev aria-label="Previous team member">
+                      <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button type="button" class="cf-nav-btn pointer-events-auto" data-cf-next aria-label="Next team member">
+                      <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
                   </div>
-                </article>
-                <article>
-                  <div>
-                    <div class="relative group"><img class="rounded-xl w-full" alt="Florenz Dale C. Paña"
-                        src="assets/images/team/team-4.jpg?v=dale">
-                      <div
-                        class="flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <a href="https://www.facebook.com/dalejwu" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Facebook"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                            </path>
-                          </svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="GitHub"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                          </svg></a><a href="https://dalejwu.vercel.app/#" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="Portfolio"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                              d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z"
-                              clip-rule="evenodd"></path>
-                          </svg></a></div>
-                    </div>
-                    <div class="mt-4">
-                      <h4 class="text-lg font-medium text-black">Florenz Dale C. Paña</h4>
-                      <p class="text-sm text-black/50">Product & UI Designer</p>
-                    </div>
-                  </div>
-                </article>
-                <article>
-                  <div>
-                    <div class="relative group"><img class="rounded-xl w-full" alt="Isaiah James Carpio"
-                        src="assets/images/team/team-5.jpg">
-                      <div
-                        class="flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <a href="https://www.facebook.com/khalafahmadibrahim.alamadi" target="_blank"
-                          rel="noopener noreferrer" class="text-black hover:text-gray-600 transition"
-                          aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                            </path>
-                          </svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                          class="text-black hover:text-gray-600 transition" aria-label="GitHub"><svg class="w-5 h-5"
-                            fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                          </svg></a></div>
-                    </div>
-                    <div class="mt-4">
-                      <h4 class="text-lg font-medium text-black">Isaiah James Carpio</h4>
-                      <p class="text-sm text-black/50">Mobile & DevOps Engineer</p>
-                    </div>
-                  </div>
-                </article>
+                </div>
+
+                <!-- Dynamic Active Member Caption & Direct Links -->
+                <div class="mt-4 flex flex-col items-center text-center px-4" data-cf-caption>
+                  <h4 class="text-xl font-medium text-black tracking-tight" data-cf-name>Mhyco Giselo Bunao</h4>
+                  <p class="text-sm text-black/55 mt-0.5" data-cf-role>Lead Full-Stack Engineer</p>
+                  <div class="mt-3 flex items-center justify-center gap-3" data-cf-socials-target></div>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="mt-5 flex items-center justify-center gap-2" data-cf-dots></div>
               </div>
             </div>
           </section>

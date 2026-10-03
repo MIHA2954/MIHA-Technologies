@@ -21759,7 +21759,7 @@ function pd() {
                 className:
                   "text-white/60 text-base sm:text-lg mt-6 leading-relaxed",
                 children:
-                  "MIHA Technologies was founded by a specialized team of Zamboanga software engineers. Local businesses were losing revenue to manual order errors, missed phone calls, and high delivery app commissions. We build practical automated systems that stop those losses and modernize daily operations.",
+                  "Modern Infrastructure & Hosting Architecture was founded by a specialized team of Zamboanga software engineers. Local businesses were losing revenue to manual order errors, missed phone calls, and high delivery app commissions. We build practical automated systems that stop those losses and modernize daily operations.",
               }),
             ],
           }),
@@ -26795,7 +26795,7 @@ const c9 = [
     id: 3,
     name: "Janus Dominic",
     role: "Backend & Cloud Architect",
-    image: "assets/images/team/team-3.jpg",
+    image: "assets/images/team/team-3.jpg?v=janus",
     socials: {
       facebook: "https://www.facebook.com/notagirlgamer69",
       github: "https://github.com",
@@ -26806,7 +26806,7 @@ const c9 = [
     id: 4,
     name: "Florenz Dale C. Paña",
     role: "Product & UI Designer",
-    image: "assets/images/team/team-4.jpg?v=dale",
+    image: "assets/images/team/team-4.jpg?v=florenz2",
     socials: {
       facebook: "https://www.facebook.com/dalejwu",
       github: "https://github.com",
@@ -26825,6 +26825,313 @@ const c9 = [
     },
   },
 ];
+function CoverflowTeamCarousel() {
+  const [activeIdx, setActiveIdx] = E.useState(0);
+  const cardsRef = E.useRef([]);
+  const animRef = E.useRef(null);
+  const dragRef = E.useRef(null);
+  const currentPosRef = E.useRef(0);
+  const cardWidthRef = E.useRef(0);
+  const count = c9.length;
+
+  const normalizeIndex = E.useCallback((p) => ((Math.round(p) % count) + count) % count, [count]);
+
+  const updateTransforms = E.useCallback(() => {
+    const cw = cardWidthRef.current || (cardsRef.current[0] ? cardsRef.current[0].offsetWidth : 240);
+    const step = cw * 1.08;
+    const curr = currentPosRef.current;
+    cardsRef.current.forEach((card, i) => {
+      if (!card) return;
+      let offset = i - curr;
+      offset = ((offset % count) + count) % count;
+      if (offset > count / 2) offset -= count;
+      const dist = Math.abs(offset);
+      const K = Math.pow(dist, 0.56);
+      const rot = Math.min(42 * K, 82) * Math.sign(offset);
+      const tx = offset * step;
+      const tz = -0.58 * cw * K;
+      const ry = -rot;
+      card.style.transform = `translateX(calc(-50% + ${tx}px)) translateZ(${tz}px) rotateY(${ry}deg)`;
+      const loopFade = Math.min(1, Math.max(0, count / 2 - dist));
+      card.style.opacity = String(Math.max(0, 1 - 0.14 * dist) * loopFade);
+      card.style.zIndex = String(100 - Math.round(dist));
+    });
+  }, [count]);
+
+  const animateTo = E.useCallback((target) => {
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    const newIdx = normalizeIndex(target);
+    setActiveIdx(newIdx);
+    function step() {
+      const delta = target - currentPosRef.current;
+      if (Math.abs(delta) < 0.0004) {
+        currentPosRef.current = target;
+        updateTransforms();
+        animRef.current = null;
+        return;
+      }
+      currentPosRef.current += delta * 0.16;
+      updateTransforms();
+      animRef.current = requestAnimationFrame(step);
+    }
+    animRef.current = requestAnimationFrame(step);
+  }, [normalizeIndex, updateTransforms]);
+
+  E.useEffect(() => {
+    const measure = () => {
+      if (cardsRef.current[0]) {
+        cardWidthRef.current = cardsRef.current[0].offsetWidth;
+        updateTransforms();
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => {
+      window.removeEventListener("resize", measure);
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
+  }, [updateTransforms]);
+
+  const onPointerDown = (e) => {
+    if (e.target.closest("a, button")) return;
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch (_) {}
+    dragRef.current = {
+      id: e.pointerId,
+      startX: e.clientX,
+      startPos: currentPosRef.current,
+      lastX: e.clientX,
+      lastTime: performance.now(),
+      v: 0,
+    };
+  };
+
+  const onPointerMove = (e) => {
+    const d = dragRef.current;
+    if (!d || d.id !== e.pointerId) return;
+    const cw = cardWidthRef.current || 240;
+    const step = cw * 1.08;
+    const now = performance.now();
+    const deltaX = e.clientX - d.startX;
+    currentPosRef.current = d.startPos - (deltaX / step);
+    const dt = Math.max(now - d.lastTime, 1);
+    d.v = ((e.clientX - d.lastX) / dt) * 1000;
+    d.lastX = e.clientX;
+    d.lastTime = now;
+    const idx = normalizeIndex(currentPosRef.current);
+    if (idx !== activeIdx) setActiveIdx(idx);
+    updateTransforms();
+  };
+
+  const finishDrag = (e) => {
+    const d = dragRef.current;
+    if (!d || d.id !== e.pointerId) return;
+    dragRef.current = null;
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch (_) {}
+    const cw = cardWidthRef.current || 240;
+    const step = cw * 1.08;
+    const v = d.v / step;
+    const momentum = Math.max(-2, Math.min(2, -v * 0.18));
+    animateTo(Math.round(currentPosRef.current + momentum));
+  };
+
+  const activeMember = c9[activeIdx];
+
+  return m.jsxs("div", {
+    className: "cf-carousel-root",
+    role: "region",
+    "aria-roledescription": "carousel",
+    "aria-label": "Engineering & Design Team",
+    children: [
+      m.jsxs("div", {
+        className: "relative max-w-5xl mx-auto",
+        children: [
+          m.jsx("div", {
+            className: "cf-stage",
+            tabIndex: 0,
+            onPointerDown: onPointerDown,
+            onPointerMove: onPointerMove,
+            onPointerUp: finishDrag,
+            onPointerCancel: finishDrag,
+            onKeyDown: (e) => {
+              if (e.key === "ArrowLeft") { e.preventDefault(); animateTo(Math.round(currentPosRef.current) - 1); }
+              else if (e.key === "ArrowRight") { e.preventDefault(); animateTo(Math.round(currentPosRef.current) + 1); }
+            },
+            children: m.jsx("div", {
+              className: "cf-track",
+              children: c9.map((t, idx) =>
+                m.jsxs("article", {
+                  ref: (el) => { cardsRef.current[idx] = el; },
+                  className: "cf-card group cursor-pointer",
+                  onClick: (e) => {
+                    if (e.target.closest("a, button")) return;
+                    if (normalizeIndex(currentPosRef.current) !== idx) animateTo(idx + Math.round((currentPosRef.current - idx) / count) * count);
+                  },
+                  children: [
+                    m.jsx("img", {
+                      src: t.image,
+                      className: "w-full h-full object-cover rounded-2xl select-none",
+                      alt: t.name,
+                      draggable: false,
+                    }),
+                    m.jsxs("div", {
+                      className: "flex gap-3 backdrop-blur-md bg-white/85 rounded-full justify-center py-2.5 px-5 absolute left-4 right-4 bottom-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-20",
+                      children: [
+                        t.socials.facebook && m.jsx("a", {
+                          href: t.socials.facebook,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                          className: "text-black hover:text-gray-600 transition",
+                          "aria-label": "Facebook",
+                          children: m.jsx("svg", {
+                            className: "w-4 h-4",
+                            fill: "currentColor",
+                            viewBox: "0 0 24 24",
+                            children: m.jsx("path", { d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" })
+                          })
+                        }),
+                        t.socials.github && m.jsx("a", {
+                          href: t.socials.github,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                          className: "text-black hover:text-gray-600 transition",
+                          "aria-label": "GitHub",
+                          children: m.jsx("svg", {
+                            className: "w-4 h-4",
+                            fill: "currentColor",
+                            viewBox: "0 0 24 24",
+                            children: m.jsx("path", { d: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" })
+                          })
+                        }),
+                        t.socials.portfolio && t.socials.portfolio !== "#" && m.jsx("a", {
+                          href: t.socials.portfolio,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                          className: "text-black hover:text-gray-600 transition",
+                          "aria-label": "Portfolio",
+                          children: m.jsx("svg", {
+                            className: "w-4 h-4",
+                            fill: "currentColor",
+                            viewBox: "0 0 24 24",
+                            children: m.jsx("path", { fillRule: "evenodd", d: "M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z", clipRule: "evenodd" })
+                          })
+                        })
+                      ]
+                    })
+                  ]
+                }, t.id)
+              )
+            })
+          }),
+          m.jsxs("div", {
+            className: "flex items-center justify-between pointer-events-none absolute top-1/2 -translate-y-1/2 left-0 right-0 px-2 sm:px-4 z-40",
+            children: [
+              m.jsx("button", {
+                type: "button",
+                className: "cf-nav-btn pointer-events-auto",
+                onClick: () => animateTo(Math.round(currentPosRef.current) - 1),
+                "aria-label": "Previous team member",
+                children: m.jsx("svg", {
+                  className: "w-5 h-5 text-black",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2.2",
+                  viewBox: "0 0 24 24",
+                  children: m.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15 19l-7-7 7-7" })
+                })
+              }),
+              m.jsx("button", {
+                type: "button",
+                className: "cf-nav-btn pointer-events-auto",
+                onClick: () => animateTo(Math.round(currentPosRef.current) + 1),
+                "aria-label": "Next team member",
+                children: m.jsx("svg", {
+                  className: "w-5 h-5 text-black",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2.2",
+                  viewBox: "0 0 24 24",
+                  children: m.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M9 5l7 7-7 7" })
+                })
+              })
+            ]
+          })
+        ]
+      }),
+      activeMember && m.jsxs("div", {
+        className: "mt-4 flex flex-col items-center text-center px-4",
+        children: [
+          m.jsx("h4", {
+            className: "text-xl font-medium text-black tracking-tight",
+            children: activeMember.name,
+          }),
+          m.jsx("p", {
+            className: "text-sm text-black/55 mt-0.5",
+            children: activeMember.role,
+          }),
+          m.jsxs("div", {
+            className: "mt-3 flex items-center justify-center gap-3",
+            children: [
+              activeMember.socials.facebook && m.jsx("a", {
+                href: activeMember.socials.facebook,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "text-black hover:text-gray-600 transition",
+                "aria-label": "Facebook Profile",
+                children: m.jsx("svg", {
+                  className: "w-4 h-4",
+                  fill: "currentColor",
+                  viewBox: "0 0 24 24",
+                  children: m.jsx("path", { d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" })
+                })
+              }),
+              activeMember.socials.github && m.jsx("a", {
+                href: activeMember.socials.github,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "text-black hover:text-gray-600 transition",
+                "aria-label": "GitHub Profile",
+                children: m.jsx("svg", {
+                  className: "w-4 h-4",
+                  fill: "currentColor",
+                  viewBox: "0 0 24 24",
+                  children: m.jsx("path", { d: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" })
+                })
+              }),
+              activeMember.socials.portfolio && activeMember.socials.portfolio !== "#" && m.jsx("a", {
+                href: activeMember.socials.portfolio,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "text-black hover:text-gray-600 transition",
+                "aria-label": "Personal Portfolio",
+                children: m.jsx("svg", {
+                  className: "w-4 h-4",
+                  fill: "currentColor",
+                  viewBox: "0 0 24 24",
+                  children: m.jsx("path", { fillRule: "evenodd", d: "M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z", clipRule: "evenodd" })
+                })
+              })
+            ]
+          })
+        ]
+      }),
+      m.jsx("div", {
+        className: "mt-5 flex items-center justify-center gap-2",
+        children: c9.map((_, i) =>
+          m.jsx("button", {
+            key: i,
+            type: "button",
+            onClick: () => animateTo(i + Math.round((currentPosRef.current - i) / count) * count),
+            className: i === activeIdx ? "w-6 h-2.5 rounded-full bg-black transition-all duration-300" : "w-2.5 h-2.5 rounded-full bg-black/25 hover:bg-black/50 transition-all duration-300",
+            "aria-label": `Go to team member ${i + 1}`,
+            "aria-current": i === activeIdx ? "true" : void 0
+          })
+        )
+      })
+    ]
+  });
+}
+
 function Lv() {
   return m.jsx("section", {
     className: "pt-25",
@@ -26920,107 +27227,7 @@ function Lv() {
             }),
           }),
         }),
-        m.jsx("div", {
-          className:
-            "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6",
-          children: c9.map((t) =>
-            m.jsx(
-              "article",
-              {
-                children: m.jsxs("div", {
-                  children: [
-                    m.jsxs("div", {
-                      className: "relative group",
-                      children: [
-                        m.jsx("img", {
-                          src: t.image,
-                          className: "rounded-xl w-full",
-                          alt: t.name,
-                        }),
-                        m.jsxs("div", {
-                          className:
-                            "flex gap-3 backdrop-blur-sm bg-white/80 rounded-full justify-center py-3 px-6 absolute left-5 right-5 bottom-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out",
-                          children: [
-                            m.jsx("a", {
-                              href: t.socials.facebook,
-                              target: "_blank",
-                              rel: "noopener noreferrer",
-                              className:
-                                "text-black hover:text-gray-600 transition",
-                              "aria-label": "Facebook",
-                              children: m.jsx("svg", {
-                                className: "w-5 h-5",
-                                fill: "currentColor",
-                                viewBox: "0 0 24 24",
-                                children: m.jsx("path", {
-                                  d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
-                                }),
-                              }),
-                            }),
-                            m.jsx("a", {
-                              href: t.socials.github,
-                              target: "_blank",
-                              rel: "noopener noreferrer",
-                              className:
-                                "text-black hover:text-gray-600 transition",
-                              "aria-label": "GitHub",
-                              children: m.jsx("svg", {
-                                className: "w-5 h-5",
-                                fill: "currentColor",
-                                viewBox: "0 0 24 24",
-                                children: m.jsx("path", {
-                                  d: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z",
-                                }),
-                              }),
-                            }),
-                            m.jsx("a", {
-                              href: t.socials.portfolio,
-                              target:
-                                t.socials.portfolio === "#"
-                                  ? "_self"
-                                  : "_blank",
-                              rel:
-                                t.socials.portfolio === "#"
-                                  ? void 0
-                                  : "noopener noreferrer",
-                              className:
-                                "text-black hover:text-gray-600 transition",
-                              "aria-label": "Portfolio",
-                              children: m.jsx("svg", {
-                                className: "w-5 h-5",
-                                fill: "currentColor",
-                                viewBox: "0 0 24 24",
-                                children: m.jsx("path", {
-                                  fillRule: "evenodd",
-                                  d: "M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.9 2.743A24.086 24.086 0 0112 15.75c-2.396 0-4.707-.24-6.85-.693-1.166-.391-1.9-1.532-1.9-2.743V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-9.75 9.774v2.976a3 3 0 002.583 2.97c2.316.32 4.683.48 7.167.48s4.851-.16 7.167-.48a3 3 0 002.583-2.97v-2.976A25.578 25.578 0 0112 17.25c-2.47 0-4.85-.227-7.25-.726z",
-                                  clipRule: "evenodd",
-                                }),
-                              }),
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                    m.jsxs("div", {
-                      className: "mt-4",
-                      children: [
-                        m.jsx("h4", {
-                          className: "text-lg font-medium text-black",
-                          children: t.name,
-                        }),
-                        m.jsx("p", {
-                          className: "text-sm text-black/50",
-                          children: t.role,
-                        }),
-                      ],
-                    }),
-                  ],
-                }),
-              },
-              t.id,
-            ),
-          ),
-        }),
+        m.jsx(CoverflowTeamCarousel, {}),
       ],
     }),
   });
@@ -27256,10 +27463,6 @@ function f9() {
                             exit: { opacity: 0, y: 10 },
                             className: "fc-card-gradient",
                             children: [
-                              m.jsx("span", {
-                                className: "fc-card-badge",
-                                children: item.tag,
-                              }),
                               m.jsx("h3", {
                                 className: "fc-card-title",
                                 children: item.header,
@@ -27567,7 +27770,7 @@ function AboutPrinciples() {
                 className:
                   "text-white/60 text-base sm:text-lg mt-6 leading-relaxed",
                 children:
-                  "We founded MIHA Technologies in university computer labs with a clear realization: modern companies don't need agency overhead or sluggish junior handoffs. They need hungry, detail-obsessed engineers who ship production-grade digital software on tight milestone sprints.",
+                  "We founded Modern Infrastructure & Hosting Architecture in university computer labs with a clear realization: modern companies don't need agency overhead or sluggish junior handoffs. They need hungry, detail-obsessed engineers who ship production-grade digital software on tight milestone sprints.",
               }),
               m.jsxs("div", {
                 className:
@@ -28474,11 +28677,11 @@ const g9 = () => [
   },
   {
     id: 2,
-    title: "Syrupynut",
-    type: "CREATIVE PORTFOLIO & COMMISSIONS",
+    title: "BeCoffee",
+    type: "RESTAURANT & CAFE ORDERING",
     date: "2026",
-    image: "assets/images/project/syrupynut.jpg",
-    url: "https://syrupynut.pages.dev/",
+    image: "assets/images/project/becoffee.jpg",
+    url: "https://becoffee-cafe.web.app/",
   },
 ];
 function y9() {
@@ -28492,7 +28695,7 @@ function y9() {
           m.jsxs("h2", {
             className: "text-white text-5xl font-normal mb-16",
             children: [
-              "MIHA ",
+              "Modern Infrastructure & Hosting Architecture ",
               m.jsx("span", { className: "italic", children: "Projects" }),
             ],
           }),
@@ -28758,7 +28961,7 @@ function b9() {
 }
 function S9() {
   return m.jsx("section", {
-    className: "lg:pt-30 lg:pb-20 pt-20 pb-10",
+    className: "pt-8 lg:pt-12 pb-10 lg:pb-20",
     children: m.jsx("div", {
       className: "max-w-7xl mx-auto px-6",
       children: m.jsxs("div", {
@@ -29364,7 +29567,7 @@ function L9({
     m.jsx("span", { className: "italic", children: "Contact" }),
   ],
   isH2: W = !1,
-  className: B = "lg:pt-30 lg:pb-20 pt-20 pb-10",
+  className: B = "pt-8 lg:pt-12 pb-10 lg:pb-20",
 } = {}) {
   const [currentStep, setCurrentStep] = E.useState(1),
     [t, i] = E.useState({
@@ -29385,28 +29588,64 @@ function L9({
     [statusMsg, setStatusMsg] = E.useState(""),
     [isCallBooking, setIsCallBooking] = E.useState(true),
     [isBundleOpen, setIsBundleOpen] = E.useState(false),
+    [isAnnualBilling, setIsAnnualBilling] = E.useState(false),
     bundleRef = E.useRef(null),
-    bundleOptions = [
+    pricingPlans = [
       {
-        id: "Tier 1: Frontend Only",
-        title: "Tier 1: Frontend Only",
-        badge: "Starter",
-        badgeHighlight: false,
-        desc: "Clean static interface & fast-loading modern frontend.",
+        id: "STARTER",
+        name: "STARTER",
+        priceMonthly: "50",
+        priceAnnual: "40",
+        period: "per month",
+        features: [
+          "Up to 10 projects",
+          "Basic analytics",
+          "48-hour support response time",
+          "Limited API access",
+          "Community support",
+        ],
+        description: "Perfect for individuals and small projects",
+        buttonText: "Select Starter",
+        isPopular: false,
       },
       {
-        id: "Tier 2: Frontend + CMS (Self-Managed)",
-        title: "Tier 2: Frontend + CMS",
-        badge: "Popular",
-        badgeHighlight: true,
-        desc: "Self-editable CMS platform with zero monthly hostage fees.",
+        id: "PROFESSIONAL",
+        name: "PROFESSIONAL",
+        priceMonthly: "99",
+        priceAnnual: "79",
+        period: "per month",
+        features: [
+          "Unlimited projects",
+          "Advanced analytics",
+          "24-hour support response time",
+          "Full API access",
+          "Priority support",
+          "Team collaboration",
+          "Custom integrations",
+        ],
+        description: "Ideal for growing teams and businesses",
+        buttonText: "Select Professional",
+        isPopular: true,
       },
       {
-        id: "Tier 3: Full-Stack & Custom Systems",
-        title: "Tier 3: Full-Stack Systems",
-        badge: "Enterprise",
-        badgeHighlight: false,
-        desc: "Full UI/UX, backend admin dashboards & custom software integration.",
+        id: "ENTERPRISE",
+        name: "ENTERPRISE",
+        priceMonthly: "299",
+        priceAnnual: "239",
+        period: "per month",
+        features: [
+          "Everything in Professional",
+          "Custom solutions",
+          "Dedicated account manager",
+          "1-hour support response time",
+          "SSO Authentication",
+          "Advanced security",
+          "Custom contracts",
+          "SLA agreement",
+        ],
+        description: "For large organizations with specific needs",
+        buttonText: "Select Enterprise",
+        isPopular: false,
       },
     ],
     o = (h) => {
@@ -30256,7 +30495,7 @@ function L9({
                         ],
                       }),
                       m.jsxs("div", {
-                        className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+                        className: "space-y-6",
                         children: [
                           m.jsxs("div", {
                             children: [
@@ -30327,84 +30566,166 @@ function L9({
                                     ],
                                   }),
                                   isBundleOpen &&
-                                    m.jsx("div", {
-                                      className: "bundle-dropdown-menu",
-                                      children: bundleOptions.map((opt) => {
-                                        const isSelected = t.budget === opt.id;
-                                        return m.jsxs(
-                                          "button",
-                                          {
-                                            type: "button",
-                                            key: opt.id,
-                                            onClick: () => {
-                                              i((prev) => ({
-                                                ...prev,
-                                                budget: opt.id,
-                                              }));
-                                              setIsBundleOpen(false);
-                                            },
-                                            className:
-                                              "bundle-option-card" +
-                                              (isSelected
-                                                ? " is-selected"
-                                                : ""),
-                                            children: [
-                                              m.jsxs("div", {
+                                    m.jsxs("div", {
+                                      className: "pricing-tray-wrap",
+                                      children: [
+                                        m.jsxs("div", {
+                                          className: "pricing-tray-header",
+                                          children: [
+                                            m.jsx("p", {
+                                              className: "pricing-tray-subtitle",
+                                              children: "Choose the plan that works for you. Transparent architecture tiers.",
+                                            }),
+                                            m.jsxs("div", {
+                                              className: "pricing-billing-switch",
+                                              children: [
+                                                m.jsx("button", {
+                                                  type: "button",
+                                                  onClick: (e) => {
+                                                    e.stopPropagation();
+                                                    setIsAnnualBilling(false);
+                                                  },
+                                                  className:
+                                                    "pricing-switch-btn" +
+                                                    (!isAnnualBilling ? " is-active" : ""),
+                                                  children: "Monthly billing",
+                                                }),
+                                                m.jsxs("button", {
+                                                  type: "button",
+                                                  onClick: (e) => {
+                                                    e.stopPropagation();
+                                                    setIsAnnualBilling(true);
+                                                  },
+                                                  className:
+                                                    "pricing-switch-btn" +
+                                                    (isAnnualBilling ? " is-active" : ""),
+                                                  children: [
+                                                    "Annual billing ",
+                                                    m.jsx("span", {
+                                                      className: !isAnnualBilling ? "text-emerald-600 font-bold" : "text-emerald-300 font-bold",
+                                                      children: "(Save 20%)",
+                                                    }),
+                                                  ],
+                                                }),
+                                              ],
+                                            }),
+                                          ],
+                                        }),
+                                        m.jsx("div", {
+                                          className: "pricing-cards-grid",
+                                          children: pricingPlans.map((plan) => {
+                                            const currentPrice = isAnnualBilling ? plan.priceAnnual : plan.priceMonthly;
+                                            const isSelected = t.budget && t.budget.startsWith(plan.name);
+                                            return m.jsxs(
+                                              "div",
+                                              {
+                                                key: plan.id,
                                                 className:
-                                                  "bundle-card-content",
+                                                  "pricing-plan-card" +
+                                                  (plan.isPopular ? " is-popular" : "") +
+                                                  (isSelected ? " is-selected" : ""),
                                                 children: [
+                                                  plan.isPopular &&
+                                                    m.jsxs("div", {
+                                                      className: "pricing-popular-chip",
+                                                      children: [
+                                                        m.jsx("svg", {
+                                                          xmlns: "http://www.w3.org/2000/svg",
+                                                          width: "12",
+                                                          height: "12",
+                                                          viewBox: "0 0 24 24",
+                                                          fill: "currentColor",
+                                                          children: m.jsx("path", {
+                                                            d: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z",
+                                                          }),
+                                                        }),
+                                                        "Popular",
+                                                      ],
+                                                    }),
                                                   m.jsxs("div", {
-                                                    className:
-                                                      "bundle-card-header",
                                                     children: [
-                                                      m.jsx("span", {
-                                                        className:
-                                                          "bundle-card-title",
-                                                        children: opt.title,
+                                                      m.jsx("div", {
+                                                        className: "pricing-plan-name",
+                                                        children: plan.name,
                                                       }),
-                                                      m.jsx("span", {
-                                                        className:
-                                                          "bundle-card-badge" +
-                                                          (opt.badgeHighlight
-                                                            ? " badge-popular"
-                                                            : ""),
-                                                        children: opt.badge,
+                                                      m.jsxs("div", {
+                                                        className: "pricing-plan-price-wrap",
+                                                        children: [
+                                                          m.jsxs("span", {
+                                                            className: "pricing-plan-price",
+                                                            children: ["$", currentPrice],
+                                                          }),
+                                                          m.jsx("span", {
+                                                            className: "pricing-plan-period",
+                                                            children: "/ per month",
+                                                          }),
+                                                        ],
+                                                      }),
+                                                      m.jsx("div", {
+                                                        className: "pricing-plan-billed",
+                                                        children: isAnnualBilling ? "billed annually" : "billed monthly",
+                                                      }),
+                                                      m.jsx("ul", {
+                                                        className: "pricing-feature-list",
+                                                        children: plan.features.map((feat, fIdx) =>
+                                                          m.jsxs(
+                                                            "li",
+                                                            {
+                                                              className: "pricing-feature-item",
+                                                              children: [
+                                                                m.jsx("svg", {
+                                                                  xmlns: "http://www.w3.org/2000/svg",
+                                                                  width: "14",
+                                                                  height: "14",
+                                                                  viewBox: "0 0 24 24",
+                                                                  fill: "none",
+                                                                  stroke: "currentColor",
+                                                                  strokeWidth: "2.5",
+                                                                  strokeLinecap: "round",
+                                                                  strokeLinejoin: "round",
+                                                                  className: "pricing-feature-icon",
+                                                                  children: m.jsx("polyline", {
+                                                                    points: "20 6 9 17 4 12",
+                                                                  }),
+                                                                }),
+                                                                m.jsx("span", { children: feat }),
+                                                              ],
+                                                            },
+                                                            fIdx,
+                                                          ),
+                                                        ),
                                                       }),
                                                     ],
                                                   }),
-                                                  m.jsx("p", {
-                                                    className:
-                                                      "bundle-card-desc",
-                                                    children: opt.desc,
+                                                  m.jsxs("div", {
+                                                    children: [
+                                                      m.jsx("hr", { className: "pricing-card-divider" }),
+                                                      m.jsx("button", {
+                                                        type: "button",
+                                                        onClick: (e) => {
+                                                          e.stopPropagation();
+                                                          const billingLabel = isAnnualBilling ? "Annual" : "Monthly";
+                                                          i((prev) => ({
+                                                            ...prev,
+                                                            budget: `${plan.name} ($${currentPrice}/mo, ${billingLabel})`,
+                                                          }));
+                                                          setIsBundleOpen(false);
+                                                        },
+                                                        className: "pricing-select-btn",
+                                                        children: isSelected ? "Selected ✓" : `Select ${plan.name}`,
+                                                      }),
+                                                      m.jsx("p", {
+                                                        className: "pricing-plan-footer-note",
+                                                        children: plan.description,
+                                                      }),
+                                                    ],
                                                   }),
                                                 ],
-                                              }),
-                                              m.jsx("div", {
-                                                className:
-                                                  "bundle-radio-indicator",
-                                                children:
-                                                  isSelected &&
-                                                  m.jsx("svg", {
-                                                    xmlns:
-                                                      "http://www.w3.org/2000/svg",
-                                                    width: "12",
-                                                    height: "12",
-                                                    viewBox: "0 0 24 24",
-                                                    fill: "none",
-                                                    stroke: "currentColor",
-                                                    strokeWidth: "3",
-                                                    strokeLinecap: "round",
-                                                    strokeLinejoin: "round",
-                                                    children: m.jsx("polyline", {
-                                                      points: "20 6 9 17 4 12",
-                                                    }),
-                                                  }),
-                                              }),
-                                            ],
-                                          },
-                                          opt.id,
-                                        );
-                                      }),
+                                              },
+                                            );
+                                          }),
+                                        }),
+                                      ],
                                     }),
                                 ],
                               }),
@@ -30900,19 +31221,25 @@ function V9() {
             (o.categories && o.categories.indexOf(t) !== -1),
         );
   return m.jsxs("section", {
-    className: "pt-15 lg:pt-30",
+    className: "pt-8 lg:pt-12",
     children: [
       m.jsxs("div", {
         className: "max-w-7xl mx-auto px-6",
         children: [
-          m.jsxs("h2", {
+          m.jsxs(Ye.h2, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.5, delay: 0.2 },
             className: "text-black text-5xl font-normal mb-6",
             children: [
-              "MIHA ",
+              "Modern Infrastructure & Hosting Architecture ",
               m.jsx("span", { className: "italic", children: "Projects" }),
             ],
           }),
-          m.jsx("p", {
+          m.jsx(Ye.p, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.5, delay: 0.4 },
             className: "text-gray-600 text-lg max-w-3xl mb-12 leading-relaxed",
             children:
               "From Zero-Error Ordering Hubs to 24/7 Automated Booking Systems: browse our battle-tested Master Templates, ready to be localized and deployed for your business in 7 days.",
@@ -31150,10 +31477,9 @@ function CTA_Portfolio() {
                 window.forceScrollToTop && window.forceScrollToTop(!0);
               },
               className:
-                "group px-6 py-4.5 inline-flex gap-2 items-center bg-white border border-black text-sm font-medium -tracking-[0.2px] leading-5 text-black rounded-full hover:bg-gray-100 transition-all duration-300 text-center",
+                "group px-6 py-4.5 inline-flex gap-2 items-center bg-white border border-black text-sm font-medium -tracking-[0.2px] leading-5 text-black rounded-full hover:bg-gray-100 transition-all duration-300",
               children: m.jsx(ft, {
-                children:
-                  "Stop losing revenue to inefficiency. Schedule your digital infrastructure audit today.",
+                children: "CONTACT US",
               }),
             }),
           }),
@@ -31171,7 +31497,7 @@ function B9() {
           "Explore our portfolio of successful web and app development projects. See how MIHA Technologies engineers high-performance digital products.",
       }),
       m.jsx(V9, {}),
-      m.jsx(CTA_Portfolio, {}),
+      m.jsx(Re, { width: "100%", children: m.jsx(CTA_Portfolio, {}) }),
     ],
   });
 }
@@ -31669,7 +31995,7 @@ function G9() {
       m.jsx(j0, {}),
       m.jsx("main", {
         children: m.jsx("section", {
-          className: "lg:pt-30 lg:pb-20 pt-20 pb-10",
+          className: "pt-8 lg:pt-12 pb-10 lg:pb-20",
           children: m.jsxs("div", {
             className: "max-w-7xl mx-auto px-6",
             children: [
@@ -31762,7 +32088,20 @@ function P9() {
         }
       }
       window._suppressScrollRestore = true;
+      let userInteracted = false;
+      const cancelReset = () => {
+        userInteracted = true;
+        window._suppressScrollRestore = false;
+        cleanupEvents();
+      };
+      const events = ["wheel", "touchmove", "touchstart", "pointerdown", "keydown"];
+      const cleanupEvents = () => {
+        events.forEach((ev) => window.removeEventListener(ev, cancelReset, { capture: true }));
+      };
+      events.forEach((ev) => window.addEventListener(ev, cancelReset, { capture: true, passive: true }));
+
       const reset = () => {
+        if (userInteracted) return;
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
@@ -31772,21 +32111,16 @@ function P9() {
       };
       reset();
       const r1 = requestAnimationFrame(reset);
-      const r2 = requestAnimationFrame(() => requestAnimationFrame(reset));
-      const t1 = setTimeout(reset, 50);
-      const t2 = setTimeout(reset, 150);
-      const t3 = setTimeout(reset, 300);
-      const t4 = setTimeout(() => {
-        reset();
+      const t1 = setTimeout(() => {
         window._suppressScrollRestore = false;
-      }, 500);
+        cleanupEvents();
+      }, 100);
+
       return () => {
+        cleanupEvents();
         cancelAnimationFrame(r1);
-        cancelAnimationFrame(r2);
         clearTimeout(t1);
-        clearTimeout(t2);
-        clearTimeout(t3);
-        clearTimeout(t4);
+        window._suppressScrollRestore = false;
       };
     }, [t, s, h]),
     null
