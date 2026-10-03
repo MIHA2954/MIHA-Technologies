@@ -26816,7 +26816,7 @@ const c9 = [
     id: 5,
     name: "Isaiah James Carpio",
     role: "Mobile & DevOps Engineer",
-    image: "assets/images/team/team-5.jpg",
+    image: "assets/images/team/team-isaiah.png",
     socials: {
       facebook: "https://www.facebook.com/khalafahmadibrahim.alamadi",
       github: "https://github.com",
