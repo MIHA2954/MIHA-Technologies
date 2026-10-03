@@ -26948,64 +26948,70 @@ function Lv() {
 }
 const nexServices = [
   {
-    id: "web",
-    label: "Web Development",
-    tag: "01 • WEB ARCHITECTURE",
+    id: "qr-ordering",
+    label: "Zero-Error QR Ordering",
+    tag: "01 • DIGITAL BOOKING & QR ORDERING",
+    header: "Digital Booking & Zero-Error Ordering",
     description:
-      "Modern full-stack web platforms and SaaS applications engineered in React, Next.js, and TypeScript.",
+      "Eliminate long lines, missed phone calls, and staff mistakes. We build 24/7 automated booking hubs and contactless QR menus with a Staff Accountability Lock. This digital checklist requires employees to confirm order details before sending tickets to preparation. You take orders automatically, bypass 20% to 30% delivery app fees, and protect your ratings.",
     image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&sat=-100",
-    icon: "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 5h2v6h-2zm0 8h2v2h-2z",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&sat=-100",
+    icon: "M3 3h6v6H3zm2 2v2h2V5zm8-2h6v6h-6zm2 2v2h2V5zM3 13h6v6H3zm2 2v2h2v-2zm13-2h3v3h-3zm-5 0h3v3h-3zm2 5h3v3h-3zm3 0h3v3h-3z",
   },
   {
-    id: "mobile",
-    label: "Mobile Apps",
-    tag: "02 • MOBILE ENGINEERING",
+    id: "bookings",
+    label: "Automated Bookings",
+    tag: "02 • 24/7 APPOINTMENTS",
+    header: "Automated Bookings",
     description:
-      "High-performance native and cross-platform iOS and Android mobile software with fluid animations.",
+      "Set up an appointment portal that runs around the clock. Customers book their own time slots and pay deposits online. The system syncs with staff schedules automatically to eliminate double-bookings and open schedule gaps.",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&sat=-100",
-    icon: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm5 18a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
+      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1200&sat=-100",
+    icon: "M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14v11z",
   },
   {
-    id: "uiux",
-    label: "UI/UX Design",
-    tag: "03 • PRODUCT & UI/UX",
+    id: "dashboards",
+    label: "Live Admin Dashboards",
+    tag: "03 • OPERATIONAL METRICS",
+    header: "Custom Operational Dashboards",
     description:
-      "Pixel-perfect design systems, interactive prototypes, and intuitive interfaces focused on conversion.",
+      "Stop running your business on messy notebooks and scattered Excel files. We build simple, secure admin panels allowing you to track inventory, staff attendance, and daily revenue in real time from your phone.",
     image:
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1200&sat=-100",
-    icon: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.7 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.8-1.7 1.7-1.7h2c3.1 0 5.6-2.5 5.6-5.6C22 6.5 17.5 2 12 2z",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&sat=-100",
+    icon: "M3 3h8v10H3zm10 0h8v6h-8zm0 10h8v8h-8zM3 17h8v4H3z",
   },
   {
-    id: "cloud",
-    label: "Cloud Infrastructure",
-    tag: "04 • CLOUD & DEVOPS",
+    id: "bots",
+    label: "24/7 SMS & Messenger Bots",
+    tag: "04 • CLIENT RETENTION & BOTS",
+    header: "Automated Client Follow-Ups",
     description:
-      "Scalable Docker containers, serverless pipelines, and reliable cloud deployments on AWS and GCP.",
+      "Never lose revenue to a no-show again. We connect automated SMS reminders for appointments, expired memberships, and 24/7 chat bots that answer common questions and collect payments on the spot.",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&sat=-100",
-    icon: "M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 1 1 0 9z",
+      "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1200&sat=-100",
+    icon: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
   },
   {
-    id: "ai",
-    label: "AI & Automation",
-    tag: "05 • AI & WORKFLOWS",
+    id: "payments",
+    label: "Instant Payment Automation",
+    tag: "05 • PAYMENT WORKFLOWS",
+    header: "Direct POS & Payment Automation",
     description:
-      "Intelligent automations, custom AI agents, and LLM integrations that streamline business operations.",
+      "Stop chasing manual bank transfers and fake payment screenshots. We connect your ordering and booking systems directly to automated GCash, Maya, and card checkouts with instant verification and automatic digital receipts.",
     image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&sat=-100",
-    icon: "m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z",
+      "https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=1200&sat=-100",
+    icon: "M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm2 3h16V6H4v2zm0 4h16v6H4v-6z",
   },
   {
-    id: "api",
-    label: "Custom APIs",
-    tag: "06 • API ENGINEERING",
+    id: "inventory",
+    label: "Live Stock & Inventory Sync",
+    tag: "06 • INVENTORY & SUPPLY",
+    header: "Automated Inventory & Stock Alerts",
     description:
-      "High-throughput REST and GraphQL backend architectures engineered for low latency and zero downtime.",
+      "Stop selling items you do not have in stock. When an order completes on your QR menu, website, or counter, inventory deducts in real time across all channels. Low-stock SMS alerts notify your suppliers automatically so you never run out of your bestsellers.",
     image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&sat=-100",
-    icon: "M16 18l6-6-6-6M8 6l-6 6 6 6",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&sat=-100",
+    icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
   },
 ];
 function f9() {
@@ -27028,7 +27034,7 @@ function f9() {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -27061,10 +27067,10 @@ function f9() {
               className:
                 "text-4xl sm:text-5xl lg:text-7xl font-normal -tracking-[2.5px] text-black leading-tight",
               children: [
-                "Our Expertise,",
+                "Stop Bleeding Revenue. ",
                 m.jsx("span", {
-                  className: "italic",
-                  children: " Your Growth.",
+                  className: "italic font-serif",
+                  children: "Start Automating.",
                 }),
               ],
             }),
@@ -27165,15 +27171,25 @@ function f9() {
                       m.jsx(cd, {
                         children:
                           S &&
-                          m.jsx(Ye.div, {
+                          m.jsxs(Ye.div, {
                             initial: !1,
                             animate: { opacity: 1, y: 0 },
                             exit: { opacity: 0, y: 10 },
                             className: "fc-card-gradient",
-                            children: m.jsx("p", {
-                              className: "fc-card-desc",
-                              children: item.description,
-                            }),
+                            children: [
+                              m.jsx("span", {
+                                className: "fc-card-badge",
+                                children: item.tag,
+                              }),
+                              m.jsx("h3", {
+                                className: "fc-card-title",
+                                children: item.header,
+                              }),
+                              m.jsx("p", {
+                                className: "fc-card-desc",
+                                children: item.description,
+                              }),
+                            ],
                           }),
                       }),
                       m.jsxs("div", {
@@ -27201,39 +27217,39 @@ function f9() {
 const d9 = [
     {
       id: 1,
-      question: "What kinds of digital products does MIHA Technologies build?",
+      question: "How do your automated QR menus and booking portals prevent ordering mistakes?",
       answer:
-        "We engineer custom full-stack web platforms, mobile applications (iOS & Android), high-throughput backend APIs, and digital commerce systems. From 0-to-1 startup MVPs to automated internal business tools, we build production software designed to scale.",
+        "Our systems include a Staff Accountability Lock—a digital verification checklist where staff must confirm table, item modifications, and special requests before the ticket sends to preparation. This removes misheard phone orders, handwritten confusion, and lost tickets.",
     },
     {
       id: 2,
-      question: "How long does a typical MVP or custom software project take?",
+      question: "Can we stop paying 20% to 30% delivery app fees?",
       answer:
-        "Our core 0-to-1 MVP sprints typically ship in 4 to 6 weeks. Larger platforms, specialized mobile apps, or custom enterprise integrations range from 8 to 14 weeks with bi-weekly milestone demos and continuous deployment.",
+        "Yes. By running your own owned QR ordering hub and booking portal, customers order and reserve directly with you. You keep 100% of your ticket revenue and retain direct customer data for automated SMS follow-ups.",
     },
     {
       id: 3,
-      question: "Do you offer post-launch support and maintenance?",
+      question: "How do automated bookings and deposit collections work?",
       answer:
-        "Yes. We offer continuous DevOps, performance monitoring, security patching, and ongoing sprint packages to help your platform scale reliably as your user base and business requirements grow.",
+        "Customers visit your 24/7 appointment portal, select their service, choose open staff time slots, and pay a deposit via GCash, Maya, or card. The portal syncs immediately with your staff calendars to prevent double-bookings and eliminate empty calendar slots.",
     },
     {
       id: 4,
-      question: "What is your development process?",
+      question: "How do 24/7 SMS and messenger bots reduce customer no-shows?",
       answer:
-        "We run fast, transparent sprints: Discovery & Architecture → Rapid UX/UI Prototyping → Full-Stack Development → Automated Testing & Security Review → Production Launch → Iterative Scaling.",
+        "The system sends automated, timed SMS notifications and WhatsApp/Messenger reminders leading up to reservations. If a client needs to reschedule, the bot handles it automatically and reopens the time slot for other customers.",
     },
     {
       id: 5,
-      question: "Can you collaborate with existing teams and codebases?",
+      question: "Can we integrate automated GCash, Maya, and card payments into our operations?",
       answer:
-        "Absolutely. We frequently collaborate with in-house engineering teams to accelerate feature delivery, audit or refactor existing codebases, or build dedicated high-priority modules from scratch.",
+        "Yes. We connect direct payment gateways with automated webhooks. Instead of manually inspecting screenshot receipts, payments are verified in milliseconds and reflected directly in your live admin dashboard.",
     },
     {
       id: 6,
-      question: "What technologies and cloud infrastructure do you use?",
+      question: "What does the Ongoing Infrastructure & Security Support retainer cover?",
       answer:
-        "We build with modern, production-hardened technologies: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Flutter, and cloud-native infrastructure on AWS and Docker for high performance and reliability.",
+        "We do not leave after launch. We maintain your secure cloud hosting, execute automated daily database backups, patch security vulnerabilities, and provide direct technical support so your operations never go down.",
     },
   ],
   h9 = () => {
@@ -28136,50 +28152,50 @@ function ServicesCapabilities() {
   const capabilities = [
     {
       num: "01",
-      tag: "WEB SOFTWARE",
-      title: "Custom Web Portals & Business Software",
-      desc: "Tailored customer platforms, staff management dashboards, and booking portals designed to automate daily operations, run fast on every device, and handle heavy traffic reliably.",
-      chips: ["Client Portals", "Staff Dashboards", "Automated Forms"],
+      tag: "QR ORDERING",
+      title: "Digital Booking & Zero-Error Ordering",
+      desc: "Eliminate long lines, missed phone calls, and staff mistakes with 24/7 automated booking hubs and contactless QR menus featuring our Staff Accountability Lock. Bypass 20% to 30% delivery app fees and protect your ratings.",
+      chips: ["Accountability Lock", "Zero App Fees", "Contactless QR"],
       variant: "service-card--white",
     },
     {
       num: "02",
-      tag: "MOBILE APPS",
-      title: "Smartphone Apps for iOS & Android",
-      desc: "Put your business directly in your customers' hands. We build fast, intuitive iPhone and Android apps that work smoothly even with spotty internet and are published to app stores.",
-      chips: ["iPhone & Android", "Offline Support", "Push Alerts"],
+      tag: "AUTOMATED BOOKING",
+      title: "Automated Bookings & Deposit Portals",
+      desc: "Set up an appointment portal that runs around the clock. Customers book their own time slots and pay deposits online, syncing with staff schedules automatically to eliminate double-bookings and open schedule gaps.",
+      chips: ["24/7 Booking Hub", "Upfront Deposits", "Zero Schedule Gaps"],
       variant: "service-card--gray",
     },
     {
       num: "03",
-      tag: "INTEGRATIONS",
-      title: "Payment Systems & Connected Services",
-      desc: "Connect your website directly to GCash, Maya, cards, delivery couriers, and inventory tools so orders and payments sync automatically without manual bookkeeping.",
-      chips: ["GCash & Maya", "Card Payments", "Courier Tracking"],
+      tag: "OPERATIONAL METRICS",
+      title: "Custom Operational Dashboards",
+      desc: "Stop running your business on messy notebooks and scattered Excel files. We build simple, secure admin panels allowing you to track inventory, staff attendance, and daily revenue in real time from your phone.",
+      chips: ["Phone Access", "Live Attendance", "Revenue Tracking"],
       variant: "service-card--black",
     },
     {
       num: "04",
-      tag: "USER EXPERIENCE",
-      title: "Intuitive Design & Clickable Prototypes",
-      desc: "Before writing any software, we create interactive previews of every screen so you can click through, test, and approve the look and customer flow with zero surprises.",
-      chips: ["Clickable Previews", "Customer Testing", "Simple Flows"],
+      tag: "CLIENT RETENTION",
+      title: "Automated Client Follow-Ups & Bots",
+      desc: "Never lose revenue to a no-show again. We connect automated SMS reminders for appointments, expired memberships, and 24/7 chat bots that answer common questions and collect payments on the spot.",
+      chips: ["No-Show Reduction", "SMS Reminders", "Messenger Bots"],
       variant: "service-card--white",
     },
     {
       num: "05",
-      tag: "DATA & SPEED",
-      title: "Secure Customer Data & Instant Load Speeds",
-      desc: "We protect your critical business records, orders, and customer accounts with encrypted storage and automated backups, while keeping your website pages loading in milliseconds.",
-      chips: ["Fast Page Speed", "Encrypted Records", "Daily Backups"],
+      tag: "PAYMENT WORKFLOWS",
+      title: "Direct POS & Payment Automation",
+      desc: "Stop chasing manual bank transfers and fake payment screenshots. We connect your systems directly to automated GCash, Maya, and card checkouts with instant verification and automatic digital receipts.",
+      chips: ["GCash & Maya", "Card Checkout", "Instant Webhooks"],
       variant: "service-card--gray",
     },
     {
       num: "06",
-      tag: "CARE & SUPPORT",
-      title: "Continuous Protection & Ongoing Maintenance",
-      desc: "Your software stays secure and updated long after launch. We monitor uptime 24/7, guard against cyber threats, fix bugs immediately, and help you roll out new improvements.",
-      chips: ["24/7 Monitoring", "Threat Defense", "Fast Bug Fixes"],
+      tag: "ONGOING RETAINER",
+      title: "Ongoing Infrastructure & Security Support",
+      desc: "We do not leave after launch. We maintain your secure cloud hosting, back up your database, and provide direct technical help so your business stays online.",
+      chips: ["Cloud Hosting", "Daily Backups", "Direct Tech Help"],
       variant: "service-card--black",
     },
   ];
