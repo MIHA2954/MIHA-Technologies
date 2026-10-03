@@ -26772,7 +26772,7 @@ const c9 = [
     id: 1,
     name: "Mhyco Giselo Bunao",
     role: "Lead Full-Stack Engineer",
-    image: "assets/images/team/team-1.jpg",
+    image: "assets/images/team/team-mhyco.png",
     socials: {
       facebook: "https://www.facebook.com/giselo.bunao",
       github: "https://github.com",
@@ -26783,7 +26783,7 @@ const c9 = [
     id: 2,
     name: "Ace John Nieva",
     role: "Frontend & UI/UX Engineer",
-    image: "assets/images/team/team-2.jpg",
+    image: "assets/images/team/team-ace.png",
     socials: {
       facebook: "https://www.facebook.com/eiseu.01",
       github: "https://github.com",
@@ -26821,6 +26821,26 @@ const c9 = [
       facebook: "https://www.facebook.com/khalafahmadibrahim.alamadi",
       github: "https://github.com",
       portfolio: "#",
+    },
+  },
+  {
+    id: 6,
+    name: "Yan Mark V. Darunday",
+    role: "Software Engineer",
+    image: "assets/images/team/team-yanmark.jpg",
+    socials: {
+      facebook: "https://www.facebook.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 7,
+    name: "Clyde Que",
+    role: "Software Engineer",
+    image: "assets/images/team/team-clyde.png",
+    socials: {
+      facebook: "https://www.facebook.com",
+      github: "https://github.com",
     },
   },
 ];
@@ -27028,6 +27048,7 @@ function CoverflowTeamCarousel() {
               m.jsx("button", {
                 type: "button",
                 className: "cf-nav-btn pointer-events-auto",
+                "data-cf-prev": "",
                 onClick: () => animateTo(Math.round(currentPosRef.current) - 1),
                 "aria-label": "Previous team member",
                 children: m.jsx("svg", {
@@ -27042,6 +27063,7 @@ function CoverflowTeamCarousel() {
               m.jsx("button", {
                 type: "button",
                 className: "cf-nav-btn pointer-events-auto",
+                "data-cf-next": "",
                 onClick: () => animateTo(Math.round(currentPosRef.current) + 1),
                 "aria-label": "Next team member",
                 children: m.jsx("svg", {
@@ -27778,7 +27800,7 @@ function AboutPrinciples() {
                   m.jsx("span", {
                     className: "w-2 h-2 rounded-full bg-emerald-400 animate-pulse",
                   }),
-                  "5 Core Specialists • 100% In-House Code • Zero Outsourcing",
+                  "7 Core Specialists • 100% In-House Code • Zero Outsourcing",
                 ],
               }),
             ],
