@@ -21771,7 +21771,7 @@ function pd() {
                 children: [
                   m.jsx("div", {
                     className: "origin-timeline-tag",
-                    children: "Campus Roots",
+                    children: "Market Block",
                   }),
                   m.jsxs("div", {
                     className: "flex-1",
@@ -21795,7 +21795,7 @@ function pd() {
                 children: [
                   m.jsx("div", {
                     className: "origin-timeline-tag",
-                    children: "First Builds",
+                    children: "Master Templates",
                   }),
                   m.jsxs("div", {
                     className: "flex-1",
@@ -21819,7 +21819,7 @@ function pd() {
                 children: [
                   m.jsx("div", {
                     className: "origin-timeline-tag",
-                    children: "Next Horizon",
+                    children: "Local Growth",
                   }),
                   m.jsxs("div", {
                     className: "flex-1",
