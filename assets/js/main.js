@@ -27166,7 +27166,7 @@ function Lv() {
                       m.jsx("img", {
                         src: "assets/images/team/team-ceo.jpg",
                         className: "rounded-xl w-full",
-                        alt: "Muhammad Isa A. Adil",
+                        alt: "Mohamad Isa Hassan Adil",
                       }),
                       m.jsxs("div", {
                         className:
@@ -27213,7 +27213,7 @@ function Lv() {
                     children: [
                       m.jsx("h4", {
                         className: "text-lg font-medium text-black",
-                        children: "Muhammad Isa A. Adil",
+                        children: "Mohamad Isa Hassan Adil",
                       }),
                       m.jsx("p", {
                         className: "text-sm text-black/50",
