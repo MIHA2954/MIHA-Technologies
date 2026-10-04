@@ -21458,11 +21458,12 @@ function MS() {
                 className:
                   "text-5xl lg:text-7xl font-normal -tracking-[2.88px] mb-4 text-black",
                 children: [
-                  "Stop Bleeding Revenue ",
+                  "We Build ",
                   m.jsx("span", {
                     className: "italic",
-                    children: "to Inefficiency.",
+                    children: " Digital Products ",
                   }),
+                  " That Drive Growth.",
                 ],
               }),
               m.jsx(Ye.p, {
@@ -21472,7 +21473,7 @@ function MS() {
                 className:
                   "mb-8 lg:mb-12 text-gray-700 text-lg leading-6 -tracking-[0.2px] max-w-xl mx-auto",
                 children:
-                  "We are Zamboanga City’s premier digital infrastructure agency. We deploy battle-tested automated booking systems and zero-error ordering hubs to local businesses so you can cut costs and run your operations 24/7.",
+                  "We’re Zamboanga City’s leading digital infrastructure agency. Our proven automated booking and zero-error ordering systems help local businesses cut costs and run 24/7.",
               }),
               m.jsxs(Ye.div, {
                 initial: !1,

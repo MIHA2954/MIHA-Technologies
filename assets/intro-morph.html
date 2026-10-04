@@ -20407,6 +20407,8 @@ Error generating stack: ` +
         }, [y, v, E]);
         // Text fades only retarget in 5% steps, so the tween isn't restarted every frame
         const textU = Math.round(U * 20) / 20;
+        // Hero text only catches the mouse (for text selection) while it is visible
+        const heroTextOn = i === "circle" && textU < 0.5;
         const $ = rl(y, [0.8, 1], [0, 1]),
           q = rl(y, [0.8, 1], [20, 0]);
         return pt.jsx("div", {
@@ -20427,6 +20429,7 @@ Error generating stack: ` +
                         ? { opacity: 1 - textU * 2, y: 0, filter: "blur(0px)" }
                         : { opacity: 0, filter: "blur(0px)" },
                     transition: { duration: 0.8 },
+                    style: { pointerEvents: heroTextOn ? "auto" : "none" },
                     className: "morph-hero-title",
                     children: [
                       "We Build ",
@@ -20446,6 +20449,7 @@ Error generating stack: ` +
                         ? { opacity: 1 - textU * 2, y: 0 }
                         : { opacity: 0 },
                     transition: { duration: 0.8, delay: 0.1 },
+                    style: { pointerEvents: heroTextOn ? "auto" : "none" },
                     className: "morph-hero-sub",
                     children:
                       "We’re Zamboanga City’s leading digital infrastructure agency. Our proven automated booking and zero-error ordering systems help local businesses cut costs and run 24/7.",
@@ -21619,6 +21623,12 @@ Error generating stack: ` +
         color: #111827 !important;
         margin: 0 0 0.75rem 0 !important;
         max-width: 680px !important;
+      }
+      .morph-hero-title,
+      .morph-hero-sub {
+        user-select: text !important;
+        -webkit-user-select: text !important;
+        cursor: text;
       }
       .morph-hero-title span.italic {
         font-style: italic !important;
