@@ -2159,11 +2159,11 @@ picture,
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background-color: #0976d6 !important;
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
   font-weight: 700;
   text-decoration: none;
-  border: 1px solid #0976d6;
+  border: 1px solid #ffffff;
   border-radius: 2px;
   cursor: pointer;
   user-select: none;
@@ -2178,9 +2178,10 @@ picture,
 }
 
 .footer-cta-btn:hover {
-  background-color: #0b86f4 !important;
-  border-color: #0b86f4 !important;
-  box-shadow: 0 12px 32px rgba(9, 118, 214, 0.4);
+  background-color: #e5e5e5 !important;
+  color: #000000 !important;
+  border-color: #e5e5e5 !important;
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.15);
 }
 
 .footer-cta-btn svg {
