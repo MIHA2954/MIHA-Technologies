@@ -103,7 +103,7 @@ temp/
 .temp/
 scratch/
 brag-output/
-
+brag-output-2026-10-04-175723/
 
 # Agent / Antigravity Local Runtime Data
 .agents/
@@ -129,3 +129,7 @@ strix_runs/
 *.db
 sec_test_cookies*.txt
 verify_cookie*.txt
+
+# Local Codex skills, instructions, and workflow artifacts
+/.codex/
+/AGENTS.md

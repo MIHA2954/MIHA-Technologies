@@ -14429,7 +14429,8 @@ function j0() {
   const loc = hi();
   const [t, i] = E.useState(!1),
     [l, s] = E.useState(!1),
-    [vNav, setVNav] = E.useState(!1);
+    [vNav, setVNav] = E.useState(!1),
+    [footerHidden, setFooterHidden] = E.useState(!1);
   const p = (loc && loc.pathname ? loc.pathname : window.location.pathname).toLowerCase().replace(/\/$/, "");
   const isMorph =
     p === "" ||
@@ -14440,12 +14441,41 @@ function j0() {
 
   E.useEffect(() => {
     let ticking = !1,
-      currNav = !1;
+      currNav = !1,
+      currFooter = !1;
     const check = () => {
       const isDesktop = window.innerWidth >= 768;
       const hero = document.querySelector(".hero-desktop-intro");
       const y = window.scrollY || window.pageYOffset || 0;
       s(y > 50);
+
+      const headerHeight = isDesktop ? 90 : 68;
+      const footer = document.getElementById("footer-container") || document.querySelector("footer");
+      const fRect = footer ? footer.getBoundingClientRect() : null;
+      const hideThreshold = headerHeight;
+      const showThreshold = headerHeight + 40;
+      const isFooterInView = fRect
+        ? (currFooter ? fRect.top <= showThreshold : fRect.top <= hideThreshold) && fRect.bottom > 0
+        : !1;
+
+      if (isFooterInView) {
+        if (!currFooter) {
+          currFooter = !0;
+          setFooterHidden(!0);
+          if (typeof document !== "undefined") {
+            document.body.classList.add("footer-in-view");
+          }
+        }
+      } else {
+        if (currFooter) {
+          currFooter = !1;
+          setFooterHidden(!1);
+          if (typeof document !== "undefined") {
+            document.body.classList.remove("footer-in-view");
+          }
+        }
+      }
+
       if (!isMorph || !hero || !isDesktop) {
         if (!currNav) {
           currNav = !0;
@@ -14483,6 +14513,9 @@ function j0() {
       if (window.lenis && typeof window.lenis.off === "function") {
         window.lenis.off("scroll", onScroll);
       }
+      if (typeof document !== "undefined") {
+        document.body.classList.remove("footer-in-view");
+      }
     };
   }, [isMorph]);
   const o = () => {
@@ -14492,7 +14525,9 @@ function j0() {
       i(!1);
     };
   const containerClass = isMorph ? "header-morph-container" : "sticky";
-  const mClass = isMorph ? (vNav ? "nav-morph-visible" : "nav-morph-hidden") : "";
+  const mClass = footerHidden
+    ? "nav-footer-hidden nav-morph-hidden"
+    : (isMorph ? (vNav ? "nav-morph-visible" : "nav-morph-hidden") : "");
   const isGlass = isMorph ? (vNav || l) : l;
   return m.jsx("header", {
     className: `${containerClass} ${mClass} top-0 z-50 ${isGlass ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`,
@@ -14659,194 +14694,163 @@ const Er = {
 function A0() {
   const t = new Date().getFullYear();
   return m.jsx("footer", {
-    className: "site-footer bg-[#070707] overflow-hidden",
+    id: "footer-container",
+    className: "site-footer bg-[#101010] py-12 xl:py-20 overflow-hidden text-white",
     children: m.jsx("div", {
-      className: "pt-10 sm:pt-20",
-      children: m.jsxs("div", {
-        className: "max-w-7xl mx-auto px-6",
+      className: "mx-auto w-full max-w-[1400px] px-4 md:px-8",
+      children: m.jsxs("section", {
+        className: "flex flex-col gap-8 md:gap-10",
         children: [
-          m.jsx("div", {
-            className: "site-footer-logo-wrap mb-8 sm:mb-16",
-            children: m.jsx(Se, {
-              to: "/",
-              children: m.jsx("img", {
-                src: "assets/images/layout/logo-white.svg",
-                alt: "MIHA Technologies Logo",
-              }),
-            }),
-          }),
           m.jsxs("div", {
-            className:
-              "site-footer-grid grid grid-cols-2 md:grid-cols-4 justify-between gap-x-6 gap-y-8 sm:gap-12 pb-8 sm:pb-16",
+            className: "footer-body",
             children: [
               m.jsxs("div", {
-                className: "site-footer-col order-1",
+                className: "footer-row-top",
                 children: [
-                  m.jsx("h4", {
-                    className: "site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4",
-                    children: "Studio",
+                  m.jsx("h2", {
+                    className: "footer-word-miha",
+                    children: "MIHA",
                   }),
-                  m.jsx("ul", {
-                    className:
-                      "site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300",
-                    children: Er.useCases.map((i, l) =>
-                      m.jsx(
-                        "li",
-                        {
-                          children: m.jsx("a", {
-                            href: i.href,
-                            children: i.label,
-                          }),
-                        },
-                        l,
-                      ),
-                    ),
+                  m.jsx("div", {
+                    className: "footer-media-slot",
+                    children: m.jsx("video", {
+                      id: "footer-loop-video",
+                      src: "assets/video/footer-loop.mp4",
+                      playsInline: true,
+                      autoPlay: true,
+                      muted: true,
+                      loop: true,
+                      className: "w-full h-full object-cover",
+                    }),
+                  }),
+                  m.jsxs("ul", {
+                    className: "footer-nav-col",
+                    children: [
+                      m.jsx("a", {
+                        href: "portfolio.html",
+                        children: m.jsx("li", {
+                          children: "Projects",
+                        }),
+                      }),
+                      m.jsx("a", {
+                        href: "about.html",
+                        children: m.jsx("li", {
+                          children: "About Us",
+                        }),
+                      }),
+                      m.jsx("a", {
+                        href: "services.html",
+                        children: m.jsx("li", {
+                          children: "Services",
+                        }),
+                      }),
+                    ],
                   }),
                 ],
               }),
               m.jsxs("div", {
-                className: "site-footer-col order-3 md:order-2",
+                className: "footer-info-bar",
                 children: [
-                  m.jsx("h4", {
-                    className: "site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4",
-                    children: "Services",
+                  m.jsxs("p", {
+                    className: "footer-info-kicker",
+                    children: [
+                      m.jsx("strong", {
+                        className: "highlight",
+                        children: "Let's engineer ",
+                      }),
+                      "your brand's digital infrastructure",
+                    ],
                   }),
-                  m.jsx("ul", {
-                    className:
-                      "site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300",
-                    children: Er.services.map((i, l) =>
-                      m.jsx(
-                        "li",
-                        {
-                          children: m.jsx("a", {
-                            href: i.href,
-                            children: i.label,
-                          }),
-                        },
-                        l,
-                      ),
-                    ),
+                  m.jsxs("div", {
+                    className: "footer-info-center",
+                    children: [
+                      m.jsx("span", {
+                        className: "footer-text-primary",
+                        children: "Modern Infrastructure & Hosting Architecture",
+                      }),
+                      m.jsx("span", {
+                        className: "footer-text-secondary",
+                        children: "Mindanao to Global Scale",
+                      }),
+                    ],
+                  }),
+                  m.jsxs("div", {
+                    className: "footer-info-right",
+                    children: [
+                      m.jsx("span", { children: "Cloud DevOps" }),
+                      m.jsx("span", { className: "text-neutral-600", children: "·" }),
+                      m.jsx("span", { children: "Microservices" }),
+                      m.jsx("span", { className: "text-neutral-600", children: "·" }),
+                      m.jsx("span", { children: "AI Engineering" }),
+                    ],
                   }),
                 ],
               }),
               m.jsxs("div", {
-                className: "site-footer-col order-4 md:order-3",
+                className: "footer-row-bottom",
                 children: [
-                  m.jsx("h4", {
-                    className: "site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4",
-                    children: "Featured Work",
+                  m.jsxs("a", {
+                    href: "contact.html",
+                    className: "footer-cta-btn group",
+                    children: [
+                      m.jsx("span", {
+                        children: "Get in Touch",
+                      }),
+                      m.jsx("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: 18,
+                        height: 18,
+                        fill: "none",
+                        viewBox: "0 0 15 15",
+                        children: m.jsx("path", {
+                          stroke: "currentColor",
+                          strokeLinecap: "square",
+                          strokeWidth: 2,
+                          d: "M13.31 10.25V.75h-9.5M1.06 13l11.6-11.6",
+                        }),
+                      }),
+                    ],
                   }),
-                  m.jsx("ul", {
-                    className:
-                      "site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300",
-                    children: Er.resources.map((i, l) =>
-                      m.jsx(
-                        "li",
-                        {
-                          children: m.jsx("a", {
-                            href: i.href,
-                            children: i.label,
-                          }),
-                        },
-                        l,
-                      ),
-                    ),
-                  }),
-                ],
-              }),
-              m.jsxs("div", {
-                className: "site-footer-col order-2 md:order-4",
-                children: [
-                  m.jsx("h4", {
-                    className: "site-footer-heading text-base sm:text-lg font-semibold text-white mb-2.5 sm:mb-4",
-                    children: "Connect",
-                  }),
-                  m.jsx("ul", {
-                    className:
-                      "site-footer-links space-y-2 sm:space-y-4 text-white [&>li>a]:text-sm sm:[&>li>a]:text-base [&>li>a]:leading-snug sm:[&>li>a]:leading-6 [&>li>a]:opacity-80 [&>li>a]:hover:opacity-100 [&>li>a]:transition-opacity [&>li>a]:duration-300",
-                    children: Er.contact.map((i, l) =>
-                      m.jsx(
-                        "li",
-                        {
-                          children: m.jsx("a", {
-                            href: i.href,
-                            children: i.label,
-                          }),
-                        },
-                        l,
-                      ),
-                    ),
+                  m.jsx("h2", {
+                    className: "footer-word-tech",
+                    children: "TECHNOLOGIES",
                   }),
                 ],
               }),
             ],
           }),
           m.jsxs("div", {
-            className: "flex flex-col pb-8 sm:pb-10",
+            className: "footer-bottom-bar font-sans",
             children: [
-              m.jsx("div", {
-                className: "site-footer-svg-wrap mb-4 sm:mb-6 overflow-hidden",
-                children: m.jsxs("svg", {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  width: 1281,
-                  height: 178,
-                  viewBox: "0 0 1281 178",
-                  fill: "none",
-                  className: "w-full h-auto max-h-14 sm:max-h-none",
-                  children: [
-                    m.jsx("defs", {
-                      children: m.jsxs("linearGradient", {
-                        id: "paint0_linear_14176_476",
-                        x1: 640.398,
-                        y1: 0.398438,
-                        x2: 640.398,
-                        y2: 177.53,
-                        gradientUnits: "userSpaceOnUse",
-                        children: [
-                          m.jsx("stop", { stopColor: "#fff" }),
-                          m.jsx("stop", { offset: 1, stopColor: "#070707" }),
-                        ],
-                      }),
-                    }),
-                    m.jsx("g", {
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: 88,
-                      fill: "none",
-                      stroke: "url(#paint0_linear_14176_476)",
-                      strokeWidth: 1,
-                      children: m.jsx("text", {
-                        x: 640,
-                        y: 130,
-                        textAnchor: "middle",
-                        fontWeight: 700,
-                        letterSpacing: 8,
-                        children: "MIHA TECHNOLOGIES",
-                      }),
-                    }),
-                  ],
-                }),
+              m.jsxs("span", {
+                children: ["© ", t, " MIHA Technologies. All rights reserved"],
               }),
               m.jsxs("div", {
-                className: "site-footer-bottom flex flex-col sm:flex-row gap-3 sm:gap-5 justify-between",
+                className: "flex items-center gap-2",
                 children: [
-                  m.jsxs("div", {
+                  m.jsx("span", {
                     className:
-                      "flex space-x-4 text-white text-xs sm:text-base [&>a]:hover:text-white/80 [&>a]:transition",
-                    children: [
-                      m.jsx("a", {
-                        href: "#",
-                        children: " Terms & conditions ",
-                      }),
-                      m.jsx("a", { href: "#", children: " Privacy " }),
-                      m.jsx("a", { href: "#", children: " Cookies " }),
-                    ],
+                      "inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse",
                   }),
-                  m.jsx("div", {
-                    children: m.jsxs("p", {
-                      className:
-                        "text-white text-xs sm:text-base hover:text-white/80 transition",
-                      children: ["© ", t, " MIHA Technologies. All rights reserved."],
-                    }),
+                  m.jsx("span", {
+                    className:
+                      "text-white/80 uppercase tracking-widest text-[11px] font-mono",
+                    children: "A MIHA Company",
+                  }),
+                ],
+              }),
+              m.jsxs("div", {
+                className: "flex gap-4",
+                children: [
+                  m.jsx("a", {
+                    href: "#",
+                    className: "hover:text-white transition",
+                    children: "Privacy Policy",
+                  }),
+                  m.jsx("a", {
+                    href: "#",
+                    className: "hover:text-white transition",
+                    children: "Terms & Conditions",
                   }),
                 ],
               }),
