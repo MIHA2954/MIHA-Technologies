@@ -1893,9 +1893,6 @@ picture,
 
 @media (min-width: 768px) {
   .site-footer {
-    min-height: 100vh;
-    min-height: 100dvh;
-    justify-content: space-between;
     padding-top: clamp(2.5rem, 5.8vw, 5.25rem);
     padding-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
     padding-left: clamp(1.25rem, 4vw, 4rem) !important;
@@ -1916,7 +1913,8 @@ picture,
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: clamp(2.5rem, 4vw, 4.5rem) !important;
     width: 100%;
   }
 }
@@ -2301,7 +2299,7 @@ picture,
 
 @media (min-width: 768px) {
   .footer-word-tech {
-    font-size: clamp(34px, 12.5vw, 280px) !important;
+    font-size: clamp(34px, 12.5vw, 190px) !important;
   }
 }
 
