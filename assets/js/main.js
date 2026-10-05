@@ -26777,7 +26777,7 @@ const c9 = [
     id: 1,
     name: "Mhyco Giselo Bunao",
     role: "Lead Full-Stack Engineer",
-    image: "assets/images/team/team-mhyco.png",
+    image: "assets/images/team/team-placeholder.jpg",
     socials: {
       facebook: "https://www.facebook.com/giselo.bunao",
       github: "https://github.com",
@@ -26799,7 +26799,7 @@ const c9 = [
     id: 3,
     name: "Janus Dominic",
     role: "Backend & Cloud Architect",
-    image: "assets/images/team/team-3.jpg?v=janus",
+    image: "assets/images/team/team-placeholder.jpg",
     socials: {
       facebook: "https://www.facebook.com/notagirlgamer69",
       github: "https://github.com",
@@ -26821,7 +26821,7 @@ const c9 = [
     id: 5,
     name: "Isaiah James Carpio",
     role: "Mobile & DevOps Engineer",
-    image: "assets/images/team/team-isaiah.png",
+    image: "assets/images/team/team-placeholder.jpg",
     socials: {
       facebook: "https://www.facebook.com/khalafahmadibrahim.alamadi",
       github: "https://github.com",
@@ -26832,7 +26832,7 @@ const c9 = [
     id: 6,
     name: "Yan Mark V. Darunday",
     role: "Software Engineer",
-    image: "assets/images/team/team-yanmark.jpg?v=2",
+    image: "assets/images/team/team-placeholder.jpg",
     socials: {
       facebook: "https://www.facebook.com",
       github: "https://github.com",
