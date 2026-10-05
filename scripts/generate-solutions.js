@@ -91,8 +91,8 @@ function renderFooter() {
               <span class="text-white/80 uppercase tracking-widest text-[11px] font-mono">A MIHA Company</span>
             </div>
             <div class="flex gap-4">
-              <a href="#" class="hover:text-white transition">Privacy Policy</a>
-              <a href="#" class="hover:text-white transition">Terms &amp; Conditions</a>
+              <a href="#privacy-policy" class="hover:text-white transition">Privacy Policy</a>
+              <a href="#terms-and-conditions" class="hover:text-white transition">Terms &amp; Conditions</a>
             </div>
           </div>
         </section>
@@ -220,8 +220,8 @@ function generateSolutionPage(sol) {
   ${JSON.stringify(faqSchema, null, 2)}
   </script>
 
-  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.1">
-  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.0">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.2">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.1">
 </head>
 <body class="antialiased">
   <div id="root">
@@ -446,6 +446,7 @@ ${renderHeader('solutions')}
 
 ${renderFooter()}
   </div>
+<script defer src="../assets/js/legal-modal.js?v=1"></script>
 </body>
 </html>`;
 }
@@ -512,8 +513,8 @@ function generateHubPage(solutions) {
   ${JSON.stringify(collectionSchema, null, 2)}
   </script>
 
-  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.1">
-  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.0">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.2">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.1">
 </head>
 <body class="antialiased">
   <div id="root">
@@ -558,6 +559,7 @@ ${renderHeader('solutions')}
 
 ${renderFooter()}
   </div>
+<script defer src="../assets/js/legal-modal.js?v=1"></script>
 </body>
 </html>`;
 }

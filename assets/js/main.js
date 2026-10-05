@@ -14843,12 +14843,12 @@ function A0() {
                 className: "flex gap-4",
                 children: [
                   m.jsx("a", {
-                    href: "#",
+                    href: "#privacy-policy",
                     className: "hover:text-white transition",
                     children: "Privacy Policy",
                   }),
                   m.jsx("a", {
-                    href: "#",
+                    href: "#terms-and-conditions",
                     className: "hover:text-white transition",
                     children: "Terms & Conditions",
                   }),

@@ -471,7 +471,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  user-select: none;
+  user-select: text;
   list-style: none;
   min-height: 48px;
 }
