@@ -21927,9 +21927,9 @@ const NS = [
   },
   {
     id: 4,
-    title: "Ongoing Support",
+    title: "Full Data Sovereignty",
     description:
-      "Your system goes live to your customers, and your support agreement starts. We handle server hosting, database security, and system uptime so your business stays online.",
+      "100% ownership of your business data, customer records, and digital assets. Enterprise reliability with zero operational headaches.",
     icon: m.jsxs("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "48",
@@ -31110,14 +31110,14 @@ const _9 = () => [
   {
     id: 2,
     title: "Serene Smile Clinic",
-    subtitle: "The 24/7 Automated Booking Master Template.",
+    subtitle: "The Fast-Loading Static Website Master Template.",
     type: "CLINIC & SERVICE BOOKINGS",
     date: "2026",
     image: "assets/images/project/serene-smile.jpg",
     category: "Clinic & Service Bookings",
     categories: ["All Projects", "Clinic & Service Bookings"],
     url: "https://serene-smile.netlify.app/",
-    desc: "Built to replace inefficient reception desks. Features a fully automated patient portal, doctor scheduling, and SMS no-show reminders. Engineered to be cloned for local clinics, salons, and gyms.",
+    desc: "A clean, reliable static website with no database to maintain and no monthly server headaches. Clear services, doctor profiles, and contact details that load instantly on any phone. Engineered to be cloned for local clinics, salons, and gyms.",
   },
   {
     id: 3,
@@ -31134,6 +31134,7 @@ const _9 = () => [
   {
     id: 4,
     title: "QuickNote",
+    subtitle: "The Second Brain SaaS Master Template.",
     type: "PRODUCTIVITY & SECOND BRAIN SAAS",
     date: "2026",
     image: "assets/images/project/quicknote.jpg",
@@ -31145,6 +31146,7 @@ const _9 = () => [
   {
     id: 5,
     title: "A.N.A",
+    subtitle: "The Interactive Digital Gallery Master Template.",
     type: "DIGITAL ART & EXHIBITION GALLERY",
     date: "2026",
     image: "assets/images/project/ana.jpg",
@@ -31156,6 +31158,7 @@ const _9 = () => [
   {
     id: 6,
     title: "Syrupynut",
+    subtitle: "The Artist Portfolio & Commissions Master Template.",
     type: "CREATIVE PORTFOLIO & COMMISSIONS",
     date: "2026",
     image: "assets/images/project/syrupynut.jpg",
@@ -31370,7 +31373,7 @@ function V9() {
                           o.subtitle &&
                             m.jsx("p", {
                               className: "text-sm font-medium mt-1",
-                              style: { color: "#10b981" },
+                              style: { color: "#d4d4d8" },
                               children: o.subtitle,
                             }),
                           m.jsxs("div", {
