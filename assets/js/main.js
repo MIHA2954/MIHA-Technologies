@@ -14682,6 +14682,7 @@ const Er = {
     { label: "Syrupynut Commission Hub", href: "https://syrupynut.pages.dev/" },
     { label: "BeCoffee Roastery", href: "https://becoffee.freepage.cc/" },
     { label: "Serene Smile Clinic", href: "https://serene-smile.netlify.app/" },
+    { label: "Court Avenue ZC", href: "https://staging.courtavenuezc.com/" },
     { label: "All Case Studies →", href: "portfolio.html" },
   ],
   contact: [
@@ -31167,6 +31168,18 @@ const _9 = () => [
     url: "https://syrupynut.pages.dev/",
     desc: "Digital illustration commission hub and artist portfolio featuring tiered service pricing, interactive guidelines, and direct booking integrations.",
   },
+  {
+    id: 7,
+    title: "Court Avenue ZC",
+    subtitle: "The 24/7 Automated Court Booking Master Template.",
+    type: "SPORTS & COURT BOOKING",
+    date: "2026",
+    image: "assets/images/project/court-avenue.jpg",
+    category: "Clinic & Service Bookings",
+    categories: ["All Projects", "Clinic & Service Bookings"],
+    url: "https://staging.courtavenuezc.com/",
+    desc: "Zamboanga City's premier pickleball facility and court reservation platform. Features real-time hourly slot booking, automated session holds to eliminate double bookings, seamless GCash receipt uploads, and community open-play matchmaking. Engineered to be cloned and deployed for sports facilities, rental arenas, and booking hubs.",
+  },
 ];
 function V9() {
   const [t, i] = E.useState("All Projects");
@@ -31560,6 +31573,14 @@ function U9() {
           date: "2026",
           image: "assets/images/project/serene-smile.jpg",
           url: "https://serene-smile.netlify.app/",
+        },
+        {
+          id: 7,
+          title: "Court Avenue ZC",
+          type: "SPORTS & COURT BOOKING",
+          date: "2026",
+          image: "assets/images/project/court-avenue.jpg",
+          url: "https://staging.courtavenuezc.com/",
         },
       ],
       [t],
