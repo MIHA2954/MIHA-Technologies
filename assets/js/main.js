@@ -14680,7 +14680,7 @@ const Er = {
     { label: "QuickNote Productivity", href: "https://quicknote.ct.ws/?i=2" },
     { label: "A.N.A Digital Gallery", href: "https://ana-seven-silk.vercel.app/" },
     { label: "Syrupynut Commission Hub", href: "https://syrupynut.pages.dev/" },
-    { label: "BeCoffee Roastery", href: "https://becoffee.freepage.cc/" },
+    { label: "BeCoffee Roastery", href: "https://becoffeewalled.coffee1.workers.dev/" },
     { label: "Serene Smile Clinic", href: "https://serene-smile.netlify.app/" },
     { label: "Court Avenue ZC", href: "https://staging.courtavenuezc.com/" },
     { label: "All Case Studies →", href: "portfolio.html" },
@@ -28708,7 +28708,7 @@ const g9 = () => [
     type: "RESTAURANT & CAFE ORDERING",
     date: "2026",
     image: "assets/images/project/becoffee.jpg",
-    url: "https://becoffee.freepage.cc/",
+    url: "https://becoffeewalled.coffee1.workers.dev/",
   },
 ];
 function y9() {
@@ -31105,7 +31105,7 @@ const _9 = () => [
     image: "assets/images/project/becoffee.jpg",
     category: "Restaurant & Cafe Ordering",
     categories: ["All Projects", "Restaurant & Cafe Ordering"],
-    url: "https://becoffee.freepage.cc/",
+    url: "https://becoffeewalled.coffee1.workers.dev/",
     desc: "The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.",
   },
   {
@@ -31564,7 +31564,7 @@ function U9() {
           type: "SPECIALTY COFFEE & ROASTERY",
           date: "2026",
           image: "assets/images/project/becoffee.jpg",
-          url: "https://becoffee.freepage.cc/",
+          url: "https://becoffeewalled.coffee1.workers.dev/",
         },
         {
           id: 6,
