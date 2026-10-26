@@ -31296,44 +31296,22 @@ function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough
   const [reducedMotion, setReducedMotion] = E.useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
-  const [playing, setPlaying] = E.useState(false);
   const [playbackError, setPlaybackError] = E.useState("");
   const video = E.useRef(null);
-  const playRequest = E.useRef(0);
   E.useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
       setReducedMotion(media.matches);
-      if (media.matches && video.current) {
-        playRequest.current += 1;
-        video.current.pause();
-      }
+      if (media.matches && video.current) video.current.pause();
     };
     media.addEventListener("change", update);
     return () => media.removeEventListener("change", update);
   }, []);
-  const togglePlayback = () => {
-    const player = video.current;
-    if (!player) return;
-    const requestId = ++playRequest.current;
-    if (!player.paused) {
-      player.pause();
-      return;
-    }
-    setPlaybackError("");
-    const request = player.play();
-    if (request) request.catch((error) => {
-      if (requestId !== playRequest.current || error?.name === "AbortError") return;
-      setPlaying(false);
-      setPlaybackError("The preview could not play. Open the FreshCart demo to explore it.");
-    });
-  };
-  const action = playing ? "Pause" : "Play";
   return m.jsxs("div", {
     className: "freshcart-preview",
     children: [
       m.jsx("a", {
-        href: href,
+        href,
         target: "_blank",
         rel: "noopener noreferrer",
         tabIndex: -1,
@@ -31350,45 +31328,14 @@ function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough
           loop: !0,
           playsInline: !0,
           preload: "metadata",
-          className: className,
+          className,
           "aria-label": title,
-          onPlay: () => setPlaying(true),
-          onPause: () => {
-            playRequest.current += 1;
-            setPlaying(false);
-          },
-          onEnded: () => setPlaying(false),
-          onError: () => {
-            setPlaying(false);
-            setPlaybackError("The preview is unavailable. Open the FreshCart demo to explore it.");
-          },
+          onError: () => setPlaybackError("The preview is unavailable. Open the FreshCart demo to explore it."),
           children: [
             m.jsx("source", { src: "assets/images/project/freshcart-demo.webm", type: "video/webm" }),
             m.jsx("source", { src: "assets/images/project/freshcart-demo.mp4", type: "video/mp4" }),
           ],
         }),
-      }),
-      m.jsx("button", {
-        type: "button",
-        className: "freshcart-preview-toggle",
-        "aria-label": action + " preview for " + title,
-        onClick: togglePlayback,
-        style: {
-          display: "inline-flex",
-          alignItems: "center",
-          minHeight: 44,
-          marginTop: 12,
-          padding: "8px 12px",
-          border: "1px solid rgba(255,255,255,0.45)",
-          borderRadius: 6,
-          background: "transparent",
-          color: "#fff",
-          font: "inherit",
-          fontSize: 14,
-          cursor: "pointer",
-          outlineOffset: 4,
-        },
-        children: action + " preview",
       }),
       playbackError && m.jsx("p", {
         role: "status",
