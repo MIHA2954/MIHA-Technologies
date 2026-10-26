@@ -20,7 +20,7 @@ const { solutions } = JSON.parse(rawData);
 
 console.log(`Loaded ${solutions.length} solutions from ${DATA_PATH}`);
 
-function renderHeader(active = 'solutions') {
+function renderHeader(active = null) {
   return renderSiteHeader({
     prefix: '../',
     active,
@@ -211,7 +211,7 @@ function generateSolutionPage(sol) {
 </head>
 <body class="antialiased">
   <div id="root">
-${renderHeader('solutions')}
+${renderHeader()}
 
     <main id="main-content" tabindex="-1">
       <!-- Hero Section -->
@@ -505,7 +505,7 @@ function generateHubPage(solutions) {
 </head>
 <body class="antialiased">
   <div id="root">
-${renderHeader('solutions')}
+${renderHeader()}
 
     <main id="main-content" tabindex="-1">
       <section class="sol-hero">
@@ -573,17 +573,11 @@ const corePages = [
   { loc: 'https://mihatechnologies.com/services.html', priority: '0.9', changefreq: 'monthly' },
   { loc: 'https://mihatechnologies.com/portfolio.html', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://mihatechnologies.com/about.html', priority: '0.7', changefreq: 'monthly' },
-  { loc: 'https://mihatechnologies.com/contact.html', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://mihatechnologies.com/solutions/', priority: '0.9', changefreq: 'weekly' }
+  { loc: 'https://mihatechnologies.com/contact.html', priority: '0.8', changefreq: 'monthly' }
 ];
 
-const solutionPages = solutions.map(s => ({
-  loc: `https://mihatechnologies.com/solutions/${s.slug}.html`,
-  priority: '0.85',
-  changefreq: 'monthly'
-}));
-
-const allPages = [...corePages, ...solutionPages];
+// Solutions pages are hidden: they stay online but are left out of the nav and sitemap.
+const allPages = corePages;
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

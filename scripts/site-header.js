@@ -6,7 +6,6 @@ const NAV = [
   { key: 'portfolio', label: 'Projects', href: 'portfolio.html' },
   { key: 'about', label: 'About', href: 'about.html' },
   { key: 'services', label: 'Services', href: 'services.html' },
-  { key: 'solutions', label: 'Solutions', href: 'solutions/index.html' },
 ];
 
 function roll(text) {
@@ -17,10 +16,9 @@ function roll(text) {
 // active: key of the current page in NAV, or null.
 // headerClass: classes for the <header> element itself.
 function renderHeader({ prefix = '', active = null, headerClass = 'sticky top-0 z-50 bg-white', indent = '    ' } = {}) {
-  const href = (item) => (prefix && item.key === 'solutions' ? 'index.html' : prefix + item.href);
   const link = (item, cls) => {
     const current = item.key === active ? ' aria-current="page"' : '';
-    return `<a class="${cls}" href="${href(item)}"${current}><span class="site-nav-label">${roll(item.label)}</span></a>`;
+    return `<a class="${cls}" href="${prefix + item.href}"${current}><span class="site-nav-label">${roll(item.label)}</span></a>`;
   };
   const lines = [
     `<header class="site-header ${headerClass}">`,

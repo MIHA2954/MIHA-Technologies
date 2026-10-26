@@ -14430,7 +14430,6 @@ const SITE_NAV = [
   { label: "Projects", to: "/portfolio" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Solutions", href: "solutions/index.html" },
 ];
 function j0() {
   const loc = hi();
@@ -14568,22 +14567,17 @@ function j0() {
     };
   }, [t]);
   const isActive = (to) => p.endsWith(to) || p.endsWith(to + ".html");
-  // Solutions pages are static HTML outside the React router, so that item is a plain link.
-  const navLink = (item, cls, onClick) => {
-    const label = m.jsx("span", {
-      className: "site-nav-label",
-      children: m.jsx(ft, { children: item.label }),
+  const navLink = (item, cls, onClick) =>
+    m.jsx(Se, {
+      to: item.to,
+      onClick: onClick,
+      className: cls,
+      "aria-current": isActive(item.to) ? "page" : void 0,
+      children: m.jsx("span", {
+        className: "site-nav-label",
+        children: m.jsx(ft, { children: item.label }),
+      }),
     });
-    return item.to
-      ? m.jsx(Se, {
-          to: item.to,
-          onClick: onClick,
-          className: cls,
-          "aria-current": isActive(item.to) ? "page" : void 0,
-          children: label,
-        })
-      : m.jsx("a", { href: item.href, onClick: onClick, className: cls, children: label });
-  };
   const skipToMain = (e) => {
     const main = document.getElementById("main-content");
     if (!main) return;
