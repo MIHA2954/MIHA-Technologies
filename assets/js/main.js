@@ -29127,7 +29127,11 @@ const demoCards = [
     tag: "COURT & FACILITY BOOKING",
     title: "Court Booking",
     desc: "Pick an open hour, hold the slot, upload a receipt, then review it from the admin desk.",
-    image: "assets/images/project/court-booking.jpg",
+    image: "assets/images/project/court-booking-demo-poster.jpg",
+    video: [
+      { src: "assets/images/project/court-booking-demo.webm", type: "video/webm" },
+      { src: "assets/images/project/court-booking-demo.mp4", type: "video/mp4" },
+    ],
   },
   {
     host: "ordering-demo.mihatechnologies.com",
@@ -29173,7 +29177,21 @@ function DemosSection() {
                   href: c.href,
                   delay: i * 0.1,
                   children: [
-                    m.jsx("img", { src: c.image, alt: "", loading: "lazy", className: "demos-card-img" }),
+                    c.video && !prefersReducedMotion()
+                      ? m.jsx("video", {
+                          poster: c.image,
+                          autoPlay: !0,
+                          muted: !0,
+                          loop: !0,
+                          playsInline: !0,
+                          preload: "metadata",
+                          "aria-label": c.title + " walkthrough",
+                          className: "demos-card-img",
+                          children: c.video.map((v) =>
+                            m.jsx("source", { src: v.src, type: v.type }, v.src),
+                          ),
+                        })
+                      : m.jsx("img", { src: c.image, alt: "", loading: "lazy", className: "demos-card-img" }),
                     m.jsxs("span", {
                       className: "demos-card-body",
                       children: [
@@ -31416,7 +31434,11 @@ const _9 = () => [
     subtitle: "The Live Court Booking Demo at booking-demo.mihatechnologies.com.",
     type: "COURT & FACILITY BOOKING",
     date: "2026",
-    image: "assets/images/project/court-booking.jpg",
+    image: "assets/images/project/court-booking-demo-poster.jpg",
+    video: [
+      { src: "assets/images/project/court-booking-demo.webm", type: "video/webm" },
+      { src: "assets/images/project/court-booking-demo.mp4", type: "video/mp4" },
+    ],
     url: "https://booking-demo.mihatechnologies.com/",
     desc: "A working sandbox of our court booking system. Browse open hours, reserve a slot, upload a payment receipt, then sign in as the admin to review it. Runs in your own browser with sample data, so nothing is charged or sent.",
   },
