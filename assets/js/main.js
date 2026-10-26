@@ -31088,16 +31088,21 @@ function R9() {
   });
 }
 const z9 = [
-  "All Projects",
-  "Retail & Inventory",
-  "Clinic & Service Bookings",
-  "Restaurant & Cafe Ordering",
-  "SaaS Platforms",
-  "Creative & Media",
+  {
+    id: "systems",
+    title: "Systems",
+    desc: "Web apps with a working backend: QR ordering, court bookings, inventory, checkout and cloud storage.",
+  },
+  {
+    id: "static-websites",
+    title: "Static Websites",
+    desc: "No database to maintain and no monthly server headaches. Fast pages that load instantly on any phone.",
+  },
 ];
 const _9 = () => [
   {
     id: 1,
+    group: "systems",
     title: "BeCoffee Roastery",
     subtitle: "The Zero-Error QR Ordering Master Template.",
     type: "RESTAURANT & CAFE ORDERING",
@@ -31107,112 +31112,151 @@ const _9 = () => [
       { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
       { src: "assets/images/project/becoffee-demo.mp4", type: "video/mp4" },
     ],
-    category: "Restaurant & Cafe Ordering",
-    categories: ["All Projects", "Restaurant & Cafe Ordering"],
     url: "https://ordering-demo.mihatechnologies.com/",
     desc: "The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.",
   },
   {
     id: 2,
+    group: "static-websites",
     title: "Serene Smile Clinic",
     subtitle: "The Fast-Loading Static Website Master Template.",
     type: "CLINIC & SERVICE BOOKINGS",
     date: "2026",
     image: "assets/images/project/serene-smile.jpg",
-    category: "Clinic & Service Bookings",
-    categories: ["All Projects", "Clinic & Service Bookings"],
     url: "https://serene-smile.netlify.app/",
     desc: "A clean, reliable static website with no database to maintain and no monthly server headaches. Clear services, doctor profiles, and contact details that load instantly on any phone. Engineered to be cloned for local clinics, salons, and gyms.",
   },
   {
     id: 3,
+    group: "systems",
     title: "FreshCart E-Commerce",
     subtitle: "The Digital Retail & Inventory Master Template.",
     type: "RETAIL & INVENTORY",
     date: "2026",
     image: "assets/images/project/freshcart.jpg",
-    category: "Retail & Inventory",
-    categories: ["All Projects", "Retail & Inventory"],
     url: "https://freshcart.ct.ws/",
     desc: "Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.",
   },
   {
     id: 4,
+    group: "systems",
     title: "QuickNote",
     subtitle: "The Second Brain SaaS Master Template.",
     type: "PRODUCTIVITY & SECOND BRAIN SAAS",
     date: "2026",
     image: "assets/images/project/quicknote.jpg",
-    category: "SaaS Platforms",
-    categories: ["All Projects", "SaaS Platforms"],
     url: "https://quicknote.ct.ws/?i=2",
     desc: "The second brain for creators and developers featuring instant auto-save, smart tagging, rich media cloud storage, and interactive WebGL canvas.",
   },
   {
     id: 5,
+    group: "static-websites",
     title: "A.N.A",
     subtitle: "The Interactive Digital Gallery Master Template.",
     type: "DIGITAL ART & EXHIBITION GALLERY",
     date: "2026",
     image: "assets/images/project/ana.jpg",
-    category: "Creative & Media",
-    categories: ["All Projects", "Creative & Media"],
     url: "https://ana-seven-silk.vercel.app/",
     desc: "Interactive digital art gallery and exhibition web application developed with Next.js, featuring real-time WebGL canvas and curated artist manifestos.",
   },
   {
     id: 6,
+    group: "static-websites",
     title: "Syrupynut",
     subtitle: "The Artist Portfolio & Commissions Master Template.",
     type: "CREATIVE PORTFOLIO & COMMISSIONS",
     date: "2026",
     image: "assets/images/project/syrupynut.jpg",
-    category: "Creative & Media",
-    categories: ["All Projects", "Creative & Media"],
     url: "https://syrupynut.pages.dev/",
     desc: "Digital illustration commission hub and artist portfolio featuring tiered service pricing, interactive guidelines, and direct booking integrations.",
   },
   {
     id: 7,
+    group: "systems",
     title: "Court Avenue ZC",
     subtitle: "The 24/7 Automated Court Booking Master Template.",
     type: "SPORTS & COURT BOOKING",
     date: "2026",
     image: "assets/images/project/court-avenue.jpg",
-    category: "Clinic & Service Bookings",
-    categories: ["All Projects", "Clinic & Service Bookings"],
     url: "https://staging.courtavenuezc.com/",
     desc: "Zamboanga City's premier pickleball facility and court reservation platform. Features real-time hourly slot booking, automated session holds to eliminate double bookings, seamless GCash receipt uploads, and community open-play matchmaking. Engineered to be cloned and deployed for sports facilities, rental arenas, and booking hubs.",
   },
 ];
+function PortfolioCard({ o }) {
+  return m.jsxs("article", {
+    className:
+      "p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between",
+    children: [
+      m.jsxs("div", {
+        children: [
+          m.jsx("h4", {
+            className: "text-xl text-white font-medium -leading-[0.2px]",
+            children: m.jsx("a", {
+              href: o.url || "/portfolio/" + o.id,
+              target: o.url ? "_blank" : "_self",
+              rel: "noopener noreferrer",
+              className: "hover:text-gray-300",
+              children: o.title,
+            }),
+          }),
+          o.subtitle &&
+            m.jsx("p", {
+              className: "text-sm font-medium mt-1",
+              style: { color: "#d4d4d8" },
+              children: o.subtitle,
+            }),
+          m.jsxs("div", {
+            className:
+              "flex py-4 text-gray-400 text-xs justify-between font-mono",
+            children: [
+              m.jsx("span", { children: o.type }),
+              m.jsx("span", { children: o.date }),
+            ],
+          }),
+          m.jsx("p", {
+            className: "text-white/60 text-sm mb-4 leading-relaxed",
+            children: o.desc,
+          }),
+        ],
+      }),
+      m.jsx("a", {
+        href: o.url || "/portfolio/" + o.id,
+        target: o.url ? "_blank" : "_self",
+        rel: "noopener noreferrer",
+        tabIndex: -1,
+        "aria-hidden": !0,
+        className: "block overflow-hidden rounded-2xl group",
+        children: o.video
+          ? m.jsx("video", {
+              poster: o.image,
+              autoPlay: !0,
+              muted: !0,
+              loop: !0,
+              playsInline: !0,
+              className:
+                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
+              "aria-label": o.title,
+              children: o.video.map((v) =>
+                m.jsx("source", { src: v.src, type: v.type }, v.src),
+              ),
+            })
+          : m.jsx("img", {
+              src: o.image,
+              loading: "lazy",
+              className:
+                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
+              alt: o.title,
+            }),
+      }),
+    ],
+  });
+}
 function V9() {
-  const [t, i] = E.useState("All Projects");
-  const [isDropdownOpen, setIsDropdownOpen] = E.useState(false);
-  const dropdownRef = E.useRef(null);
-
-  E.useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    if (isDropdownOpen) {
-      document.addEventListener("pointerdown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("pointerdown", handleClickOutside);
-    };
-  }, [isDropdownOpen]);
-
   const l = E.useMemo(() => _9(), []);
-  const s =
-    t === "All Projects" || t === "All"
-      ? l
-      : l.filter(
-          (o) =>
-            o.category === t ||
-            (o.categories && o.categories.indexOf(t) !== -1),
-        );
+  const groups = z9.map((g) => ({
+    ...g,
+    items: l.filter((o) => o.group === g.id),
+  }));
   return m.jsxs("section", {
     className: "pt-8 lg:pt-12",
     children: [
@@ -31237,119 +31281,64 @@ function V9() {
             children:
               "From Zero-Error Ordering Hubs to 24/7 Automated Booking Systems: browse our battle-tested Master Templates, ready to be localized and deployed for your business in 7 days.",
           }),
-          m.jsxs("div", {
-            className: "mb-12",
-            children: [
-              m.jsx("div", {
-                className: "portfolio-filter-mobile",
-                ref: dropdownRef,
-                children: m.jsxs("div", {
-                  className: "portfolio-filter-dropdown-wrap",
-                  children: [
-                    m.jsxs("button", {
-                      type: "button",
-                      onClick: () => setIsDropdownOpen(!isDropdownOpen),
-                      className: "portfolio-filter-trigger",
-                      "aria-expanded": isDropdownOpen,
-                      "aria-haspopup": "listbox",
+          m.jsx("nav", {
+            className: "portfolio-jump mb-12",
+            "aria-label": "Project types",
+            children: m.jsx("ul", {
+              children: groups.map((g) =>
+                m.jsx(
+                  "li",
+                  {
+                    children: m.jsxs("a", {
+                      href: "#" + g.id,
+                      className: "portfolio-jump-link",
+                      onClick: (e) => {
+                        const target = document.getElementById(g.id);
+                        if (!target) return;
+                        // Clear the sticky header; the global hash handler's -70 offset is too small here.
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const header = document.querySelector("header");
+                        const offset = -((header ? header.offsetHeight : 0) + 24);
+                        if (window.lenis) {
+                          window.lenis.scrollTo(target, { offset: offset, duration: 1.0 });
+                        } else {
+                          window.scrollTo({
+                            top: target.getBoundingClientRect().top + window.scrollY + offset,
+                            behavior: "smooth",
+                          });
+                        }
+                      },
                       children: [
-                        m.jsx("span", { children: t }),
-                        m.jsx("svg", {
+                        g.title,
+                        m.jsx("span", {
+                          className: "portfolio-jump-count",
+                          children: g.items.length,
+                        }),
+                        m.jsxs("svg", {
                           xmlns: "http://www.w3.org/2000/svg",
-                          width: "20",
-                          height: "20",
+                          width: "14",
+                          height: "14",
                           viewBox: "0 0 24 24",
                           fill: "none",
                           stroke: "currentColor",
                           strokeWidth: "2",
                           strokeLinecap: "round",
                           strokeLinejoin: "round",
-                          className:
-                            "portfolio-filter-chevron" +
-                            (isDropdownOpen ? " is-open" : ""),
-                          children: m.jsx("path", { d: "m6 9 6 6 6-6" }),
+                          "aria-hidden": "true",
+                          className: "portfolio-jump-arrow",
+                          children: [
+                            m.jsx("path", { d: "M12 5v14" }),
+                            m.jsx("path", { d: "m19 12-7 7-7-7" }),
+                          ],
                         }),
                       ],
                     }),
-                    isDropdownOpen &&
-                      m.jsx("div", {
-                        className: "portfolio-filter-menu",
-                        role: "listbox",
-                        children: z9.map((o) =>
-                          m.jsxs(
-                            "button",
-                            {
-                              type: "button",
-                              role: "option",
-                              "aria-selected": t === o,
-                              onClick: () => {
-                                i(o);
-                                setIsDropdownOpen(false);
-                              },
-                              className:
-                                "portfolio-filter-item" +
-                                (t === o ? " is-active" : ""),
-                              children: [
-                                m.jsx("span", { children: o }),
-                                t === o &&
-                                  m.jsx("svg", {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "18",
-                                    height: "18",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    strokeWidth: "2.5",
-                                    strokeLinecap: "round",
-                                    strokeLinejoin: "round",
-                                    className: "portfolio-filter-item-check",
-                                    children: m.jsx("path", {
-                                      d: "M20 6 9 17l-5-5",
-                                    }),
-                                  }),
-                              ],
-                            },
-                            o,
-                          ),
-                        ),
-                      }),
-                  ],
-                }),
-              }),
-              m.jsx("ul", {
-                className: "portfolio-filter-desktop flex gap-3 flex-wrap",
-                children: z9.map((o) =>
-                  m.jsx(
-                    "li",
-                    {
-                      children: m.jsxs("button", {
-                        onClick: () => i(o),
-                        className:
-                          "px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border " +
-                          (t === o
-                            ? "text-white border-transparent"
-                            : "text-[#1D1F2C] border-[#E9E9EA]"),
-                        children: [
-                          t === o &&
-                            m.jsx(Ye.span, {
-                              layoutId: "activeTab",
-                              className:
-                                "absolute inset-0 bg-black rounded-full -z-10",
-                              transition: {
-                                type: "spring",
-                                bounce: 0.2,
-                                duration: 0.6,
-                              },
-                            }),
-                          o,
-                        ],
-                      }),
-                    },
-                    o,
-                  ),
+                  },
+                  g.id,
                 ),
-              }),
-            ],
+              ),
+            }),
           }),
         ],
       }),
@@ -31357,97 +31346,47 @@ function V9() {
         className: "py-25 bg-black rounded-4xl min-h-[500px]",
         children: m.jsx("div", {
           className: "max-w-7xl mx-auto px-6",
-          children: m.jsx(Ye.div, {
-            layout: !0,
-            className: "grid grid-cols-1 sm:grid-cols-2 gap-8",
-            children: m.jsx(cd, {
-              mode: "popLayout",
-              children: s.map((o) =>
-                m.jsxs(
-                  Ye.article,
-                  {
-                    layout: !0,
-                    initial: { opacity: 0, scale: 0.9 },
-                    animate: { opacity: 1, scale: 1 },
-                    exit: { opacity: 0, scale: 0.9 },
-                    transition: { duration: 0.3 },
-                    className:
-                      "p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between",
+          children: groups.map((g) =>
+            m.jsxs(
+              "section",
+              {
+                id: g.id,
+                className: "portfolio-group",
+                "aria-labelledby": g.id + "-title",
+                children: [
+                  m.jsxs("div", {
+                    className: "portfolio-group-head",
                     children: [
-                      m.jsxs("div", {
+                      m.jsxs("h3", {
+                        id: g.id + "-title",
+                        className: "portfolio-group-title",
                         children: [
-                          m.jsx("h3", {
-                            className:
-                              "text-xl text-white font-medium -leading-[0.2px]",
-                            children: m.jsx("a", {
-                              href: o.url || "/portfolio/" + o.id,
-                              target: o.url ? "_blank" : "_self",
-                              rel: "noopener noreferrer",
-                              className: "hover:text-gray-300",
-                              children: o.title,
-                            }),
-                          }),
-                          o.subtitle &&
-                            m.jsx("p", {
-                              className: "text-sm font-medium mt-1",
-                              style: { color: "#d4d4d8" },
-                              children: o.subtitle,
-                            }),
-                          m.jsxs("div", {
-                            className:
-                              "flex py-4 text-gray-400 text-xs justify-between font-mono",
-                            children: [
-                              m.jsx("span", { children: o.type }),
-                              m.jsx("span", { children: o.date }),
-                            ],
-                          }),
-                          m.jsx("p", {
-                            className:
-                              "text-white/60 text-sm mb-4 leading-relaxed",
-                            children: o.desc,
+                          g.title,
+                          m.jsx("span", {
+                            className: "portfolio-group-count",
+                            children: g.items.length,
                           }),
                         ],
                       }),
-                      m.jsx("a", {
-                        href: o.url || "/portfolio/" + o.id,
-                        target: o.url ? "_blank" : "_self",
-                        rel: "noopener noreferrer",
-                        className:
-                          "block overflow-hidden rounded-2xl group",
-                        children: o.video
-                          ? m.jsx("video", {
-                              poster: o.image,
-                              autoPlay: !0,
-                              muted: !0,
-                              loop: !0,
-                              playsInline: !0,
-                              className:
-                                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
-                              "aria-label": o.title,
-                              children: o.video.map((v) =>
-                                m.jsx("source", { src: v.src, type: v.type }, v.src),
-                              ),
-                            })
-                          : m.jsx(Ye.img, {
-                          variants: {
-                            initial: { scale: 1 },
-                            hover: { scale: 1.05 },
-                          },
-                          transition: { duration: 0.4, ease: "easeOut" },
-                          whileHover: "hover",
-                          src: o.image,
-                          className:
-                            "w-full h-auto transition-transform duration-500 group-hover:scale-105",
-                          alt: o.title,
-                        }),
+                      m.jsx("p", {
+                        className: "portfolio-group-desc",
+                        children: g.desc,
                       }),
                     ],
-                  },
-                  o.id,
-                ),
-              ),
-            }),
-          }),
+                  }),
+                  m.jsx("div", {
+                    className:
+                      "portfolio-grid" +
+                      (g.items.length % 2 ? " portfolio-grid--odd" : ""),
+                    children: g.items.map((o) =>
+                      m.jsx(PortfolioCard, { o: o }, o.id),
+                    ),
+                  }),
+                ],
+              },
+              g.id,
+            ),
+          ),
         }),
       }),
     ],
