@@ -433,7 +433,7 @@ ${renderHeader('solutions')}
 ${renderFooter()}
   </div>
 <script defer src="../assets/js/legal-modal.js?v=1"></script>
-<script defer src="../assets/js/static-nav.js?v=1"></script>
+<script defer src="../assets/js/static-nav.js?v=2"></script>
 </body>
 </html>`;
 }
@@ -547,7 +547,7 @@ ${renderHeader('solutions')}
 ${renderFooter()}
   </div>
 <script defer src="../assets/js/legal-modal.js?v=1"></script>
-<script defer src="../assets/js/static-nav.js?v=1"></script>
+<script defer src="../assets/js/static-nav.js?v=2"></script>
 </body>
 </html>`;
 }

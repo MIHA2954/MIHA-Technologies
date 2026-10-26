@@ -14547,11 +14547,24 @@ function j0() {
     const onPointer = (e) => {
       if (headerRef.current && !headerRef.current.contains(e.target)) i(!1);
     };
+    // Tabbing past the last menu link closes the menu.
+    const onFocus = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) i(!1);
+    };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("focusin", onFocus);
+    // Lock page scroll behind the open menu.
+    const root = document.documentElement;
+    const prevOverflow = root.style.overflow;
+    root.style.overflow = "hidden";
+    window.lenis && window.lenis.stop();
     return () => {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("focusin", onFocus);
+      root.style.overflow = prevOverflow;
+      window.lenis && window.lenis.start();
     };
   }, [t]);
   const isActive = (to) => p.endsWith(to) || p.endsWith(to + ".html");
