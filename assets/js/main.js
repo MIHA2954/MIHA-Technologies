@@ -29217,7 +29217,6 @@ function DemosSection() {
           whileTap: { scale: 0.98 },
           children: [
             m.jsx("span", { children: "Explore all demos" }),
-            m.jsx("span", { className: "demos-cta-host", children: "demos.mihatechnologies.com" }),
           ],
         }),
       ],
