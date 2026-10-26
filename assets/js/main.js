@@ -14727,6 +14727,8 @@ const Er = {
     { label: "BeCoffee Roastery", href: "https://ordering-demo.mihatechnologies.com/" },
     { label: "Serene Smile Clinic", href: "https://serene-smile.netlify.app/" },
     { label: "Court Avenue ZC", href: "https://staging.courtavenuezc.com/" },
+    { label: "Court Booking Demo", href: "https://booking-demo.mihatechnologies.com/" },
+    { label: "All Live Demos →", href: "https://demos.mihatechnologies.com/" },
     { label: "All Case Studies →", href: "portfolio.html" },
   ],
   contact: [
@@ -27374,6 +27376,16 @@ const nexServices = [
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&sat=-100",
     icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
   },
+  {
+    id: "court-booking",
+    label: "Court & Facility Booking",
+    tag: "07 • COURT BOOKING DEMO",
+    header: "Court & Facility Booking",
+    description:
+      "Courts, studios and rental rooms booked by the hour with held slots, receipt uploads and an admin review desk. Try the full customer and admin flow in the live demo at booking-demo.mihatechnologies.com. It runs in your browser with sample data and no real payments.",
+    image: "assets/images/project/court-booking.jpg",
+    icon: "M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z",
+  },
 ];
 function f9() {
   const [a, setA] = E.useState(0);
@@ -28555,6 +28567,18 @@ function ServicesCapabilities() {
       chips: ["Cloud Hosting", "Daily Backups", "Direct Tech Help"],
       variant: "service-card--black",
     },
+    {
+      num: "07",
+      tag: "COURT BOOKING",
+      title: "Court & Facility Booking Systems",
+      desc: "Let players pick open hours, hold a slot and upload their payment receipt, while your staff approve or reject from one admin desk. Try the working system before you commit.",
+      chips: ["Hourly Slots", "Receipt Review", "Admin Desk"],
+      variant: "service-card--white service-card--wide",
+      demo: {
+        href: "https://booking-demo.mihatechnologies.com/",
+        host: "booking-demo.mihatechnologies.com",
+      },
+    },
   ];
 
   return m.jsx("section", {
@@ -28620,6 +28644,20 @@ function ServicesCapabilities() {
                           ),
                         ),
                       }),
+                      c.demo &&
+                        m.jsxs("a", {
+                          className: "service-demo-link",
+                          href: c.demo.href,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                          children: [
+                            m.jsx("span", { children: "Open live demo" }),
+                            m.jsx("span", {
+                              className: "service-demo-host",
+                              children: c.demo.host,
+                            }),
+                          ],
+                        }),
                     ],
                   }),
                   renderCapabilityArt(c.num),
@@ -29016,6 +29054,159 @@ function Bn({ title: t, description: i }) {
     null
   );
 }
+// React Bits ports (BlurText, SpotlightCard, ShinyText), trimmed to what the demos section uses.
+// Motion runs on the bundled framer-motion (Ye).
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function BlurText({ text, className = "", delay = 110, blur = 10, distance = 24 }) {
+  const calm = prefersReducedMotion();
+  return m.jsx("p", {
+    className,
+    "aria-label": text,
+    children: text.split(" ").map((word, i) =>
+      m.jsx(
+        Ye.span,
+        {
+          "aria-hidden": "true",
+          className: "demos-blur-word",
+          initial: calm ? false : { filter: `blur(${blur}px)`, opacity: 0, y: -distance },
+          whileInView: { filter: "blur(0px)", opacity: 1, y: 0 },
+          viewport: { once: true, amount: 0.6 },
+          transition: { duration: 0.7, delay: (i * delay) / 1000, ease: [0.22, 1, 0.36, 1] },
+          children: word,
+        },
+        i,
+      ),
+    ),
+  });
+}
+
+function ShinyText({ text, className = "" }) {
+  return m.jsx("span", { className: `demos-shiny ${className}`, children: text });
+}
+
+function SpotlightCard({ href, children, className = "", spotlightColor = "rgba(255, 255, 255, 0.16)", delay = 0 }) {
+  const ref = E.useRef(null);
+  const [spot, setSpot] = E.useState({ x: 0, y: 0, on: false });
+  const onMove = (e) => {
+    const r = ref.current.getBoundingClientRect();
+    setSpot({ x: e.clientX - r.left, y: e.clientY - r.top, on: true });
+  };
+  return m.jsxs(Ye.a, {
+    ref,
+    href,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: `demos-card ${className}`,
+    onMouseMove: onMove,
+    onMouseLeave: () => setSpot((s) => ({ ...s, on: false })),
+    initial: prefersReducedMotion() ? false : { opacity: 0, y: 32 },
+    whileInView: { opacity: 1, y: 0 },
+    whileHover: prefersReducedMotion() ? undefined : { y: -4 },
+    viewport: { once: true, amount: 0.25 },
+    transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+    children: [
+      m.jsx("span", {
+        className: "demos-card-spot",
+        "aria-hidden": "true",
+        style: {
+          opacity: spot.on ? 1 : 0,
+          background: `radial-gradient(circle at ${spot.x}px ${spot.y}px, ${spotlightColor}, transparent 70%)`,
+        },
+      }),
+      ...[].concat(children),
+    ],
+  });
+}
+
+const demoCards = [
+  {
+    host: "booking-demo.mihatechnologies.com",
+    href: "https://booking-demo.mihatechnologies.com/",
+    tag: "COURT & FACILITY BOOKING",
+    title: "Court Booking",
+    desc: "Pick an open hour, hold the slot, upload a receipt, then review it from the admin desk.",
+    image: "assets/images/project/court-booking.jpg",
+  },
+  {
+    host: "ordering-demo.mihatechnologies.com",
+    href: "https://ordering-demo.mihatechnologies.com/",
+    tag: "RESTAURANT & CAFE ORDERING",
+    title: "QR Ordering",
+    desc: "Contactless menu with direct-to-kitchen orders and the Staff Accountability Lock.",
+    image: "assets/images/project/becoffee.jpg",
+  },
+];
+
+function DemosSection() {
+  return m.jsx("section", {
+    id: "demos",
+    className: "demos-section",
+    "aria-labelledby": "demos-heading",
+    children: m.jsxs("div", {
+      className: "max-w-7xl mx-auto px-6",
+      children: [
+        m.jsxs("div", {
+          className: "demos-intro",
+          children: [
+            m.jsx(ShinyText, { text: "LIVE DEMOS", className: "demos-kicker" }),
+            m.jsx("h2", {
+              id: "demos-heading",
+              className: "demos-heading",
+              children: m.jsx(BlurText, { text: "Try our systems before you buy." }),
+            }),
+            m.jsx("p", {
+              className: "demos-lead",
+              children:
+                "Each demo is a working sandbox on its own address. Click through the real customer and admin screens with sample data. Nothing is charged or sent.",
+            }),
+          ],
+        }),
+        m.jsxs("div", {
+          className: "demos-grid",
+          children: [
+            demoCards.map((c, i) =>
+              m.jsxs(
+                SpotlightCard,
+                {
+                  href: c.href,
+                  delay: i * 0.1,
+                  children: [
+                    m.jsx("img", { src: c.image, alt: "", loading: "lazy", className: "demos-card-img" }),
+                    m.jsxs("span", {
+                      className: "demos-card-body",
+                      children: [
+                        m.jsx("span", { className: "demos-card-tag", children: c.tag }),
+                        m.jsx("span", { className: "demos-card-title", children: c.title }),
+                        m.jsx("span", { className: "demos-card-desc", children: c.desc }),
+                        m.jsx("span", { className: "demos-card-host", children: c.host }),
+                      ],
+                    }),
+                  ],
+                },
+                c.host,
+              ),
+            ),
+          ],
+        }),
+        m.jsxs(Ye.a, {
+          href: "https://demos.mihatechnologies.com/",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "demos-cta group",
+          whileHover: prefersReducedMotion() ? undefined : { scale: 1.03 },
+          whileTap: { scale: 0.98 },
+          children: [
+            m.jsx("span", { children: "Explore all demos" }),
+            m.jsx("span", { className: "demos-cta-host", children: "demos.mihatechnologies.com" }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
 function b9() {
   return m.jsxs(mi, {
     children: [
@@ -29030,6 +29221,7 @@ function b9() {
       m.jsx(Re, { width: "100%", children: m.jsx(DS, {}) }),
       m.jsx(Rv, {}),
       m.jsx(Re, { width: "100%", children: m.jsx(y9, {}) }),
+      m.jsx(DemosSection, {}),
       m.jsx(Re, { width: "100%", children: m.jsx(Pi, {}) }),
     ],
   });
@@ -31228,6 +31420,17 @@ const _9 = () => [
     image: "assets/images/project/court-avenue.jpg",
     url: "https://staging.courtavenuezc.com/",
     desc: "Zamboanga City's premier pickleball facility and court reservation platform. Features real-time hourly slot booking, automated session holds to eliminate double bookings, seamless GCash receipt uploads, and community open-play matchmaking. Engineered to be cloned and deployed for sports facilities, rental arenas, and booking hubs.",
+  },
+  {
+    id: 8,
+    group: "systems",
+    title: "Miha Court Booking",
+    subtitle: "The Live Court Booking Demo at booking-demo.mihatechnologies.com.",
+    type: "COURT & FACILITY BOOKING",
+    date: "2026",
+    image: "assets/images/project/court-booking.jpg",
+    url: "https://booking-demo.mihatechnologies.com/",
+    desc: "A working sandbox of our court booking system. Browse open hours, reserve a slot, upload a payment receipt, then sign in as the admin to review it. Runs in your own browser with sample data, so nothing is charged or sent.",
   },
 ];
 function PortfolioCard({ o }) {
