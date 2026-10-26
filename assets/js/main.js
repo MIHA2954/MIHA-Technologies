@@ -31239,7 +31239,7 @@ const _9 = () => [
     subtitle: "The Digital Retail & Inventory Master Template.",
     type: "RETAIL & INVENTORY",
     date: "2026",
-    image: "assets/images/project/freshcart.jpg",
+    image: "assets/images/project/freshcart-demo-poster.jpg",
     url: "https://grocery-demo.mihatechnologies.com/",
     desc: "Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.",
   },
@@ -31292,6 +31292,112 @@ const _9 = () => [
     desc: "A working sandbox of our court booking system. Browse open hours, reserve a slot, upload a payment receipt, then sign in as the admin to review it. Runs in your own browser with sample data, so nothing is charged or sent.",
   },
 ];
+function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough", href = "https://grocery-demo.mihatechnologies.com/" }) {
+  const [reducedMotion, setReducedMotion] = E.useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const [playing, setPlaying] = E.useState(false);
+  const [playbackError, setPlaybackError] = E.useState("");
+  const video = E.useRef(null);
+  const playRequest = E.useRef(0);
+  E.useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => {
+      setReducedMotion(media.matches);
+      if (media.matches && video.current) {
+        playRequest.current += 1;
+        video.current.pause();
+      }
+    };
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  const togglePlayback = () => {
+    const player = video.current;
+    if (!player) return;
+    const requestId = ++playRequest.current;
+    if (!player.paused) {
+      player.pause();
+      return;
+    }
+    setPlaybackError("");
+    const request = player.play();
+    if (request) request.catch((error) => {
+      if (requestId !== playRequest.current || error?.name === "AbortError") return;
+      setPlaying(false);
+      setPlaybackError("The preview could not play. Open the FreshCart demo to explore it.");
+    });
+  };
+  const action = playing ? "Pause" : "Play";
+  return m.jsxs("div", {
+    className: "freshcart-preview",
+    children: [
+      m.jsx("a", {
+        href: href,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        tabIndex: -1,
+        "aria-hidden": !0,
+        className: "block overflow-hidden rounded-2xl group",
+        children: m.jsxs("video", {
+          ref: video,
+          "data-freshcart-preview": "",
+          poster: "assets/images/project/freshcart-demo-poster.jpg",
+          width: 1280,
+          height: 720,
+          autoPlay: !reducedMotion,
+          muted: !0,
+          loop: !0,
+          playsInline: !0,
+          preload: "metadata",
+          className: className,
+          "aria-label": title,
+          onPlay: () => setPlaying(true),
+          onPause: () => {
+            playRequest.current += 1;
+            setPlaying(false);
+          },
+          onEnded: () => setPlaying(false),
+          onError: () => {
+            setPlaying(false);
+            setPlaybackError("The preview is unavailable. Open the FreshCart demo to explore it.");
+          },
+          children: [
+            m.jsx("source", { src: "assets/images/project/freshcart-demo.webm", type: "video/webm" }),
+            m.jsx("source", { src: "assets/images/project/freshcart-demo.mp4", type: "video/mp4" }),
+          ],
+        }),
+      }),
+      m.jsx("button", {
+        type: "button",
+        className: "freshcart-preview-toggle",
+        "aria-label": action + " preview for " + title,
+        onClick: togglePlayback,
+        style: {
+          display: "inline-flex",
+          alignItems: "center",
+          minHeight: 44,
+          marginTop: 12,
+          padding: "8px 12px",
+          border: "1px solid rgba(255,255,255,0.45)",
+          borderRadius: 6,
+          background: "transparent",
+          color: "#fff",
+          font: "inherit",
+          fontSize: 14,
+          cursor: "pointer",
+          outlineOffset: 4,
+        },
+        children: action + " preview",
+      }),
+      playbackError && m.jsx("p", {
+        role: "status",
+        style: { color: "#fff", fontSize: 14, marginTop: 8 },
+        children: playbackError,
+      }),
+    ],
+  });
+}
 function PortfolioCard({ o }) {
   return m.jsxs("article", {
     className:
@@ -31329,7 +31435,13 @@ function PortfolioCard({ o }) {
           }),
         ],
       }),
-      m.jsx("a", {
+      o.title === "FreshCart E-Commerce"
+        ? m.jsx(FreshCartPreview, {
+            className: "w-full h-auto transition-transform duration-500 group-hover:scale-105",
+            title: o.title,
+            href: o.url,
+          })
+        : m.jsx("a", {
         href: o.url || "/portfolio/" + o.id,
         target: o.url ? "_blank" : "_self",
         rel: "noopener noreferrer",
@@ -31598,7 +31710,7 @@ function U9() {
           title: "FreshCart",
           type: "E-COMMERCE & GROCERY",
           date: "2026",
-          image: "assets/images/project/freshcart.jpg",
+          image: "assets/images/project/freshcart-demo-poster.jpg",
           url: "https://grocery-demo.mihatechnologies.com/",
         },
         {
@@ -31959,7 +32071,9 @@ function U9() {
                                 m.jsx("span", { children: f.date }),
                               ],
                             }),
-                            m.jsx(Se, {
+                            f.title === "FreshCart"
+                              ? m.jsx(FreshCartPreview, { className: "w-full", title: f.title, href: f.url })
+                              : m.jsx(Se, {
                               to: `/portfolio/${f.id}`,
                               className: "block overflow-hidden rounded-2xl",
                               children: m.jsx(Ye.img, {
