@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { renderHeader: renderSiteHeader } = require('./site-header');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DATA_PATH = path.join(ROOT_DIR, 'data', 'solutions.json');
@@ -19,27 +20,12 @@ const { solutions } = JSON.parse(rawData);
 
 console.log(`Loaded ${solutions.length} solutions from ${DATA_PATH}`);
 
-function renderHeader(activePage = 'solutions') {
-  return `    <header class="sticky top-0 z-50 transition-all duration-300 bg-white border-b border-gray-200">
-      <nav>
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="flex items-center justify-between py-4 lg:py-6">
-            <div><a href="../index.html" data-discover="true"><img alt="MIHA Technologies Logo" class="nav-brand-logo h-8 sm:h-9.5" src="../assets/images/layout/logo-black.svg"></a></div>
-            <div class="hidden lg:block">
-              <ul class="flex space-x-8">
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../portfolio.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Projects</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Projects</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../about.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">About</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">About</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="../services.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Services</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Services</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="index.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full font-semibold">Solutions</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0 font-semibold">Solutions</span></span></a></li>
-              </ul>
-            </div>
-            <div class="flex gap-3 lg:gap-5 items-center"><a class="group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300" href="../contact.html" data-discover="true"><span class="relative inline-block overflow-hidden"><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">CONTACTS</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">CONTACTS</span></span></a>
-              <div class="block lg:hidden"><a href="../contact.html" class="text-black font-medium text-sm uppercase hover:text-gray-500 transition">Contact</a></div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>`;
+function renderHeader(active = 'solutions') {
+  return renderSiteHeader({
+    prefix: '../',
+    active,
+    headerClass: 'sticky top-0 z-50 bg-white',
+  });
 }
 
 function renderFooter() {
@@ -220,14 +206,14 @@ function generateSolutionPage(sol) {
   ${JSON.stringify(faqSchema, null, 2)}
   </script>
 
-  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.2">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.3">
   <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.1">
 </head>
 <body class="antialiased">
   <div id="root">
 ${renderHeader('solutions')}
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <!-- Hero Section -->
       <section class="sol-hero">
         <div class="sol-container">
@@ -447,6 +433,7 @@ ${renderHeader('solutions')}
 ${renderFooter()}
   </div>
 <script defer src="../assets/js/legal-modal.js?v=1"></script>
+<script defer src="../assets/js/static-nav.js?v=1"></script>
 </body>
 </html>`;
 }
@@ -513,14 +500,14 @@ function generateHubPage(solutions) {
   ${JSON.stringify(collectionSchema, null, 2)}
   </script>
 
-  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.2">
+  <link rel="stylesheet" crossorigin="" href="../assets/css/main.css?v=3.3">
   <link rel="stylesheet" crossorigin="" href="../assets/css/solutions.css?v=1.1">
 </head>
 <body class="antialiased">
   <div id="root">
 ${renderHeader('solutions')}
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="sol-hero">
         <div class="sol-container">
           <nav class="sol-breadcrumbs" aria-label="Breadcrumbs">
@@ -560,6 +547,7 @@ ${renderHeader('solutions')}
 ${renderFooter()}
   </div>
 <script defer src="../assets/js/legal-modal.js?v=1"></script>
+<script defer src="../assets/js/static-nav.js?v=1"></script>
 </body>
 </html>`;
 }

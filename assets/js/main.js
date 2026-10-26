@@ -14414,17 +14414,24 @@ function ft({ children: t, className: i = "" }) {
     children: [
       m.jsx("span", {
         className:
-          "block transition-transform duration-300 ease-in-out group-hover:-translate-y-full",
+          "roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full",
         children: t,
       }),
       m.jsx("span", {
+        "aria-hidden": "true",
         className:
-          "absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0",
+          "roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0",
         children: t,
       }),
     ],
   });
 }
+const SITE_NAV = [
+  { label: "Projects", to: "/portfolio" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Solutions", href: "solutions/index.html" },
+];
 function j0() {
   const loc = hi();
   const [t, i] = E.useState(!1),
@@ -14518,148 +14525,178 @@ function j0() {
       }
     };
   }, [isMorph]);
+  const menuBtnRef = E.useRef(null);
+  const headerRef = E.useRef(null);
   const o = () => {
       i(!t);
     },
     u = () => {
       i(!1);
     };
+  E.useEffect(() => {
+    i(!1);
+  }, [p]);
+  E.useEffect(() => {
+    if (!t) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        i(!1);
+        menuBtnRef.current && menuBtnRef.current.focus();
+      }
+    };
+    const onPointer = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) i(!1);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
+  }, [t]);
+  const isActive = (to) => p.endsWith(to) || p.endsWith(to + ".html");
+  // Solutions pages are static HTML outside the React router, so that item is a plain link.
+  const navLink = (item, cls, onClick) => {
+    const label = m.jsx("span", {
+      className: "site-nav-label",
+      children: m.jsx(ft, { children: item.label }),
+    });
+    return item.to
+      ? m.jsx(Se, {
+          to: item.to,
+          onClick: onClick,
+          className: cls,
+          "aria-current": isActive(item.to) ? "page" : void 0,
+          children: label,
+        })
+      : m.jsx("a", { href: item.href, onClick: onClick, className: cls, children: label });
+  };
+  const skipToMain = (e) => {
+    const main = document.getElementById("main-content");
+    if (!main) return;
+    e.preventDefault();
+    main.focus({ preventScroll: !0 });
+    if (!window.lenis) main.scrollIntoView();
+  };
   const containerClass = isMorph ? "header-morph-container" : "sticky";
   const mClass = footerHidden
     ? "nav-footer-hidden nav-morph-hidden"
     : (isMorph ? (vNav ? "nav-morph-visible" : "nav-morph-hidden") : "");
   const isGlass = isMorph ? (vNav || l) : l;
-  return m.jsx("header", {
-    className: `${containerClass} ${mClass} top-0 z-50 ${isGlass ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`,
-    children: m.jsx("nav", {
-      children: m.jsx("div", {
-        className: "max-w-7xl mx-auto px-6",
-        children: m.jsxs("div", {
-          className: "flex items-center justify-between py-4 lg:py-6",
-          children: [
-            m.jsx("div", {
-              children: m.jsx(Se, {
-                to: "/",
-                children: m.jsx("img", {
-                  src: "assets/images/layout/logo-black.svg",
-                  alt: "MIHA Technologies Logo",
-                  className: "nav-brand-logo h-8 sm:h-9.5",
+  return m.jsxs("header", {
+    ref: headerRef,
+    className: `site-header ${containerClass} ${mClass} ${t ? "nav-menu-open" : ""} top-0 z-50 ${isGlass ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"}`,
+    children: [
+      m.jsx("a", {
+        href: "#main-content",
+        onClick: skipToMain,
+        className: "skip-link",
+        children: "Skip to content",
+      }),
+      m.jsx("nav", {
+        "aria-label": "Main",
+        children: m.jsx("div", {
+          className: "max-w-7xl mx-auto px-6",
+          children: m.jsxs("div", {
+            className: "flex items-center justify-between py-4 lg:py-6",
+            children: [
+              m.jsx("div", {
+                children: m.jsx(Se, {
+                  to: "/",
+                  className: "site-nav-home",
+                  children: m.jsx("img", {
+                    src: "assets/images/layout/logo-black.svg",
+                    alt: "MIHA Technologies home",
+                    className: "nav-brand-logo h-8 sm:h-9.5",
+                  }),
                 }),
               }),
-            }),
-            m.jsx("div", {
-              className: "hidden lg:block",
-              children: m.jsxs("ul", {
-                className: "flex space-x-8",
+              m.jsx("div", {
+                className: "hidden lg:block",
+                children: m.jsx("ul", {
+                  className: "flex space-x-8",
+                  children: SITE_NAV.map((item) =>
+                    m.jsx(
+                      "li",
+                      {
+                        children: navLink(
+                          item,
+                          "site-nav-link group py-4 inline-block uppercase font-normal text-black",
+                        ),
+                      },
+                      item.label,
+                    ),
+                  ),
+                }),
+              }),
+              m.jsxs("div", {
+                className: "flex gap-3 lg:gap-5 items-center",
                 children: [
-                  m.jsx("li", {
-                    children: m.jsx(Se, {
-                      to: "/portfolio",
-                      className:
-                        "group py-4 inline-block uppercase font-normal text-black hover:text-gray-500",
-                      children: m.jsx(ft, { children: "Projects" }),
-                    }),
+                  m.jsx(Se, {
+                    to: "/contact",
+                    className:
+                      "site-nav-cta group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300",
+                    children: m.jsx(ft, { children: "CONTACTS" }),
                   }),
-                  m.jsx("li", {
-                    children: m.jsx(Se, {
-                      to: "/about",
-                      className:
-                        "group py-4 inline-block uppercase font-normal text-black hover:text-gray-500",
-                      children: m.jsx(ft, { children: "About" }),
-                    }),
-                  }),
-                  m.jsx("li", {
-                    children: m.jsx(Se, {
-                      to: "/services",
-                      className:
-                        "group py-4 inline-block uppercase font-normal text-black hover:text-gray-500",
-                      children: m.jsx(ft, { children: "Services" }),
-                    }),
+                  m.jsxs("div", {
+                    className: "block lg:hidden",
+                    children: [
+                      m.jsx("button", {
+                        ref: menuBtnRef,
+                        type: "button",
+                        onClick: o,
+                        "aria-expanded": t,
+                        "aria-controls": "site-menu",
+                        className:
+                          "site-menu-btn text-black font-medium text-sm uppercase",
+                        children: t ? "Close" : "Menu",
+                      }),
+                      t &&
+                        m.jsx("div", {
+                          id: "site-menu",
+                          className:
+                            "absolute left-0 right-0 top-full mt-0 bg-white border-b border-gray-200 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200",
+                          children: m.jsxs("div", {
+                            className: "max-w-7xl mx-auto px-6 py-6",
+                            children: [
+                              m.jsx("ul", {
+                                className: "space-y-1",
+                                children: SITE_NAV.map((item) =>
+                                  m.jsx(
+                                    "li",
+                                    {
+                                      children: navLink(
+                                        item,
+                                        "site-menu-link group block py-3 text-sm font-normal uppercase text-black",
+                                        u,
+                                      ),
+                                    },
+                                    item.label,
+                                  ),
+                                ),
+                              }),
+                              m.jsx("div", {
+                                className: "border-t border-gray-200 pt-4 mt-4",
+                                children: m.jsx(Se, {
+                                  to: "/contact",
+                                  onClick: u,
+                                  className:
+                                    "site-nav-cta group px-4 flex items-center justify-center w-full py-3 bg-black text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition text-center ",
+                                  children: m.jsx(ft, { children: "CONTACTS" }),
+                                }),
+                              }),
+                            ],
+                          }),
+                        }),
+                    ],
                   }),
                 ],
               }),
-            }),
-            m.jsxs("div", {
-              className: "flex gap-3 lg:gap-5 items-center",
-              children: [
-                m.jsx(Se, {
-                  to: "/contact",
-                  className:
-                    "group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300",
-                  children: m.jsx(ft, { children: "CONTACTS" }),
-                }),
-                m.jsxs("div", {
-                  className: "block lg:hidden",
-                  children: [
-                    m.jsx("button", {
-                      onClick: o,
-                      className:
-                        "text-black font-medium text-sm uppercase hover:text-gray-500 transition",
-                      children: t ? "Close" : "Menu",
-                    }),
-                    t &&
-                      m.jsx("div", {
-                        onClick: u,
-                        className:
-                          "absolute left-0 right-0 top-full mt-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200",
-                        children: m.jsxs("div", {
-                          className: "max-w-7xl mx-auto px-6 py-6",
-                          children: [
-                            m.jsxs("ul", {
-                              className:
-                                "space-y-3 [&>li>a]:text-black [&>li>a]:font-normal [&>li>a]:uppercase [&>li>a]:block [&>li>a]:hover:text-gray-600 [&>li>a]:transition [&>li>a]:py-3 [&>li>a]:text-sm",
-                              children: [
-                                m.jsx("li", {
-                                  children: m.jsx(Se, {
-                                    to: "/portfolio",
-                                    onClick: u,
-                                    className: "group",
-                                    children: m.jsx(ft, {
-                                      children: "Projects",
-                                    }),
-                                  }),
-                                }),
-                                m.jsx("li", {
-                                  children: m.jsx(Se, {
-                                    to: "/about",
-                                    onClick: u,
-                                    className: "group",
-                                    children: m.jsx(ft, { children: "About" }),
-                                  }),
-                                }),
-                                m.jsx("li", {
-                                  children: m.jsx(Se, {
-                                    to: "/services",
-                                    onClick: u,
-                                    className: "group",
-                                    children: m.jsx(ft, {
-                                      children: "Services",
-                                    }),
-                                  }),
-                                }),
-                              ],
-                            }),
-                            m.jsx("div", {
-                              className: "border-t border-gray-200 pt-4 mt-4",
-                              children: m.jsx(Se, {
-                                to: "/contact",
-                                onClick: u,
-                                className:
-                                  "group px-4 flex items-center justify-center w-full py-3 bg-black text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition text-center ",
-                                children: m.jsx(ft, { children: "CONTACTS" }),
-                              }),
-                            }),
-                          ],
-                        }),
-                      }),
-                  ],
-                }),
-              ],
-            }),
-          ],
+            ],
+          }),
         }),
       }),
-    }),
+    ],
   });
 }
 const Er = {
@@ -14864,7 +14901,11 @@ function A0() {
 }
 function mi({ children: t }) {
   return m.jsxs(m.Fragment, {
-    children: [m.jsx(j0, {}), m.jsx("main", { children: t }), m.jsx(A0, {})],
+    children: [
+      m.jsx(j0, {}),
+      m.jsx("main", { id: "main-content", tabIndex: -1, children: t }),
+      m.jsx(A0, {}),
+    ],
   });
 }
 const Vf = E.createContext({});
@@ -31948,6 +31989,8 @@ function G9() {
       }),
       m.jsx(j0, {}),
       m.jsx("main", {
+        id: "main-content",
+        tabIndex: -1,
         children: m.jsx("section", {
           className: "pt-8 lg:pt-12 pb-10 lg:pb-20",
           children: m.jsxs("div", {
