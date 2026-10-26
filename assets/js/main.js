@@ -14680,7 +14680,7 @@ const Er = {
     { label: "QuickNote Productivity", href: "https://quicknote.ct.ws/?i=2" },
     { label: "A.N.A Digital Gallery", href: "https://ana-seven-silk.vercel.app/" },
     { label: "Syrupynut Commission Hub", href: "https://syrupynut.pages.dev/" },
-    { label: "BeCoffee Roastery", href: "https://becoffeewalled.coffee1.workers.dev/" },
+    { label: "BeCoffee Roastery", href: "https://ordering-demo.mihatechnologies.com/" },
     { label: "Serene Smile Clinic", href: "https://serene-smile.netlify.app/" },
     { label: "Court Avenue ZC", href: "https://staging.courtavenuezc.com/" },
     { label: "All Case Studies →", href: "portfolio.html" },
@@ -28708,7 +28708,7 @@ const g9 = () => [
     type: "RESTAURANT & CAFE ORDERING",
     date: "2026",
     image: "assets/images/project/becoffee.jpg",
-    url: "https://becoffeewalled.coffee1.workers.dev/",
+    url: "https://ordering-demo.mihatechnologies.com/",
   },
 ];
 function y9() {
@@ -31102,10 +31102,14 @@ const _9 = () => [
     subtitle: "The Zero-Error QR Ordering Master Template.",
     type: "RESTAURANT & CAFE ORDERING",
     date: "2026",
-    image: "assets/images/project/becoffee.jpg",
+    image: "assets/images/project/becoffee-demo-poster.jpg",
+    video: [
+      { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
+      { src: "assets/images/project/becoffee-demo.mp4", type: "video/mp4" },
+    ],
     category: "Restaurant & Cafe Ordering",
     categories: ["All Projects", "Restaurant & Cafe Ordering"],
-    url: "https://becoffeewalled.coffee1.workers.dev/",
+    url: "https://ordering-demo.mihatechnologies.com/",
     desc: "The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.",
   },
   {
@@ -31410,7 +31414,21 @@ function V9() {
                         rel: "noopener noreferrer",
                         className:
                           "block overflow-hidden rounded-2xl group",
-                        children: m.jsx(Ye.img, {
+                        children: o.video
+                          ? m.jsx("video", {
+                              poster: o.image,
+                              autoPlay: !0,
+                              muted: !0,
+                              loop: !0,
+                              playsInline: !0,
+                              className:
+                                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
+                              "aria-label": o.title,
+                              children: o.video.map((v) =>
+                                m.jsx("source", { src: v.src, type: v.type }, v.src),
+                              ),
+                            })
+                          : m.jsx(Ye.img, {
                           variants: {
                             initial: { scale: 1 },
                             hover: { scale: 1.05 },
@@ -31564,7 +31582,7 @@ function U9() {
           type: "SPECIALTY COFFEE & ROASTERY",
           date: "2026",
           image: "assets/images/project/becoffee.jpg",
-          url: "https://becoffeewalled.coffee1.workers.dev/",
+          url: "https://ordering-demo.mihatechnologies.com/",
         },
         {
           id: 6,
