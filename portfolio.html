@@ -56,146 +56,137 @@
   <script src="assets/js/vendor/lenis.min.js"></script>
   <script defer src="assets/js/scroll-experience.js?v=3.1"></script>
   <script defer src="assets/js/liquid-silk.js?v=3.1"></script>
-  <script type="module" crossorigin="" src="assets/js/main.js?v=4.1"></script>
-  <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.2">
+  <script type="module" crossorigin="" src="assets/js/main.js?v=4.4"></script>
+  <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.3">
 </head>
 
 <body class="antialiased">
   <div id="root">
-    <header class="sticky top-0 z-50 bg-white">
-      <nav>
+    <header class="site-header sticky top-0 z-50 bg-white">
+      <a href="#main-content" class="skip-link">Skip to content</a>
+      <nav aria-label="Main">
         <div class="max-w-7xl mx-auto px-6">
           <div class="flex items-center justify-between py-4 lg:py-6">
-            <div><a href="index.html" data-discover="true"><img alt="MIHA Technologies Logo" class="nav-brand-logo h-8 sm:h-9.5" src="assets/images/layout/logo-black.svg"></a></div>
+            <div><a class="site-nav-home" href="index.html"><img alt="MIHA Technologies home" class="nav-brand-logo h-8 sm:h-9.5" src="assets/images/layout/logo-black.svg"></a></div>
             <div class="hidden lg:block">
               <ul class="flex space-x-8">
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="portfolio.html" data-discover="true"><span class="relative inline-block overflow-hidden "><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Projects</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Projects</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="about.html" data-discover="true"><span class="relative inline-block overflow-hidden "><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">About</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">About</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="services.html" data-discover="true"><span class="relative inline-block overflow-hidden "><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Services</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Services</span></span></a></li>
-                <li><a class="group py-4 inline-block uppercase font-normal text-black hover:text-gray-500" href="solutions/index.html" data-discover="true"><span class="relative inline-block overflow-hidden "><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Solutions</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Solutions</span></span></a></li>
+                <li><a class="site-nav-link group py-4 inline-block uppercase font-normal text-black" href="portfolio.html" aria-current="page"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Projects</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Projects</span></span></span></a></li>
+                <li><a class="site-nav-link group py-4 inline-block uppercase font-normal text-black" href="about.html"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">About</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">About</span></span></span></a></li>
+                <li><a class="site-nav-link group py-4 inline-block uppercase font-normal text-black" href="services.html"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Services</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Services</span></span></span></a></li>
               </ul>
             </div>
-            <div class="flex gap-3 lg:gap-5 items-center"><a class="group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300" href="contact.html" data-discover="true"><span class="relative inline-block overflow-hidden "><span class="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">CONTACTS</span><span class="absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">CONTACTS</span></span></a>
-              <div class="block lg:hidden"><button class="text-black font-medium text-sm uppercase hover:text-gray-500 transition">Menu</button></div>
+            <div class="flex gap-3 lg:gap-5 items-center"><a class="site-nav-cta group px-4 lg:px-6 py-2.5 lg:py-4.5 hidden sm:inline-flex items-center justify-center bg-black text-xs lg:text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition-all duration-300" href="contact.html"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">CONTACTS</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">CONTACTS</span></span></a>
+              <div class="block lg:hidden">
+                <button type="button" class="site-menu-btn text-black font-medium text-sm uppercase" aria-expanded="false" aria-controls="site-menu" data-site-menu-btn>Menu</button>
+                <div id="site-menu" class="site-menu-panel absolute left-0 right-0 top-full mt-0 bg-white border-b border-gray-200 shadow-lg" hidden>
+                  <div class="max-w-7xl mx-auto px-6 py-6">
+                    <ul class="space-y-1">
+                      <li><a class="site-menu-link group block py-3 text-sm font-normal uppercase text-black" href="portfolio.html" aria-current="page"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Projects</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Projects</span></span></span></a></li>
+                      <li><a class="site-menu-link group block py-3 text-sm font-normal uppercase text-black" href="about.html"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">About</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">About</span></span></span></a></li>
+                      <li><a class="site-menu-link group block py-3 text-sm font-normal uppercase text-black" href="services.html"><span class="site-nav-label"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">Services</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">Services</span></span></span></a></li>
+                    </ul>
+                    <div class="border-t border-gray-200 pt-4 mt-4"><a class="site-nav-cta group px-4 flex items-center justify-center w-full py-3 bg-black text-sm font-medium -tracking-[0.2px] leading-5 text-white rounded-full hover:bg-gray-800 transition text-center" href="contact.html"><span class="relative inline-block overflow-hidden "><span class="roll-main block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">CONTACTS</span><span aria-hidden="true" class="roll-clone absolute top-0 left-0 block w-full transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">CONTACTS</span></span></a></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="pt-8 lg:pt-12">
         <div class="max-w-7xl mx-auto px-6">
           <h2 class="text-black text-5xl font-normal mb-6" style="opacity: 1; transform: none;">Modern Infrastructure &amp; Hosting Architecture <span class="italic">Projects</span></h2>
           <p class="text-gray-600 text-lg max-w-3xl mb-12 leading-relaxed" style="opacity: 1; transform: none;">From Zero-Error Ordering Hubs to 24/7 Automated Booking Systems: browse our battle-tested Master Templates, ready to be localized and deployed for your business in 7 days.</p>
-          <div class="mb-12">
-            <div class="portfolio-filter-mobile">
-              <div class="portfolio-filter-dropdown-wrap">
-                <button type="button" class="portfolio-filter-trigger" id="portfolioFilterBtn" aria-expanded="false" aria-haspopup="listbox">
-                  <span id="portfolioFilterLabel">All Projects</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="portfolio-filter-chevron" id="portfolioFilterChevron">
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-                <div class="portfolio-filter-menu" id="portfolioFilterMenu" role="listbox" style="display: none;">
-                  <button type="button" role="option" aria-selected="true" class="portfolio-filter-item is-active" data-value="All Projects">
-                    <span>All Projects</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="portfolio-filter-item-check"><path d="M20 6 9 17l-5-5"></path></svg>
-                  </button>
-                  <button type="button" role="option" aria-selected="false" class="portfolio-filter-item" data-value="Retail &amp; Inventory">
-                    <span>Retail &amp; Inventory</span>
-                  </button>
-                  <button type="button" role="option" aria-selected="false" class="portfolio-filter-item" data-value="Clinic &amp; Service Bookings">
-                    <span>Clinic &amp; Service Bookings</span>
-                  </button>
-                  <button type="button" role="option" aria-selected="false" class="portfolio-filter-item" data-value="Restaurant &amp; Cafe Ordering">
-                    <span>Restaurant &amp; Cafe Ordering</span>
-                  </button>
-                  <button type="button" role="option" aria-selected="false" class="portfolio-filter-item" data-value="SaaS Platforms">
-                    <span>SaaS Platforms</span>
-                  </button>
-                  <button type="button" role="option" aria-selected="false" class="portfolio-filter-item" data-value="Creative &amp; Media">
-                    <span>Creative &amp; Media</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <ul class="portfolio-filter-desktop flex gap-3 flex-wrap">
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-white border-transparent"><span class="absolute inset-0 bg-black rounded-full -z-10" style="opacity: 1;"></span>All Projects</button></li>
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-[#1D1F2C] border-[#E9E9EA]">Retail &amp; Inventory</button></li>
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-[#1D1F2C] border-[#E9E9EA]">Clinic &amp; Service Bookings</button></li>
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-[#1D1F2C] border-[#E9E9EA]">Restaurant &amp; Cafe Ordering</button></li>
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-[#1D1F2C] border-[#E9E9EA]">SaaS Platforms</button></li>
-              <li><button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition relative border text-[#1D1F2C] border-[#E9E9EA]">Creative &amp; Media</button></li>
+          <nav class="portfolio-jump mb-12" aria-label="Project types">
+            <ul>
+              <li><a href="#systems" class="portfolio-jump-link">Systems<span class="portfolio-jump-count">4</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="portfolio-jump-arrow"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></a></li>
+              <li><a href="#static-websites" class="portfolio-jump-link">Static Websites<span class="portfolio-jump-count">3</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="portfolio-jump-arrow"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></a></li>
             </ul>
-          </div>
+          </nav>
         </div>
         <div class="py-25 bg-black rounded-4xl min-h-[500px]">
           <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" data-discover="true">BeCoffee Roastery</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Zero-Error QR Ordering Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RESTAURANT &amp; CAFE ORDERING</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" data-discover="true"><video class="w-full h-auto transition-transform duration-500 group-hover:scale-105" aria-label="BeCoffee Roastery" poster="assets/images/project/becoffee-demo-poster.jpg" autoplay muted loop playsinline><source src="assets/images/project/becoffee-demo.webm" type="video/webm"><source src="assets/images/project/becoffee-demo.mp4" type="video/mp4"></video></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://serene-smile.netlify.app/" target="_blank" rel="noopener noreferrer" data-discover="true">Serene Smile Clinic</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Fast-Loading Static Website Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>CLINIC &amp; SERVICE BOOKINGS</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">A clean, reliable static website with no database to maintain and no monthly server headaches. Clear services, doctor profiles, and contact details that load instantly on any phone. Engineered to be cloned for local clinics, salons, and gyms.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://serene-smile.netlify.app/" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="Serene Smile Clinic" src="assets/images/project/serene-smile.jpg"></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" data-discover="true">FreshCart E-Commerce</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Digital Retail &amp; Inventory Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RETAIL &amp; INVENTORY</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="FreshCart E-Commerce" src="assets/images/project/freshcart.jpg"></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer" data-discover="true">QuickNote</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Second Brain SaaS Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>PRODUCTIVITY &amp; SECOND BRAIN SAAS</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">The second brain for creators and developers featuring instant auto-save, smart tagging, rich media cloud storage, and interactive WebGL canvas.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="QuickNote" src="assets/images/project/quicknote.jpg"></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://ana-seven-silk.vercel.app/" target="_blank" rel="noopener noreferrer" data-discover="true">A.N.A</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Interactive Digital Gallery Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>DIGITAL ART &amp; EXHIBITION GALLERY</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">Interactive digital art gallery and exhibition web application developed with Next.js, featuring real-time WebGL canvas and curated artist manifestos.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://ana-seven-silk.vercel.app/" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="A.N.A" src="assets/images/project/ana.jpg"></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://syrupynut.pages.dev/" target="_blank" rel="noopener noreferrer" data-discover="true">Syrupynut</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Artist Portfolio &amp; Commissions Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>CREATIVE PORTFOLIO &amp; COMMISSIONS</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">Digital illustration commission hub and artist portfolio featuring tiered service pricing, interactive guidelines, and direct booking integrations.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://syrupynut.pages.dev/" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="Syrupynut" src="assets/images/project/syrupynut.jpg"></a>
-              </article>
-              <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between" style="opacity: 1; transform: none;">
-                <div>
-                  <h3 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://staging.courtavenuezc.com/" target="_blank" rel="noopener noreferrer" data-discover="true">Court Avenue ZC</a></h3>
-                  <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The 24/7 Automated Court Booking Master Template.</p>
-                  <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>SPORTS &amp; COURT BOOKING</span><span>2026</span></div>
-                  <p class="text-white/60 text-sm mb-4 leading-relaxed">Zamboanga City&#39;s premier pickleball facility and court reservation platform. Features real-time hourly slot booking, automated session holds to eliminate double bookings, seamless GCash receipt uploads, and community open-play matchmaking. Engineered to be cloned and deployed for sports facilities, rental arenas, and booking hubs.</p>
-                </div>
-                <a class="block overflow-hidden rounded-2xl group" href="https://staging.courtavenuezc.com/" target="_blank" rel="noopener noreferrer" data-discover="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" alt="Court Avenue ZC" src="assets/images/project/court-avenue.jpg"></a>
-              </article>
-            </div>
+            <section id="systems" class="portfolio-group" aria-labelledby="systems-title">
+              <div class="portfolio-group-head">
+                <h3 id="systems-title" class="portfolio-group-title">Systems<span class="portfolio-group-count">4</span></h3>
+                <p class="portfolio-group-desc">Web apps with a working backend: QR ordering, court bookings, inventory, checkout and cloud storage.</p>
+              </div>
+              <div class="portfolio-grid">
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer">BeCoffee Roastery</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Zero-Error QR Ordering Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RESTAURANT &amp; CAFE ORDERING</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><video class="w-full h-auto transition-transform duration-500 group-hover:scale-105" aria-label="BeCoffee Roastery" poster="assets/images/project/becoffee-demo-poster.jpg" autoplay muted loop playsinline><source src="assets/images/project/becoffee-demo.webm" type="video/webm"><source src="assets/images/project/becoffee-demo.mp4" type="video/mp4"></video></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer">FreshCart E-Commerce</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Digital Retail &amp; Inventory Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RETAIL &amp; INVENTORY</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="FreshCart E-Commerce" src="assets/images/project/freshcart.jpg"></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer">QuickNote</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Second Brain SaaS Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>PRODUCTIVITY &amp; SECOND BRAIN SAAS</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">The second brain for creators and developers featuring instant auto-save, smart tagging, rich media cloud storage, and interactive WebGL canvas.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="QuickNote" src="assets/images/project/quicknote.jpg"></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://staging.courtavenuezc.com/" target="_blank" rel="noopener noreferrer">Court Avenue ZC</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The 24/7 Automated Court Booking Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>SPORTS &amp; COURT BOOKING</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">Zamboanga City&#39;s premier pickleball facility and court reservation platform. Features real-time hourly slot booking, automated session holds to eliminate double bookings, seamless GCash receipt uploads, and community open-play matchmaking. Engineered to be cloned and deployed for sports facilities, rental arenas, and booking hubs.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://staging.courtavenuezc.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="Court Avenue ZC" src="assets/images/project/court-avenue.jpg"></a>
+                </article>
+              </div>
+            </section>
+            <section id="static-websites" class="portfolio-group" aria-labelledby="static-websites-title">
+              <div class="portfolio-group-head">
+                <h3 id="static-websites-title" class="portfolio-group-title">Static Websites<span class="portfolio-group-count">3</span></h3>
+                <p class="portfolio-group-desc">No database to maintain and no monthly server headaches. Fast pages that load instantly on any phone.</p>
+              </div>
+              <div class="portfolio-grid portfolio-grid--odd">
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://serene-smile.netlify.app/" target="_blank" rel="noopener noreferrer">Serene Smile Clinic</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Fast-Loading Static Website Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>CLINIC &amp; SERVICE BOOKINGS</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">A clean, reliable static website with no database to maintain and no monthly server headaches. Clear services, doctor profiles, and contact details that load instantly on any phone. Engineered to be cloned for local clinics, salons, and gyms.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://serene-smile.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="Serene Smile Clinic" src="assets/images/project/serene-smile.jpg"></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://ana-seven-silk.vercel.app/" target="_blank" rel="noopener noreferrer">A.N.A</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Interactive Digital Gallery Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>DIGITAL ART &amp; EXHIBITION GALLERY</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">Interactive digital art gallery and exhibition web application developed with Next.js, featuring real-time WebGL canvas and curated artist manifestos.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://ana-seven-silk.vercel.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="A.N.A" src="assets/images/project/ana.jpg"></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://syrupynut.pages.dev/" target="_blank" rel="noopener noreferrer">Syrupynut</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Artist Portfolio &amp; Commissions Master Template.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>CREATIVE PORTFOLIO &amp; COMMISSIONS</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">Digital illustration commission hub and artist portfolio featuring tiered service pricing, interactive guidelines, and direct booking integrations.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://syrupynut.pages.dev/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="Syrupynut" src="assets/images/project/syrupynut.jpg"></a>
+                </article>
+              </div>
+            </section>
           </div>
         </div>
       </section>
