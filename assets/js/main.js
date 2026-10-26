@@ -14720,7 +14720,7 @@ const Er = {
     { label: "Launch and Ongoing Support", href: "services.html" },
   ],
   resources: [
-    { label: "FreshCart E-Commerce", href: "https://freshcart.ct.ws/" },
+    { label: "FreshCart E-Commerce", href: "https://grocery-demo.mihatechnologies.com/" },
     { label: "QuickNote Productivity", href: "https://quicknote.ct.ws/?i=2" },
     { label: "A.N.A Digital Gallery", href: "https://ana-seven-silk.vercel.app/" },
     { label: "Syrupynut Commission Hub", href: "https://syrupynut.pages.dev/" },
@@ -28785,7 +28785,7 @@ const g9 = () => [
     type: "E-COMMERCE & GROCERY",
     date: "2026",
     image: "assets/images/project/freshcart.jpg",
-    url: "https://freshcart.ct.ws/",
+    url: "https://grocery-demo.mihatechnologies.com/",
   },
   {
     id: 2,
@@ -31373,7 +31373,7 @@ const _9 = () => [
     type: "RETAIL & INVENTORY",
     date: "2026",
     image: "assets/images/project/freshcart.jpg",
-    url: "https://freshcart.ct.ws/",
+    url: "https://grocery-demo.mihatechnologies.com/",
     desc: "Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.",
   },
   {
@@ -31728,7 +31728,7 @@ function U9() {
           type: "E-COMMERCE & GROCERY",
           date: "2026",
           image: "assets/images/project/freshcart.jpg",
-          url: "https://freshcart.ct.ws/",
+          url: "https://grocery-demo.mihatechnologies.com/",
         },
         {
           id: 2,
