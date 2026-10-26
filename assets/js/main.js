@@ -31293,19 +31293,30 @@ const _9 = () => [
   },
 ];
 function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough", href = "https://grocery-demo.mihatechnologies.com/" }) {
-  const [reducedMotion, setReducedMotion] = E.useState(
-    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
   const [playbackError, setPlaybackError] = E.useState("");
   const video = E.useRef(null);
   E.useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => {
-      setReducedMotion(media.matches);
-      if (media.matches && video.current) video.current.pause();
+    const player = video.current;
+    if (!player) return;
+    player.defaultMuted = true;
+    player.muted = true;
+    const start = () => {
+      if (document.visibilityState !== "visible") return;
+      const request = player.play();
+      if (request) request.catch(() => {});
     };
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) start();
+    });
+    observer.observe(player);
+    player.addEventListener("canplay", start);
+    document.addEventListener("visibilitychange", start);
+    start();
+    return () => {
+      observer.disconnect();
+      player.removeEventListener("canplay", start);
+      document.removeEventListener("visibilitychange", start);
+    };
   }, []);
   return m.jsxs("div", {
     className: "freshcart-preview",
@@ -31323,7 +31334,7 @@ function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough
           poster: "assets/images/project/freshcart-demo-poster.jpg",
           width: 1280,
           height: 720,
-          autoPlay: !reducedMotion,
+          autoPlay: !0,
           muted: !0,
           loop: !0,
           playsInline: !0,
