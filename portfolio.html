@@ -56,7 +56,8 @@
   <script src="assets/js/vendor/lenis.min.js"></script>
   <script defer src="assets/js/scroll-experience.js?v=3.1"></script>
   <script defer src="assets/js/liquid-silk.js?v=3.1"></script>
-  <script type="module" crossorigin="" src="assets/js/main.js?v=4.14"></script>
+  <script type="module" crossorigin="" src="assets/js/main.js?v=4.16"></script>
+  <script defer src="assets/js/project-previews.js?v=2"></script>
   <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.10">
 </head>
 
@@ -110,7 +111,7 @@
           <div class="max-w-7xl mx-auto px-6">
             <section id="systems" class="portfolio-group" aria-labelledby="systems-title">
               <div class="portfolio-group-head">
-                <h3 id="systems-title" class="portfolio-group-title">Systems<span class="portfolio-group-count">3</span></h3>
+                <h3 id="systems-title" class="portfolio-group-title">Systems<span class="portfolio-group-count">4</span></h3>
                 <p class="portfolio-group-desc">Web apps with a working backend: QR ordering, court bookings, inventory, checkout and cloud storage.</p>
               </div>
               <div class="portfolio-grid">
@@ -121,7 +122,7 @@
                     <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RESTAURANT &amp; CAFE ORDERING</span><span>2026</span></div>
                     <p class="text-white/60 text-sm mb-4 leading-relaxed">The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.</p>
                   </div>
-                  <a class="block overflow-hidden rounded-2xl group" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><video class="w-full h-auto transition-transform duration-500 group-hover:scale-105" aria-label="BeCoffee Roastery" poster="assets/images/project/becoffee-demo-poster.jpg" autoplay muted loop playsinline><source src="assets/images/project/becoffee-demo.webm" type="video/webm"><source src="assets/images/project/becoffee-demo.mp4" type="video/mp4"></video></a>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://ordering-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><picture class="block"><source srcset="assets/images/project/becoffee-demo-loop.webp" type="image/webp"><img data-project-animation src="assets/images/project/becoffee-demo-loop.gif" alt="BeCoffee Roastery" class="w-full h-auto transition-transform duration-500 group-hover:scale-105" width="640" height="360" loading="lazy" decoding="async"></picture></a>
                 </article>
                 <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
                   <div>
@@ -130,7 +131,7 @@
                     <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>RETAIL &amp; INVENTORY</span><span>2026</span></div>
                     <p class="text-white/60 text-sm mb-4 leading-relaxed">Originally deployed for high-volume grocers. This template features a live digital catalog, automated stock tracking, and integrated checkout. Ready to be cloned and localized for Zamboanga hardware stores, pharmacies, and retail hubs in 48 hours.</p>
                   </div>
-                  <a class="block overflow-hidden rounded-2xl group" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><video data-freshcart-preview class="w-full h-auto transition-transform duration-500 group-hover:scale-105" aria-label="FreshCart E-Commerce" poster="assets/images/project/freshcart-demo-poster.jpg" width="1280" height="720" autoplay muted loop playsinline preload="metadata"><source src="assets/images/project/freshcart-demo.webm" type="video/webm"><source src="assets/images/project/freshcart-demo.mp4" type="video/mp4"></video></a>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://grocery-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><picture class="block"><source srcset="assets/images/project/freshcart-demo-loop.webp" type="image/webp"><img data-project-animation src="assets/images/project/freshcart-demo-loop.gif" alt="FreshCart E-Commerce" class="w-full h-auto transition-transform duration-500 group-hover:scale-105" width="640" height="360" loading="lazy" decoding="async"></picture></a>
                 </article>
                 <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
                   <div>
@@ -140,6 +141,15 @@
                     <p class="text-white/60 text-sm mb-4 leading-relaxed">The second brain for creators and developers featuring instant auto-save, smart tagging, rich media cloud storage, and interactive WebGL canvas.</p>
                   </div>
                   <a class="block overflow-hidden rounded-2xl group" href="https://quicknote.ct.ws/?i=2" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="w-full h-auto transition-transform duration-500 group-hover:scale-105" loading="lazy" alt="QuickNote" src="assets/images/project/quicknote.jpg"></a>
+                </article>
+                <article class="p-6 rounded-[20px] border border-[#1F1F1F] bg-neutral-950 flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl text-white font-medium -leading-[0.2px]"><a class="hover:text-gray-300" href="https://booking-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer">Miha Court Booking</a></h4>
+                    <p class="text-sm font-medium mt-1" style="color: #d4d4d8;">The Live Court Booking Demo at booking-demo.mihatechnologies.com.</p>
+                    <div class="flex py-4 text-gray-400 text-xs justify-between font-mono"><span>COURT &amp; FACILITY BOOKING</span><span>2026</span></div>
+                    <p class="text-white/60 text-sm mb-4 leading-relaxed">A working sandbox of our court booking system. Browse open hours, reserve a slot, upload a payment receipt, then sign in as the admin to review it. Runs in your own browser with sample data, so nothing is charged or sent.</p>
+                  </div>
+                  <a class="block overflow-hidden rounded-2xl group" href="https://booking-demo.mihatechnologies.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><picture class="block"><source srcset="assets/images/project/court-booking-demo-loop.webp" type="image/webp"><img data-project-animation src="assets/images/project/court-booking-demo-loop.gif" alt="Miha Court Booking" class="w-full h-auto transition-transform duration-500 group-hover:scale-105" width="640" height="360" loading="lazy" decoding="async"></picture></a>
                 </article>
               </div>
             </section>

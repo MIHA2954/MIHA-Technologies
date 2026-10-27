@@ -61,6 +61,8 @@ Options -Indexes
     AddType image/webp .webp
     AddType image/png .png
     AddType image/jpeg .jpg .jpeg
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
 </IfModule>
 
 # 5. Performance Caching

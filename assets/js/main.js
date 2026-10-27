@@ -28168,6 +28168,57 @@ function p9() {
     ],
   });
 }
+function ProjectPreview({ sources, poster, title, className = "w-full", motion = false, width, height, onError, freshCart = false }) {
+  const ua = navigator.userAgent;
+  const appleDevice = /iP(hone|ad|od)/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1) ||
+    (/AppleWebKit/.test(ua) && /Safari/.test(ua) && !/Chrome|Chromium|Edg|OPR|Android/.test(ua));
+  const animation = motion ? {
+    variants: { initial: { scale: 1 }, hover: { scale: 1.05 } },
+    transition: { duration: 0.4, ease: "easeOut" },
+  } : {};
+  // Animated images avoid Safari freezing while seeking back to the first video frame.
+  if (appleDevice) {
+    const source = sources.find((item) => item.type === "video/mp4");
+    const stem = source.src.replace(/\.mp4$/, "-loop");
+    return m.jsxs("picture", {
+      className: "block",
+      children: [
+        m.jsx("source", { srcSet: stem + ".webp", type: "image/webp" }),
+        m.jsx(motion ? Ye.img : "img", {
+          ...animation,
+          src: stem + ".gif",
+          alt: title,
+          className,
+          width: width || 640,
+          height: height || 360,
+          loading: "lazy",
+          decoding: "async",
+          "data-project-animation": "",
+          onError,
+        }),
+      ],
+    });
+  }
+  return m.jsxs(motion ? Ye.video : "video", {
+    ...animation,
+    poster,
+    width,
+    height,
+    className,
+    "aria-label": title,
+    "data-project-preview": "",
+    "data-freshcart-preview": freshCart ? "" : void 0,
+    "webkit-playsinline": "",
+    autoPlay: !0,
+    muted: !0,
+    loop: !0,
+    playsInline: !0,
+    preload: "metadata",
+    onError,
+    children: sources.map((source) => m.jsx("source", { src: source.src, type: source.type }, source.src)),
+  });
+}
 const g9 = () => [
   {
     id: 8,
@@ -28175,6 +28226,10 @@ const g9 = () => [
     type: "COURT & FACILITY BOOKING",
     date: "2026",
     image: "assets/images/project/court-booking-demo-poster.jpg",
+    video: [
+      { src: "assets/images/project/court-booking-demo.mp4", type: "video/mp4" },
+      { src: "assets/images/project/court-booking-demo.webm", type: "video/webm" },
+    ],
     url: "https://booking-demo.mihatechnologies.com/",
   },
   {
@@ -28184,8 +28239,8 @@ const g9 = () => [
     date: "2026",
     image: "assets/images/project/becoffee-demo-poster.jpg",
     video: [
-      { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
       { src: "assets/images/project/becoffee-demo.mp4", type: "video/mp4" },
+      { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
     ],
     url: "https://ordering-demo.mihatechnologies.com/",
   },
@@ -28239,23 +28294,12 @@ function y9() {
                       target: i.url ? "_blank" : "_self",
                       rel: "noopener noreferrer",
                       className: "block overflow-hidden rounded-2xl",
-                      children: i.video ? m.jsx(Ye.video, {
-                        variants: {
-                          initial: { scale: 1 },
-                          hover: { scale: 1.05 },
-                        },
-                        transition: { duration: 0.4, ease: "easeOut" },
+                      children: i.video ? m.jsx(ProjectPreview, {
+                        sources: i.video,
                         poster: i.image,
-                        autoPlay: !0,
-                        muted: !0,
-                        loop: !0,
-                        playsInline: !0,
-                        preload: "metadata",
+                        title: i.title + " walkthrough",
                         className: "w-full",
-                        "aria-label": i.title + " walkthrough",
-                        children: i.video.map((v) =>
-                          m.jsx("source", { src: v.src, type: v.type }, v.src),
-                        ),
+                        motion: true,
                       }) : m.jsx(Ye.img, {
                         variants: {
                           initial: { scale: 1 },
@@ -30574,8 +30618,8 @@ const _9 = () => [
     date: "2026",
     image: "assets/images/project/becoffee-demo-poster.jpg",
     video: [
-      { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
       { src: "assets/images/project/becoffee-demo.mp4", type: "video/mp4" },
+      { src: "assets/images/project/becoffee-demo.webm", type: "video/webm" },
     ],
     url: "https://ordering-demo.mihatechnologies.com/",
     desc: "The exact architecture used to eliminate staff errors. Features direct-to-kitchen QR ordering and our proprietary Staff Accountability Lock. Ready to deploy for your restaurant to bypass 30% delivery app commissions.",
@@ -30644,8 +30688,8 @@ const _9 = () => [
     date: "2026",
     image: "assets/images/project/court-booking-demo-poster.jpg",
     video: [
-      { src: "assets/images/project/court-booking-demo.webm", type: "video/webm" },
       { src: "assets/images/project/court-booking-demo.mp4", type: "video/mp4" },
+      { src: "assets/images/project/court-booking-demo.webm", type: "video/webm" },
     ],
     url: "https://booking-demo.mihatechnologies.com/",
     desc: "A working sandbox of our court booking system. Browse open hours, reserve a slot, upload a payment receipt, then sign in as the admin to review it. Runs in your own browser with sample data, so nothing is charged or sent.",
@@ -30653,30 +30697,6 @@ const _9 = () => [
 ];
 function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough", href = "https://grocery-demo.mihatechnologies.com/" }) {
   const [playbackError, setPlaybackError] = E.useState("");
-  const video = E.useRef(null);
-  E.useEffect(() => {
-    const player = video.current;
-    if (!player) return;
-    player.defaultMuted = true;
-    player.muted = true;
-    const start = () => {
-      if (document.visibilityState !== "visible") return;
-      const request = player.play();
-      if (request) request.catch(() => {});
-    };
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) start();
-    });
-    observer.observe(player);
-    player.addEventListener("canplay", start);
-    document.addEventListener("visibilitychange", start);
-    start();
-    return () => {
-      observer.disconnect();
-      player.removeEventListener("canplay", start);
-      document.removeEventListener("visibilitychange", start);
-    };
-  }, []);
   return m.jsxs("div", {
     className: "freshcart-preview",
     children: [
@@ -30687,23 +30707,17 @@ function FreshCartPreview({ className = "w-full", title = "FreshCart walkthrough
         tabIndex: -1,
         "aria-hidden": !0,
         className: "block overflow-hidden rounded-2xl group",
-        children: m.jsxs("video", {
-          ref: video,
-          "data-freshcart-preview": "",
+        children: m.jsx(ProjectPreview, {
           poster: "assets/images/project/freshcart-demo-poster.jpg",
           width: 1280,
           height: 720,
-          autoPlay: !0,
-          muted: !0,
-          loop: !0,
-          playsInline: !0,
-          preload: "metadata",
           className,
-          "aria-label": title,
+          title,
+          freshCart: true,
           onError: () => setPlaybackError("The preview is unavailable. Open the FreshCart demo to explore it."),
-          children: [
-            m.jsx("source", { src: "assets/images/project/freshcart-demo.webm", type: "video/webm" }),
-            m.jsx("source", { src: "assets/images/project/freshcart-demo.mp4", type: "video/mp4" }),
+          sources: [
+            { src: "assets/images/project/freshcart-demo.mp4", type: "video/mp4" },
+            { src: "assets/images/project/freshcart-demo.webm", type: "video/webm" },
           ],
         }),
       }),
@@ -30766,18 +30780,11 @@ function PortfolioCard({ o }) {
         "aria-hidden": !0,
         className: "block overflow-hidden rounded-2xl group",
         children: o.video
-          ? m.jsx("video", {
+          ? m.jsx(ProjectPreview, {
               poster: o.image,
-              autoPlay: !0,
-              muted: !0,
-              loop: !0,
-              playsInline: !0,
-              className:
-                "w-full h-auto transition-transform duration-500 group-hover:scale-105",
-              "aria-label": o.title,
-              children: o.video.map((v) =>
-                m.jsx("source", { src: v.src, type: v.type }, v.src),
-              ),
+              title: o.title,
+              sources: o.video,
+              className: "w-full h-auto transition-transform duration-500 group-hover:scale-105",
             })
           : m.jsx("img", {
               src: o.image,
