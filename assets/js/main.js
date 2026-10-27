@@ -30289,7 +30289,7 @@ function L9({
                               setStatusMsg("");
                             },
                             className:
-                              "inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-black font-medium transition cursor-pointer",
+                              "booking-edit inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-black font-medium transition cursor-pointer",
                             children: [
                               m.jsx("span", { children: "←" }),
                               m.jsx("span", {
@@ -30302,7 +30302,7 @@ function L9({
                       }),
                       m.jsxs("div", {
                         className:
-                          "bg-[#070707] text-white rounded-[24px] p-6 sm:p-10 shadow-xl",
+                          "booking-calendar bg-[#070707] text-white rounded-[24px] p-6 sm:p-10 shadow-xl",
                         children: [
                           m.jsx("h2", {
                             className:
@@ -30322,7 +30322,7 @@ function L9({
                                 type: "button",
                                 onClick: prevMonth,
                                 className:
-                                  "text-white hover:text-gray-300 transition p-2 rounded-full hover:bg-neutral-800 cursor-pointer",
+                                  "booking-month-button text-white hover:text-gray-300 transition p-2 rounded-full hover:bg-neutral-800 cursor-pointer",
                                 "aria-label": "Previous Month",
                                 children: m.jsx("svg", {
                                   className: "w-5 h-5",
@@ -30346,7 +30346,7 @@ function L9({
                                 type: "button",
                                 onClick: nextMonth,
                                 className:
-                                  "text-white hover:text-gray-300 transition p-2 rounded-full hover:bg-neutral-800 cursor-pointer",
+                                  "booking-month-button text-white hover:text-gray-300 transition p-2 rounded-full hover:bg-neutral-800 cursor-pointer",
                                 "aria-label": "Next Month",
                                 children: m.jsx("svg", {
                                   className: "w-5 h-5",
@@ -30364,7 +30364,7 @@ function L9({
                             ],
                           }),
                           m.jsx("div", {
-                            className: "grid grid-cols-7 gap-2 mb-4",
+                            className: "booking-calendar-weekdays grid grid-cols-7 gap-2 mb-4",
                             children: dayHeaders.map((w, idx) =>
                               m.jsx(
                                 "div",
@@ -30378,7 +30378,7 @@ function L9({
                             ),
                           }),
                           m.jsx("div", {
-                            className: "grid grid-cols-7 gap-2 mb-8",
+                            className: "booking-calendar-days grid grid-cols-7 gap-2 mb-8",
                             children: calendarDays.map((w, C) => {
                               const past = isPastDate(w),
                                 isSelected = isSameDay(w, selectedDate);
@@ -30394,7 +30394,7 @@ function L9({
                                   },
                                   disabled: !w || past,
                                   className:
-                                    "text-sm sm:text-base transition w-10 h-10 sm:w-12 sm:h-12 mx-auto flex items-center justify-center rounded-full " +
+                                    "booking-calendar-day text-sm sm:text-base transition mx-auto flex items-center justify-center rounded-full " +
                                     (isSelected
                                       ? "bg-white text-black font-bold shadow-lg scale-105 cursor-pointer"
                                       : w && !past
@@ -30447,7 +30447,7 @@ function L9({
                               }),
                               m.jsx("div", {
                                 className:
-                                  "grid grid-cols-1 sm:grid-cols-2 gap-2.5",
+                                  "booking-time-options grid grid-cols-1 sm:grid-cols-2 gap-2.5",
                                 children: timeSlots.map((slot) =>
                                   m.jsx(
                                     "button",
