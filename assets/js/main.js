@@ -27098,7 +27098,7 @@ function CoverflowTeamCarousel() {
             })
           }),
           m.jsxs("div", {
-            className: "flex items-center justify-between pointer-events-none absolute top-1/2 -translate-y-1/2 left-0 right-0 px-2 sm:px-4 z-40",
+            className: "cf-controls",
             children: [
               m.jsx("button", {
                 type: "button",
@@ -27192,13 +27192,13 @@ function CoverflowTeamCarousel() {
         ]
       }),
       m.jsx("div", {
-        className: "mt-5 flex items-center justify-center gap-2",
+        className: "cf-pagination",
         children: c9.map((_, i) =>
           m.jsx("button", {
             key: i,
             type: "button",
             onClick: () => animateTo(i + Math.round((currentPosRef.current - i) / count) * count),
-            className: i === activeIdx ? "w-6 h-2.5 rounded-full bg-black transition-all duration-300" : "w-2.5 h-2.5 rounded-full bg-black/25 hover:bg-black/50 transition-all duration-300",
+            className: "cf-pagination-dot",
             "aria-label": `Go to team member ${i + 1}`,
             "aria-current": i === activeIdx ? "true" : void 0
           })
@@ -27903,619 +27903,6 @@ function AboutPrinciples() {
     }),
   });
 }
-function renderCapabilityArt(num) {
-  if (num === "01") {
-    return m.jsxs("svg", {
-      className: "service-card-art",
-      viewBox: "0 0 160 160",
-      fill: "none",
-      "aria-hidden": "true",
-      children: [
-        m.jsxs("defs", {
-          children: [
-            m.jsxs("linearGradient", {
-              id: "sc-w-grad1",
-              x1: "0",
-              y1: "0",
-              x2: "160",
-              y2: "160",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#27272A" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#09090B" }),
-              ],
-            }),
-            m.jsxs("linearGradient", {
-              id: "sc-w-grad2",
-              x1: "20",
-              y1: "20",
-              x2: "140",
-              y2: "140",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#F4F4F5" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#E4E4E7" }),
-              ],
-            }),
-            m.jsx("filter", {
-              id: "sc-w-shadow",
-              x: "0",
-              y: "0",
-              width: "160",
-              height: "160",
-              filterUnits: "userSpaceOnUse",
-              children: m.jsx("feDropShadow", {
-                dx: "2",
-                dy: "8",
-                stdDeviation: "6",
-                floodOpacity: "0.2",
-              }),
-            }),
-          ],
-        }),
-        m.jsxs("g", {
-          filter: "url(#sc-w-shadow)",
-          children: [
-            m.jsx("rect", {
-              x: "25",
-              y: "25",
-              width: "115",
-              height: "115",
-              rx: "14",
-              fill: "url(#sc-w-grad1)",
-            }),
-            m.jsx("rect", {
-              x: "25",
-              y: "25",
-              width: "115",
-              height: "26",
-              rx: "14",
-              fill: "#18181B",
-            }),
-            m.jsx("circle", { cx: "39", cy: "38", r: "3.5", fill: "#EF4444" }),
-            m.jsx("circle", { cx: "49", cy: "38", r: "3.5", fill: "#F59E0B" }),
-            m.jsx("circle", { cx: "59", cy: "38", r: "3.5", fill: "#10B981" }),
-            m.jsx("rect", {
-              x: "72",
-              y: "33",
-              width: "56",
-              height: "10",
-              rx: "5",
-              fill: "#27272A",
-            }),
-            m.jsx("rect", {
-              x: "36",
-              y: "60",
-              width: "42",
-              height: "26",
-              rx: "6",
-              fill: "#27272A",
-            }),
-            m.jsx("rect", {
-              x: "84",
-              y: "60",
-              width: "44",
-              height: "26",
-              rx: "6",
-              fill: "#27272A",
-            }),
-            m.jsx("rect", {
-              x: "36",
-              y: "93",
-              width: "92",
-              height: "34",
-              rx: "6",
-              fill: "#1F242F",
-            }),
-            m.jsx("rect", {
-              x: "70",
-              y: "80",
-              width: "65",
-              height: "48",
-              rx: "8",
-              fill: "url(#sc-w-grad2)",
-              stroke: "#D4D4D8",
-              strokeWidth: "1.5",
-            }),
-            m.jsx("rect", {
-              x: "80",
-              y: "90",
-              width: "30",
-              height: "5",
-              rx: "2.5",
-              fill: "#09090B",
-            }),
-            m.jsx("rect", {
-              x: "80",
-              y: "100",
-              width: "45",
-              height: "4",
-              rx: "2",
-              fill: "#71717A",
-            }),
-            m.jsx("circle", { cx: "118", cy: "108", r: "6", fill: "#18181B" }),
-          ],
-        }),
-      ],
-    });
-  }
-  if (num === "02") {
-    return m.jsxs("svg", {
-      className: "service-card-art",
-      viewBox: "0 0 160 160",
-      fill: "none",
-      "aria-hidden": "true",
-      children: [
-        m.jsxs("defs", {
-          children: [
-            m.jsxs("linearGradient", {
-              id: "sc-m-grad1",
-              x1: "0",
-              y1: "0",
-              x2: "160",
-              y2: "160",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#18181B" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#09090B" }),
-              ],
-            }),
-            m.jsx("filter", {
-              id: "sc-m-shadow",
-              x: "0",
-              y: "0",
-              width: "160",
-              height: "160",
-              filterUnits: "userSpaceOnUse",
-              children: m.jsx("feDropShadow", {
-                dx: "3",
-                dy: "8",
-                stdDeviation: "6",
-                floodOpacity: "0.25",
-              }),
-            }),
-          ],
-        }),
-        m.jsxs("g", {
-          filter: "url(#sc-m-shadow)",
-          transform: "rotate(-6 85 85)",
-          children: [
-            m.jsx("rect", {
-              x: "42",
-              y: "16",
-              width: "82",
-              height: "135",
-              rx: "20",
-              fill: "url(#sc-m-grad1)",
-              stroke: "#3F3F46",
-              strokeWidth: "2",
-            }),
-            m.jsx("rect", {
-              x: "48",
-              y: "24",
-              width: "70",
-              height: "119",
-              rx: "14",
-              fill: "#000000",
-            }),
-            m.jsx("rect", {
-              x: "68",
-              y: "29",
-              width: "30",
-              height: "7",
-              rx: "3.5",
-              fill: "#27272A",
-            }),
-            m.jsx("rect", {
-              x: "54",
-              y: "44",
-              width: "58",
-              height: "24",
-              rx: "6",
-              fill: "#18181B",
-            }),
-            m.jsx("rect", {
-              x: "60",
-              y: "52",
-              width: "28",
-              height: "4",
-              rx: "2",
-              fill: "#FFFFFF",
-            }),
-            m.jsx("rect", {
-              x: "54",
-              y: "74",
-              width: "58",
-              height: "28",
-              rx: "6",
-              fill: "#27272A",
-            }),
-            m.jsx("rect", {
-              x: "54",
-              y: "107",
-              width: "26",
-              height: "22",
-              rx: "5",
-              fill: "#18181B",
-            }),
-            m.jsx("rect", {
-              x: "86",
-              y: "107",
-              width: "26",
-              height: "22",
-              rx: "5",
-              fill: "#18181B",
-            }),
-            m.jsx("circle", {
-              cx: "115",
-              cy: "42",
-              r: "13",
-              fill: "#FFFFFF",
-              stroke: "#09090B",
-              strokeWidth: "2",
-            }),
-            m.jsx("path", {
-              d: "M110 42l3.5 3.5 6.5-6.5",
-              stroke: "#09090B",
-              strokeWidth: "2",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-            }),
-          ],
-        }),
-      ],
-    });
-  }
-  if (num === "03") {
-    return m.jsxs("svg", {
-      className: "service-card-art",
-      viewBox: "0 0 160 160",
-      fill: "none",
-      "aria-hidden": "true",
-      children: [
-        m.jsxs("defs", {
-          children: [
-            m.jsxs("linearGradient", {
-              id: "sc-p-grad1",
-              x1: "20",
-              y1: "30",
-              x2: "150",
-              y2: "130",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#FFFFFF" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#9CA3AF" }),
-              ],
-            }),
-            m.jsxs("linearGradient", {
-              id: "sc-p-chip",
-              x1: "0",
-              y1: "0",
-              x2: "1",
-              y2: "1",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#E5E7EB" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#9CA3AF" }),
-              ],
-            }),
-            m.jsx("filter", {
-              id: "sc-p-shadow",
-              x: "0",
-              y: "0",
-              width: "160",
-              height: "160",
-              filterUnits: "userSpaceOnUse",
-              children: m.jsx("feDropShadow", {
-                dx: "2",
-                dy: "8",
-                stdDeviation: "6",
-                floodOpacity: "0.4",
-              }),
-            }),
-          ],
-        }),
-        m.jsxs("g", {
-          filter: "url(#sc-p-shadow)",
-          transform: "rotate(-8 85 85)",
-          children: [
-            m.jsx("rect", {
-              x: "25",
-              y: "42",
-              width: "112",
-              height: "74",
-              rx: "12",
-              fill: "url(#sc-p-grad1)",
-            }),
-            m.jsx("rect", {
-              x: "36",
-              y: "58",
-              width: "18",
-              height: "14",
-              rx: "3",
-              fill: "url(#sc-p-chip)",
-              stroke: "#4B5563",
-              strokeWidth: "0.8",
-            }),
-            m.jsx("path", {
-              d: "M59 62a6 6 0 0 1 0 6M63 59a10 10 0 0 1 0 12",
-              stroke: "#1F2937",
-              strokeWidth: "1.5",
-              strokeLinecap: "round",
-            }),
-            m.jsx("rect", {
-              x: "36",
-              y: "86",
-              width: "48",
-              height: "5",
-              rx: "2.5",
-              fill: "#1F2937",
-            }),
-            m.jsx("circle", { cx: "114", cy: "94", r: "8", fill: "#111827" }),
-            m.jsx("circle", {
-              cx: "123",
-              cy: "94",
-              r: "8",
-              fill: "#4B5563",
-              fillOpacity: "0.8",
-            }),
-          ],
-        }),
-        m.jsx("circle", {
-          cx: "34",
-          cy: "118",
-          r: "14",
-          fill: "#1F2937",
-          stroke: "#9CA3AF",
-          strokeWidth: "1.5",
-        }),
-        m.jsx("path", {
-          d: "M28 118h12M34 112v12",
-          stroke: "#FFFFFF",
-          strokeWidth: "2",
-          strokeLinecap: "round",
-        }),
-      ],
-    });
-  }
-  if (num === "04") {
-    return m.jsxs("svg", {
-      className: "service-card-art",
-      viewBox: "0 0 160 160",
-      fill: "none",
-      "aria-hidden": "true",
-      children: [
-        m.jsxs("defs", {
-          children: [
-            m.jsxs("linearGradient", {
-              id: "sc-ux-grad",
-              x1: "0",
-              y1: "0",
-              x2: "160",
-              y2: "160",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#27272A" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#09090B" }),
-              ],
-            }),
-            m.jsx("filter", {
-              id: "sc-ux-shadow",
-              x: "0",
-              y: "0",
-              width: "160",
-              height: "160",
-              filterUnits: "userSpaceOnUse",
-              children: m.jsx("feDropShadow", {
-                dx: "2",
-                dy: "8",
-                stdDeviation: "6",
-                floodOpacity: "0.2",
-              }),
-            }),
-          ],
-        }),
-        m.jsxs("g", {
-          filter: "url(#sc-ux-shadow)",
-          children: [
-            m.jsx("rect", {
-              x: "28",
-              y: "24",
-              width: "108",
-              height: "114",
-              rx: "14",
-              fill: "url(#sc-ux-grad)",
-            }),
-            m.jsx("rect", {
-              x: "38",
-              y: "34",
-              width: "88",
-              height: "94",
-              rx: "8",
-              fill: "#18181B",
-            }),
-            m.jsx("circle", { cx: "50", cy: "46", r: "1.5", fill: "#3F3F46" }),
-            m.jsx("circle", { cx: "65", cy: "46", r: "1.5", fill: "#3F3F46" }),
-            m.jsx("circle", { cx: "80", cy: "46", r: "1.5", fill: "#3F3F46" }),
-            m.jsx("circle", { cx: "95", cy: "46", r: "1.5", fill: "#3F3F46" }),
-            m.jsx("circle", { cx: "110", cy: "46", r: "1.5", fill: "#3F3F46" }),
-            m.jsx("path", {
-              d: "M48 94C62 60 88 110 112 70",
-              stroke: "#71717A",
-              strokeWidth: "2.5",
-              strokeLinecap: "round",
-            }),
-            m.jsx("circle", { cx: "48", cy: "94", r: "4", fill: "#FFFFFF" }),
-            m.jsx("circle", { cx: "80", cy: "85", r: "4", fill: "#FFFFFF" }),
-            m.jsx("circle", { cx: "112", cy: "70", r: "4", fill: "#FFFFFF" }),
-            m.jsx("path", {
-              d: "M78 86l18 16-7 3 5 12-5 2-5-12-6 5V86z",
-              fill: "#FFFFFF",
-              stroke: "#09090B",
-              strokeWidth: "1.5",
-              filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.4))",
-            }),
-          ],
-        }),
-      ],
-    });
-  }
-  if (num === "05") {
-    return m.jsxs("svg", {
-      className: "service-card-art",
-      viewBox: "0 0 160 160",
-      fill: "none",
-      "aria-hidden": "true",
-      children: [
-        m.jsxs("defs", {
-          children: [
-            m.jsxs("linearGradient", {
-              id: "sc-d-cyl",
-              x1: "0",
-              y1: "0",
-              x2: "100",
-              y2: "100",
-              gradientUnits: "userSpaceOnUse",
-              children: [
-                m.jsx("stop", { offset: "0%", stopColor: "#27272A" }),
-                m.jsx("stop", { offset: "100%", stopColor: "#09090B" }),
-              ],
-            }),
-            m.jsx("filter", {
-              id: "sc-d-shadow",
-              x: "0",
-              y: "0",
-              width: "160",
-              height: "160",
-              filterUnits: "userSpaceOnUse",
-              children: m.jsx("feDropShadow", {
-                dx: "2",
-                dy: "8",
-                stdDeviation: "6",
-                floodOpacity: "0.2",
-              }),
-            }),
-          ],
-        }),
-        m.jsxs("g", {
-          filter: "url(#sc-d-shadow)",
-          transform: "translate(15, 10)",
-          children: [
-            m.jsx("path", {
-              d: "M25 85 C25 76 85 76 85 85 L85 105 C85 114 25 114 25 105 Z",
-              fill: "url(#sc-d-cyl)",
-            }),
-            m.jsx("ellipse", {
-              cx: "55",
-              cy: "85",
-              rx: "30",
-              ry: "9",
-              fill: "#3F3F46",
-            }),
-            m.jsx("path", {
-              d: "M25 58 C25 49 85 49 85 58 L85 78 C85 87 25 87 25 78 Z",
-              fill: "url(#sc-d-cyl)",
-            }),
-            m.jsx("ellipse", {
-              cx: "55",
-              cy: "58",
-              rx: "30",
-              ry: "9",
-              fill: "#3F3F46",
-            }),
-            m.jsx("path", {
-              d: "M25 31 C25 22 85 22 85 31 L85 51 C85 60 25 60 25 51 Z",
-              fill: "url(#sc-d-cyl)",
-            }),
-            m.jsx("ellipse", {
-              cx: "55",
-              cy: "31",
-              rx: "30",
-              ry: "9",
-              fill: "#52525B",
-            }),
-            m.jsx("circle", { cx: "70", cy: "41", r: "2.5", fill: "#10B981" }),
-            m.jsx("circle", { cx: "70", cy: "68", r: "2.5", fill: "#10B981" }),
-            m.jsx("circle", { cx: "70", cy: "95", r: "2.5", fill: "#10B981" }),
-            m.jsx("path", {
-              d: "M72 65s16-8 16-20V33l-16-6-16 6v12c0 12 16 20 16 20z",
-              fill: "#FFFFFF",
-              stroke: "#09090B",
-              strokeWidth: "2",
-            }),
-            m.jsx("path", {
-              d: "M67 45l4 4 8-8",
-              stroke: "#09090B",
-              strokeWidth: "2",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-            }),
-          ],
-        }),
-      ],
-    });
-  }
-  return m.jsxs("svg", {
-    className: "service-card-art",
-    viewBox: "0 0 160 160",
-    fill: "none",
-    "aria-hidden": "true",
-    children: [
-      m.jsxs("defs", {
-        children: [
-          m.jsxs("linearGradient", {
-            id: "sc-c-grad",
-            x1: "0",
-            y1: "0",
-            x2: "160",
-            y2: "160",
-            gradientUnits: "userSpaceOnUse",
-            children: [
-              m.jsx("stop", { offset: "0%", stopColor: "#FFFFFF" }),
-              m.jsx("stop", { offset: "100%", stopColor: "#A1A1AA" }),
-            ],
-          }),
-          m.jsx("filter", {
-            id: "sc-c-shadow",
-            x: "0",
-            y: "0",
-            width: "160",
-            height: "160",
-            filterUnits: "userSpaceOnUse",
-            children: m.jsx("feDropShadow", {
-              dx: "2",
-              dy: "8",
-              stdDeviation: "6",
-              floodOpacity: "0.4",
-            }),
-          }),
-        ],
-      }),
-      m.jsxs("g", {
-        filter: "url(#sc-c-shadow)",
-        transform: "translate(10, 10)",
-        children: [
-          m.jsx("path", {
-            d: "M70 122s42-22 42-56V30l-42-16-42 16v36c0 34 42 56 42 56z",
-            fill: "url(#sc-c-grad)",
-          }),
-          m.jsx("path", {
-            d: "M70 110s32-17 32-44V38l-32-12-32 12v28c0 27 32 44 32 44z",
-            fill: "#0D0E12",
-          }),
-          m.jsx("path", {
-            d: "M48 68h12l5-12 8 24 7-16 4 4h10",
-            stroke: "#FFFFFF",
-            strokeWidth: "2.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round",
-          }),
-          m.jsx("circle", { cx: "70", cy: "68", r: "3", fill: "#10B981" }),
-        ],
-      }),
-    ],
-  });
-}
-
 function ServicesCapabilities() {
   const capabilities = [
     {
@@ -28524,7 +27911,6 @@ function ServicesCapabilities() {
       title: "Digital Booking & Zero-Error Ordering",
       desc: "Eliminate long lines, missed phone calls, and staff mistakes with 24/7 automated booking hubs and contactless QR menus featuring our Staff Accountability Lock. Bypass 20% to 30% delivery app fees and protect your ratings.",
       chips: ["Accountability Lock", "Zero App Fees", "Contactless QR"],
-      variant: "service-card--white",
     },
     {
       num: "02",
@@ -28532,7 +27918,6 @@ function ServicesCapabilities() {
       title: "Automated Bookings & Deposit Portals",
       desc: "Set up an appointment portal that runs around the clock. Customers book their own time slots and pay deposits online, syncing with staff schedules automatically to eliminate double-bookings and open schedule gaps.",
       chips: ["24/7 Booking Hub", "Upfront Deposits", "Zero Schedule Gaps"],
-      variant: "service-card--gray",
     },
     {
       num: "03",
@@ -28540,7 +27925,6 @@ function ServicesCapabilities() {
       title: "Custom Operational Dashboards",
       desc: "Stop running your business on messy notebooks and scattered Excel files. We build simple, secure admin panels allowing you to track inventory, staff attendance, and daily revenue in real time from your phone.",
       chips: ["Phone Access", "Live Attendance", "Revenue Tracking"],
-      variant: "service-card--black",
     },
     {
       num: "04",
@@ -28548,7 +27932,6 @@ function ServicesCapabilities() {
       title: "Automated Client Follow-Ups & Bots",
       desc: "Never lose revenue to a no-show again. We connect automated SMS reminders for appointments, expired memberships, and 24/7 chat bots that answer common questions and collect payments on the spot.",
       chips: ["No-Show Reduction", "SMS Reminders", "Messenger Bots"],
-      variant: "service-card--white",
     },
     {
       num: "05",
@@ -28556,7 +27939,6 @@ function ServicesCapabilities() {
       title: "Direct POS & Payment Automation",
       desc: "Stop chasing manual bank transfers and fake payment screenshots. We connect your systems directly to automated GCash, Maya, and card checkouts with instant verification and automatic digital receipts.",
       chips: ["GCash & Maya", "Card Checkout", "Instant Webhooks"],
-      variant: "service-card--gray",
     },
     {
       num: "06",
@@ -28564,7 +27946,6 @@ function ServicesCapabilities() {
       title: "Ongoing Infrastructure & Security Support",
       desc: "We do not leave after launch. We maintain your secure cloud hosting, back up your database, and provide direct technical help so your business stays online.",
       chips: ["Cloud Hosting", "Daily Backups", "Direct Tech Help"],
-      variant: "service-card--black",
     },
     {
       num: "07",
@@ -28572,7 +27953,6 @@ function ServicesCapabilities() {
       title: "Court & Facility Booking Systems",
       desc: "Let players pick open hours, hold a slot and upload their payment receipt, while your staff approve or reject from one admin desk. Try the working system before you commit.",
       chips: ["Hourly Slots", "Receipt Review", "Admin Desk"],
-      variant: "service-card--white service-card--wide",
       demo: {
         href: "https://booking-demo.mihatechnologies.com/",
         host: "booking-demo.mihatechnologies.com",
@@ -28582,6 +27962,7 @@ function ServicesCapabilities() {
 
   return m.jsx("section", {
     className: "services-capabilities-section bg-[#FBFBFB]",
+    "aria-labelledby": "capabilities-title",
     children: m.jsxs("div", {
       className: "max-w-7xl mx-auto px-6",
       children: [
@@ -28594,6 +27975,7 @@ function ServicesCapabilities() {
               children: "What We Deliver",
             }),
             m.jsxs("h2", {
+              id: "capabilities-title",
               className:
                 "text-4xl sm:text-5xl font-normal text-black -tracking-[1.92px] mb-6 leading-tight",
               children: [
@@ -28617,8 +27999,17 @@ function ServicesCapabilities() {
             m.jsxs(
               "article",
               {
-                className: `service-card ${c.variant}`,
+                className: c.demo ? "service-card service-card--wide" : "service-card",
                 children: [
+                  m.jsxs("div", {
+                    className: "service-card-top",
+                    "aria-hidden": "true",
+                    children: [
+                      m.jsx("span", { className: "service-card-number", children: c.num }),
+                      m.jsx("span", { className: "service-card-rule" }),
+                      m.jsx("span", { className: "service-card-mark" }),
+                    ],
+                  }),
                   m.jsxs("div", {
                     className: "service-card-content",
                     children: [
@@ -28659,7 +28050,6 @@ function ServicesCapabilities() {
                         }),
                     ],
                   }),
-                  renderCapabilityArt(c.num),
                 ],
               },
               c.num,
@@ -29678,20 +29068,29 @@ function D9() {
 }
 
 const CONTACT_API_ENDPOINT = "api/contact";
-let _runtimeKeyCache = null;
-const fetchRuntimeKey = async () => {
-  if (_runtimeKeyCache) return _runtimeKeyCache;
-  try {
-    const res = await fetch(CONTACT_API_ENDPOINT);
-    if (res.ok) {
-      const d = await res.json();
-      if (d.key) {
-        _runtimeKeyCache = d.key;
-        return _runtimeKeyCache;
-      }
-    }
-  } catch (e) {}
-  return null;
+const submitContactInquiry = async (payload) => {
+  const response = await fetch(CONTACT_API_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const result = await response.json();
+  return { ...result, success: response.ok && result.success === true };
+};
+const getContactServicePreset = (search) => {
+  const service = (new URLSearchParams(search).get("service") || "").trim();
+  const value = service.toLowerCase();
+  const selected = !service ? "" :
+    value.includes("qr") ? "Zero-Error QR Hub" :
+    value.includes("book") ? "Automated Booking System" :
+    value.includes("inventory") ? "Digital Inventory Catalog" :
+    value.includes("sms") ? "SMS Follow-Ups & Reminders" :
+    "Other Operational Automation";
+  return {
+    projectDetails: service ? service + " Automation Inquiry" : "",
+    services: selected ? [selected] : [],
+    otherService: selected === "Other Operational Automation" ? service : "",
+  };
 };
 
 function L9({
@@ -29702,6 +29101,8 @@ function L9({
   isH2: W = !1,
   className: B = "pt-8 lg:pt-12 pb-10 lg:pb-20",
 } = {}) {
+  const { search } = hi();
+  const preset = E.useMemo(() => getContactServicePreset(search), [search]);
   const [currentStep, setCurrentStep] = E.useState(1),
     [t, i] = E.useState({
       name: "",
@@ -29709,11 +29110,11 @@ function L9({
       phone: "",
       website: "",
       message: "",
-      projectDetails: "",
+      projectDetails: preset.projectDetails,
       budget: "",
-      otherService: "",
+      otherService: preset.otherService,
     }),
-    [l, s] = E.useState([]),
+    [l, s] = E.useState(preset.services),
     [calMonth, setCalMonth] = E.useState(new Date()),
     [selectedDate, setSelectedDate] = E.useState(null),
     [timeSlot, setTimeSlot] = E.useState("Morning (9:00 AM - 12:00 PM)"),
@@ -29911,34 +29312,8 @@ function L9({
       };
 
       try {
-        const proxyPromise = fetch(CONTACT_API_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        }).then(r => r.json()).catch(() => null);
-
-        const key = await fetchRuntimeKey();
-        let web3Success = false;
-        if (key) {
-          try {
-            const w3Res = await fetch("https://api.web3forms.com/submit", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify({ ...payload, access_key: key }),
-            });
-            const w3Data = await w3Res.json();
-            if (w3Data && w3Data.success) web3Success = true;
-          } catch (w3Err) {}
-        }
-
-        const proxyData = await proxyPromise;
-        if (web3Success || (proxyData && proxyData.success)) {
+        const proxyData = await submitContactInquiry(payload);
+        if (proxyData.success) {
           setStatus("success");
           setStatusMsg(
             "Discovery call requested for " +
@@ -30005,34 +29380,8 @@ function L9({
       };
 
       try {
-        const proxyPromise = fetch(CONTACT_API_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        }).then(r => r.json()).catch(() => null);
-
-        const key = await fetchRuntimeKey();
-        let web3Success = false;
-        if (key) {
-          try {
-            const w3Res = await fetch("https://api.web3forms.com/submit", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify({ ...payload, access_key: key }),
-            });
-            const w3Data = await w3Res.json();
-            if (w3Data && w3Data.success) web3Success = true;
-          } catch (w3Err) {}
-        }
-
-        const proxyData = await proxyPromise;
-        if (web3Success || (proxyData && proxyData.success)) {
+        const proxyData = await submitContactInquiry(payload);
+        if (proxyData.success) {
           setStatus("success");
           setStatusMsg(
             "Thank you, " +
@@ -30067,17 +29416,27 @@ function L9({
         phone: "",
         website: "",
         message: "",
-        projectDetails: "",
+        projectDetails: preset.projectDetails,
         budget: "",
-        otherService: "",
+        otherService: preset.otherService,
       });
-      s([]);
+      s(preset.services);
       setSelectedDate(null);
       setIsCallBooking(true);
       setIsBundleOpen(false);
       setStatus("idle");
       setStatusMsg("");
     };
+
+  E.useEffect(() => {
+    i((previous) => ({ ...previous, projectDetails: preset.projectDetails, otherService: preset.otherService }));
+    s(preset.services);
+    setCurrentStep(1);
+    setSelectedDate(null);
+    setTimeSlot("Morning (9:00 AM - 12:00 PM)");
+    setStatus("idle");
+    setStatusMsg("");
+  }, [preset]);
 
   E.useEffect(() => {
     const handleOutsideClick = (evt) => {
@@ -32257,15 +31616,7 @@ function P9() {
   );
 }
 function Y9() {
-  const p = window.location.pathname;
-  const base =
-    p
-      .replace(
-        /\/(portfolio|about|services|contact|blogs|blog|index)(\/.*|\.html)?$/i,
-        "",
-      )
-      .replace(/\/[^\/]*\.html$/i, "")
-      .replace(/\/+$/, "") || "";
+  const base = new URL(document.baseURI).pathname.replace(/\/+$/, "") || "/";
   return m.jsxs(N3, {
     basename: base,
     children: [

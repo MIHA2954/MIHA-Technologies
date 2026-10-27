@@ -2,6 +2,8 @@
 # Compliance Standard: security.md (Phase 0, Phase 6)
 
 # 1. Clean URLs & Routing
+ErrorDocument 404 /YEAR%204/COMPANY%20WEBSITE/404.html
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /YEAR%204/COMPANY%20WEBSITE/

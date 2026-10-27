@@ -118,6 +118,7 @@ if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($em
 }
 
 // 6. Fail-Safe Lead Archival to data/leads.json
+$archived = false;
 try {
     $dataDir = dirname(__DIR__) . '/data';
     if (!is_dir($dataDir)) {
@@ -149,7 +150,12 @@ try {
         }
     }
     $existingLeads[] = $newLead;
-    @file_put_contents($leadsFile, json_encode($existingLeads, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), LOCK_EX);
+    $archiveJson = json_encode($existingLeads, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+    $writtenBytes = @file_put_contents($leadsFile, $archiveJson, LOCK_EX);
+    $archived = $writtenBytes !== false && $writtenBytes === strlen($archiveJson);
+    if (!$archived) {
+        throw new \RuntimeException('The complete inquiry archive could not be written.');
+    }
 } catch (\Throwable $e) {
     // Fail-safe persistence failure should never block email delivery
     error_log('Leads archive error: ' . $e->getMessage());
@@ -208,9 +214,22 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curlError = curl_error($ch);
 curl_close($ch);
 
-if ($response === false || $httpCode >= 400) {
-    // If Web3Forms rejects server-side cURL due to free tier restrictions,
-    // the lead is already securely archived in data/leads.json.
+$relayResult = $response !== false ? json_decode($response, true) : null;
+$relaySucceeded = $httpCode >= 200 && $httpCode < 300
+    && is_array($relayResult) && ($relayResult['success'] ?? false) === true;
+
+if (!$relaySucceeded) {
+    if (!$archived) {
+        http_response_code(503);
+        echo json_encode([
+            'success' => false,
+            'archived' => false,
+            'message' => 'Your inquiry could not be delivered or saved. Please try again or email contact@mihatechnologies.com directly.',
+        ]);
+        exit;
+    }
+
+    // A relay failure is only successful when the archive write was confirmed.
     http_response_code(200);
     echo json_encode([
         'success' => true,

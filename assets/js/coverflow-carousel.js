@@ -22,6 +22,10 @@
 
     if (!stage || !track || cards.length === 0) return;
 
+    if (prevBtn && prevBtn.parentElement) {
+      prevBtn.parentElement.classList.add('cf-controls');
+    }
+
     // Physics & transform parameters from 21st.dev specification
     const config = {
       rotate: 42,         // max rotation angle in deg
@@ -54,12 +58,13 @@
 
     // Create pagination dots if container exists
     if (dotsContainer) {
+      dotsContainer.classList.add('cf-pagination');
       dotsContainer.innerHTML = '';
       cards.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.type = 'button';
-        dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' +
-          (i === 0 ? 'bg-black w-6' : 'bg-black/25 hover:bg-black/50');
+        dot.className = 'cf-pagination-dot';
+        if (i === 0) dot.setAttribute('aria-current', 'true');
         dot.setAttribute('aria-label', `Go to team member ${i + 1}`);
         dot.addEventListener('click', () => {
           goToSlide(i);
@@ -90,10 +95,8 @@
       if (!dots.length) return;
       dots.forEach((dot, i) => {
         if (i === index) {
-          dot.className = 'w-6 h-2.5 rounded-full bg-black transition-all duration-300';
           dot.setAttribute('aria-current', 'true');
         } else {
-          dot.className = 'w-2.5 h-2.5 rounded-full bg-black/25 hover:bg-black/50 transition-all duration-300';
           dot.removeAttribute('aria-current');
         }
       });

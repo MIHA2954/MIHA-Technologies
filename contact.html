@@ -57,8 +57,8 @@
   <script src="assets/js/vendor/lenis.min.js"></script>
   <script defer src="assets/js/scroll-experience.js?v=3.1"></script>
   <script defer src="assets/js/liquid-silk.js?v=3.1"></script>
-  <script type="module" crossorigin="" src="assets/js/main.js?v=4.11"></script>
-  <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.7">
+  <script type="module" crossorigin="" src="assets/js/main.js?v=4.13"></script>
+  <link rel="stylesheet" crossorigin="" href="assets/css/main.css?v=3.9">
 </head>
 
 <body class="antialiased">
@@ -230,33 +230,6 @@
   </div>
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const service = params.get('service');
-      if (service) {
-        const projectInput = document.querySelector('input[name="projectDetails"]');
-        if (projectInput && !projectInput.value) {
-          projectInput.value = service + ' Automation Inquiry';
-        }
-        const pills = document.querySelectorAll('.contact-service-pill');
-        const sLower = service.toLowerCase();
-        pills.forEach(p => {
-          const text = p.innerText.trim().toLowerCase();
-          if (
-            (sLower.includes('qr') && text.includes('qr')) ||
-            (sLower.includes('book') && text.includes('booking')) ||
-            (sLower.includes('inventory') && text.includes('inventory')) ||
-            (sLower.includes('sms') && text.includes('sms')) ||
-            (sLower.includes('auto') && text.includes('automation'))
-          ) {
-            p.classList.add('bg-black', 'text-white', 'border-black');
-            p.classList.remove('bg-white', 'text-[#1D1F2C]', 'border-[#E9E9EA]');
-          }
-        });
-      }
-    });
-  </script>
 <script defer src="assets/js/legal-modal.js?v=1"></script>
 </body>
 
