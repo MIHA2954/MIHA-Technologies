@@ -132,5 +132,4 @@ verify_cookie*.txt
 
 # Local Codex skills, instructions, and workflow artifacts
 /.codex/
-/AGENTS.md
 .playwright-mcp/
