@@ -30668,6 +30668,17 @@ const _9 = () => [
     desc: "Interactive digital art gallery and exhibition web application developed with Next.js, featuring real-time WebGL canvas and curated artist manifestos.",
   },
   {
+    id: 9,
+    group: "static-websites",
+    title: "EMBER",
+    subtitle: "The Clothing Drop Launch Page Master Template.",
+    type: "FASHION & CLOTHING DROP",
+    date: "2026",
+    image: "assets/images/project/ember.jpg",
+    url: "https://clothing-static.mihatechnologies.com/",
+    desc: "A scroll-driven launch page for a limited clothing drop. Pinned product animations, a five-piece lookbook, and loud type that load fast on any phone. Ready to be cloned for local apparel brands and streetwear drops.",
+  },
+  {
     id: 8,
     group: "systems",
     title: "Miha Court Booking",
